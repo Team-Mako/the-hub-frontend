@@ -1,0 +1,26 @@
+.site-header{
+  @include flexGen(row, nowrap, center, center);
+  color: blue;
+
+  &__inner{
+    @include flexGen(row, nowrap, space-between, center);
+    max-width: $max-width;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  &__logo{
+    font-size: 2rem;
+  }
+
+  &__action{
+    border: 2px solid red;
+    margin: 0 !important;
+    padding: .5rem 1rem;
+  }
+
+  a{
+    color: blue;
+    margin: 0 1rem;
+  }
+}
