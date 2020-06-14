@@ -6,3 +6,11 @@
   align-items: $align;
 }
 
+// Grid Generator
+@mixin gridGen($columns, $rows, $row-gap, $column-gap){
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  row-gap: $row-gap;
+  column-gap: $column-gap;
+}

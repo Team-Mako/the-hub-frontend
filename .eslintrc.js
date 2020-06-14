@@ -27,5 +27,10 @@ module.exports = {
     'react/state-in-constructor': [2, 'never'],
     'react/destructuring-assignment': [2, 'never'],
     'max-len': "off",
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "required": {
+          "some": [ "nesting", "id" ]
+      }
+    }]
   },
 };

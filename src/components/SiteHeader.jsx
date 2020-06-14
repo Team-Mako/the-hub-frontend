@@ -14,7 +14,7 @@ const SiteHeader = () => (
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/login">Login</Link>
-        <Link to="/signup" className="site-header__action">Sign Up</Link>
+        <Link to="/sign-up" className="site-header__action">Sign Up</Link>
       </nav>
     </div>
   </header>
