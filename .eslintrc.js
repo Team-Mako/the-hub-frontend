@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'stylelint-scss'
   ],
   rules: {
     'import/prefer-default-export': 'off',
@@ -31,6 +32,8 @@ module.exports = {
       "required": {
           "some": [ "nesting", "id" ]
       }
-    }]
+    }],
+    "scss/dollar-variable-pattern": "^foo",
+    "scss/selector-no-redundant-nesting-selector": true,
   },
 };

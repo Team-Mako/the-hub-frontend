@@ -14,3 +14,26 @@
   row-gap: $row-gap;
   column-gap: $column-gap;
 }
+
+// Media Queries
+$smallScn: 0;
+$mediumScn: 0;
+$bigScn: 0;
+
+@mixin smallScn{
+  @media (min-width: $smallScn) {
+    @content;
+  }
+}
+
+@mixin mediumScn{
+  @media (min-width: $mediumScn){
+    @content;
+  }
+}
+
+@mixin bigScn{
+  @media (min-width: $bigScn){
+    @content;
+  }
+}

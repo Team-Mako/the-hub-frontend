@@ -1,18 +1,22 @@
-.sign-up{
+.sign-up {
   @include flexGen(row, nowrap, center, center);
   width: 100%;
 
-  form{
+  form {
     @include flexGen(column, nowrap, center, center);
     max-width: 400px;
     width: 100%;
   }
 
-  label{
+  label {
     @include flexGen(column, nowrap, center, center);
 
-    &:last-of-type{
+    &:last-of-type {
       @include flexGen(row, nowrap, center, center);
     }
+  }
+
+  button{
+    @extend %btn;
   }
 }

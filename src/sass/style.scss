@@ -1,6 +1,9 @@
 // Reset CSS
 @import 'reset';
 
+// Fonts
+@import 'fonts';
+
 // mixins
 @import 'mixins';
 
@@ -8,5 +11,9 @@
 @import 'variables';
 
 // @imports
-@import 'site-header';
 @import 'sign-up';
+
+// Globals
+body{
+  font-family: 'ubunturegular';
+}
