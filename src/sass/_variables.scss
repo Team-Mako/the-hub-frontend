@@ -1,7 +1,7 @@
 // Max width value
 $max-width: 1440px;
 
-// Palette
+// Palette ex: colors(prime) = #782e74
 $colors: (
   darkBg: #000,
   prime: #782e74,
@@ -15,7 +15,7 @@ $colors: (
   @return map-get($map: $colors, $key: $color-value)
 };
 
-// Placeholders
+// Placeholders ex: @extend %btn;
 %btn{
   border-radius: 50px;
   padding: 1rem 1.5rem;
