@@ -17,8 +17,10 @@ class SignUp extends Component {
       .then((res) =>
         alert('Everything is ok! Welcome')
       )
-      .catch((err) =>
+      .catch((err) =>{
         alert('This email already have been taken, please chose another one!')
+        console.log(err)
+      }
       );
   }
 
