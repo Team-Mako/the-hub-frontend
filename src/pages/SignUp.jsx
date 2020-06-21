@@ -14,16 +14,14 @@ class SignUp extends Component {
 
   submitHandler = (e) => {
     e.preventDefault();
-    Axios.get('http://localhost:3333/list-post')
-      .then((res) =>{
-        this.setState({
-          title: res.data[0].post_title
-        })
-
-        console.log(res)
-      })
-      .catch((err) =>
+    Axios.post('http://localhost:3333/create-user', this.state)
+      .then((res) =>
+        alert('Everything is ok! Welcome')
+      )
+      .catch((err) =>{
+        alert('This email already have been taken, please chose another one!')
         console.log(err)
+      }
       );
   }
 
