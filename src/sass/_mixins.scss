@@ -7,12 +7,21 @@
 }
 
 // Grid Generator
-@mixin gridGen($columns, $rows, $row-gap, $column-gap){
+@mixin gridGen($columns, $rows, $row-gap, $column-gap) {
   display: grid;
   grid-template-columns: $columns;
   grid-template-rows: $rows;
   row-gap: $row-gap;
   column-gap: $column-gap;
+}
+
+// Gradient Generator
+@mixin bgGrad($deg, $opacity){
+  background: linear-gradient($deg, rgba(120,46,116,$opacity) 0%, rgba(249,41,98,$opacity) 100%);
+}
+
+@mixin clrGrad($deg){
+  color: linear-gradient($deg, rgba(120,46,116,1) 0%, rgba(249,41,98,1) 100%);
 }
 
 // Media Queries
