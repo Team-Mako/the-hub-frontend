@@ -1,0 +1,53 @@
+.site-header{
+  @include flexGen(row, nowrap, center, center);
+  padding: 2rem;
+
+  &__inner{
+    @include flexGen(row, nowrap, space-between, center);
+    max-width: $max-width;
+    width: 100%;
+  }
+
+  &__call-to{
+    @extend %btn;
+    background: colors(second);
+    color: lighten(colors(lightBg), 100%) !important;
+    font-size: .8rem;
+
+    &:hover{
+      background: colors(prime);
+    }
+  }
+
+  &__logo{
+    width: 5% !important;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  ul{
+    @include flexGen(row, nowrap, space-evenly, center);
+  }
+
+  li{
+    margin: 0 1rem;
+  }
+
+  a{
+    @include flexGen(row, nowrap, space-between, center);
+    color: colors(darkBg);
+    transition: color .5s ease, background .5s ease;
+
+    &:hover{
+      color: colors(second);
+    }
+
+    svg{
+      margin-left: .5rem;
+      margin-top: .1rem;
+      color: colors(second);
+    }
+  }
+}

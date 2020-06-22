@@ -1,48 +1,41 @@
 import React, { Component } from 'react';
 import CallToAction from '../components/CallToAction';
-import SearchForm from '../components/SearchForm';
+import HeroImage from '../assets/static/the-hub-hero-image.jpg';
 
 class Home extends Component {
 
   render() {
     return (
-      <main>
-        {/* Hero Image Part */}
-        <div>
-          {/* Hero Image */}
-          <img />
+      <>
+      <main className="home-main">
+        <div className="home-main__inner">
 
-          {/* Heading For Mobile */}
-          <h1>Find a new <span>hobby</span> and have fun</h1>
+          <div className="home-main__hero">
 
-          {/* Heading For Desktop */}
-          <h1>Discover your DIY for today</h1>
-          <p>The HUB is the best place to find & showcase any project that <span>you can do it yourself</span></p>
+            <div className="home-main__left">
+              <h1>Discover your DIY for today</h1>
+              <p>The HUB is the best place to find & showcase any project that <span>you can do it yourself</span></p>
+            </div>
 
-          <SearchForm />
+            <div className="home-main__right">
+              <img src={ HeroImage } alt="The Hub Hero"/>
+            </div>
+
+          </div>
+
+          <div className="home-main__best-of">
+
+          </div>
+
+          <div className="home-main__categories">
+
+          </div>
+
         </div>
-
-
-
-        <div>
-          <h2>Best of The HUB <span>This Week</span></h2>
-
-          <ul>
-            {/* Posts */}
-          </ul>
-        </div>
-
-        <div>
-          <h2>Browse DIY projects <span>By category</span></h2>
-          <p>The HUB is the best place to find & showcase any project that <span>you can do it yourself</span></p>
-
-          <ul>
-            {/* Category Buttons */}
-          </ul>
-        </div>
-
-        <CallToAction />
       </main>
+
+      <CallToAction />
+      </>
     );
   }
 }
