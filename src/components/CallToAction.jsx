@@ -1,16 +1,22 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const CallToAction = () => { 
+const CallToAction = () => {
     return(
-      <div>
-        <h2>Join The HUB community to share 
-        your do it yourself project.</h2>
+      <section className="call-to">
+        <div className="call-to__gradient">
+          <div className="call-to__inner">
 
-        <p>Let’s make it! See other DIY projects that people love & participate yourself.</p>
+            <h2>Join The HUB community to <br /> share your do it yourself project.</h2>
 
-        <button>SIGN UP</button> 
-      </div>
+            <p>Let’s make it! See other DIY projects that <br /> people love & participate yourself.</p>
+
+            <NavLink to="/">Sign Up</NavLink>
+
+          </div>
+        </div>
+      </section>
     );
   }
-  
+
   export default CallToAction;

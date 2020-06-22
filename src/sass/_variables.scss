@@ -1,14 +1,18 @@
 // Max width value
 $max-width: 1440px;
 
+// Font Variables
+$font-regular: 'ubunturegular';
+$font-medium: 'ubuntumedium';
+$font-bold: 'ubuntubold';
+
 // Palette ex: colors(prime) = #782e74
 $colors: (
   darkBg: #000,
   prime: #782e74,
   second: #f92962,
   lightBg: #e3e3e3,
-  accent: #0b7a75,
-  gradient: linear-gradient(164deg, rgba(120,46,116,1) 0%, rgba(249,41,98,1) 100%)
+  accent: #0b7a75
 );
 
 @function colors($color-value){
@@ -19,7 +23,5 @@ $colors: (
 %btn{
   border-radius: 50px;
   padding: 1rem 1.5rem;
-  border: 0 !important;
-  font-family: 'ubuntubold';
   text-transform: uppercase;
 }

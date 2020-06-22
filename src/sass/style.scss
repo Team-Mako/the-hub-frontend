@@ -11,15 +11,26 @@
 @import 'variables';
 
 // @imports
-@import 'sign-up';
+@import 'site-header';
+@import 'site-footer';
+@import 'call-to';
+@import 'home-main';
 
 // Globals
+*{
+  box-sizing: border-box;
+}
+
 body{
-  font-family: 'ubunturegular';
+  font-family: $font-regular;
 }
 
 img{
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+a{
+  text-decoration: none;
 }

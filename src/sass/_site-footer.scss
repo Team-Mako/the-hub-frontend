@@ -1,0 +1,69 @@
+.site-footer{
+  @include flexGen(row, nowrap, center, center);
+  @include bgGrad(90deg, 1);
+
+  &__inner{
+    @include flexGen(row, nowrap, space-between, center);
+    max-width: $max-width;
+    width: 100%;
+    padding: 3rem 2rem;
+  }
+
+  &__right{
+    @include flexGen(column, nowrap, center, flex-end);
+  }
+
+  &__logo{
+    width: 5% !important;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  p{
+    @include flexGen(row, nowrap, space-between, center);
+    font-size: .9rem;
+    color: colors(lightBg);
+
+    a{
+      color: colors(lightBg);
+      opacity: .6;
+    }
+
+    span{
+      margin-left: 3rem;
+      opacity: .6;
+    }
+  }
+
+  ul{
+    @include flexGen(row, nowrap, space-evenly, center);
+    margin-bottom: 2rem;
+  }
+
+  li{
+    margin: 0 1rem;
+  }
+
+  a{
+    @include flexGen(row, nowrap, space-between, center);
+    color: colors(lightBg);
+    transition: color .5s ease;
+
+    &:hover{
+      color: colors(prime);
+
+      svg{
+        color: colors(prime);
+      }
+    }
+
+    svg{
+      margin-left: .5rem;
+      margin-top: .1rem;
+      color: colors(lightBg);
+      transition: color .5s ease;
+    }
+  }
+}
