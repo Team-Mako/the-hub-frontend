@@ -9,7 +9,19 @@ const Header = () => (
       <NavLink to="/" className="site-header__logo"><img src={ LogoRegular } alt="The Hub Logo" /></NavLink>
 
       <ul>
-          <li><NavLink to="/">Categories <FaChevronDown /> </NavLink></li>
+          <li>Categories <FaChevronDown /> 
+            {/* <ul>
+              <li><NavLink to="/category/clothing">Clothing</NavLink></li>
+              <li><NavLink to="/category/cooking">Cooking</NavLink></li>
+              <li><NavLink to="/category/crafts">Crafts</NavLink></li>
+              <li><NavLink to="/category/drinks">Drinks</NavLink></li>
+              <li><NavLink to="/category/furniture">Furniture</NavLink></li>
+              <li><NavLink to="/category/music">Music</NavLink></li>
+              <li><NavLink to="/category/homedecor">Home Decor</NavLink></li>
+              <li><NavLink to="/category/tech">Tech</NavLink></li>
+              <li><NavLink to="/category/outdoors">Outdoors</NavLink></li>
+            </ul> */}
+          </li>
           <li><NavLink to="/">About</NavLink></li>
           <li><NavLink to="/">Contact</NavLink></li>
           <li><NavLink to="/">Sign In</NavLink></li>
