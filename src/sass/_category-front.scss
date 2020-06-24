@@ -1,0 +1,70 @@
+.category-front{
+    @include flexGen(row, nowrap, center, center);
+    
+  
+    &__inner{
+      @include flexGen(column, nowrap, center, center);
+      max-width: $max-width;
+      width: 100%;
+    }
+  
+    &__hero{
+      @include flexGen(row, nowrap, center, center);
+    }
+  
+    &__left{
+      width: 50%;
+      padding: 2rem;// taichi
+
+      h1{//Taichi
+        font-family: $font-bold;
+        font-size: 4rem;
+        line-height: 5rem;
+      }
+
+      p{//Taichi
+          padding: 2rem 20rem 2rem 0;
+
+          font-size: 1.3rem;
+          line-height: 1.75rem;
+      }
+    }
+  
+    &__right{
+      width: 50%;
+      background: url('../assets/static/the-hub-square.svg');
+      background-position: 90% 60%;
+      background-repeat: no-repeat;
+      padding: 2rem;
+
+      img{ //Taichi
+          width: 545px;
+          height: 414px;
+      }
+    }
+
+
+    // Filter Part
+    &__filter{
+        padding: 4rem 2rem;
+        width: 100%;
+
+        form{
+            @include flexGen(row, nowrap, space-between, center);
+        }
+
+        label{
+            font-size: 1rem;
+        }
+
+        button{
+            @extend %btn;
+            background: white;
+            color: colors(second);
+            border-color: colors(second);
+            border-style: solid;
+            font-size: .8rem;
+        }
+    }
+  }
+  
