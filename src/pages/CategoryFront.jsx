@@ -1,34 +1,9 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 import CallToAction from '../components/CallToAction';
-import {DrinkCover} from '../components/Assets';
+import {DrinkCover, PostCoverExample, AuthorImgExample} from '../components/Assets';
 import {FaHeart, FaEye} from 'react-icons/fa'
 
 class Category extends Component{
-  constructor(){
-    super()
-    this.state={
-      posts:[],
-      loading: false
-    }
-  }
-
-
-  // Listing posts
-  componentDidMount(){
-    Axios.get('http://localhost:3333/list-post')
-    .then( response => {
-      console.log(response)
-      this.setState({
-        posts: response.data,
-        loading: false
-      })
-    })
-    .catch( error => {
-      console.log('Error fetching and parsing data', error)
-    })
-  }
-
 
   render(){
     return(
@@ -36,78 +11,73 @@ class Category extends Component{
       <main className="category-front">
 
         <div className="category-front__inner">
-          {/* HERO */}
-          <div className='category-front__hero'>
+            {/* HERO PART*/}
+            <div className='category-front__hero'>
 
-            <div className='category-front__left'>
-              <h1>Have fun creating delicious drinks</h1>
-              <p>Fresh and fruity, with or without alcohol, it’s your choice. Find the best recipes to try it your self.</p>
+              <div className='category-front__left'>
+                <h1>Have fun creating delicious drinks</h1>
+                <p>Fresh and fruity, with or without alcohol, it’s your choice. Find the best recipes to try it your self.</p>
+              </div>
+
+              <div className='category-front__right'>
+                <img src={ DrinkCover } alt="A Hero Image of a Purple Cocktail"/>
+              </div>
+
             </div>
 
-            <div className='category-front__right'>
-              <img src={ DrinkCover } alt="A Hero Image of a Purple Cocktail"/>
+            {/*  SEARCH FILTER */}
+            <div className='category-front__filter'>
+              <form>
+                <label>
+                  Made with
+
+                </label>
+                <label>
+                  Time to make it
+
+                </label>
+                <label>
+                  Type
+
+                </label>
+
+                <button>FILTER</button>
+              </form>
             </div>
 
-          </div>
-
-          {/*  SEARCH FILTER */}
-          <div className='category-front__filter'>
-            <form>
-              <label>
-                Made with
-
-              </label>
-              <label>
-                Time to make it
-
-              </label>
-              <label>
-                Type
-
-              </label>
-
-              <button>FILTER</button>
-            </form>
-          </div>
-
-          {/* RESULTS */}
-          <div>
+            {/*  POSTS CONTAINER */}
             <div className="postTileContainer">
+
               <ul>
-                <li>
+                <li className="postTile">
                   {/* Post Img */}
-                  <div>
+                  <img src={PostCoverExample} alt="Img of a drink" className="postTile__postCover"/>
+                  {/* Post Title */}
+                  <h3>Seriously Good White Russian Cocktail Recipe</h3>
+
+                  <div className="postTile__metaWrapper">
                     {/* Author Avator */}
-                    <img src="" alt=""/>
-                    {/* Post Title */}
-                    <h3>Lorem Ipsum</h3>
-                    {/* Author Img */}
-
+                    <div className="postTile__authorWrapper"><img src={AuthorImgExample} alt="Img of the post creator" />
                     {/* Author Name */}
-                    <p>Leona Davis</p>
-
+                    <p>Leona Davis</p></div>
                     {/* Favorite */}
-                    <FaHeart />
-                    000
+                    <p><span><FaHeart />609</span>
                     {/* View Counter */}
-                    <FaEye />
-                    000
+                    <span><FaEye />120</span></p>
                   </div>
                 </li>
               </ul>
 
-              <button>LOAD MORE</button>
-            </div>
+            <button>LOAD MORE</button>
+
           </div>
+        </div>
+      </main>
 
-            </div>
-          </main>
-
-          <CallToAction />
-          </>
-        )
-    }
-
+      <CallToAction />
+      </>
+    )
+  }
 }
 
-  export default Category;
+export default Category;
