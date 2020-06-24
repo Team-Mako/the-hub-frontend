@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CallToAction from '../components/CallToAction';
-import HeroImage from '../assets/static/the-hub-hero-image.jpg';
+import { HeroImg } from '../components/Assets';
 
 class Home extends Component {
 
@@ -18,7 +18,7 @@ class Home extends Component {
             </div>
 
             <div className="home-main__right">
-              <img src={ HeroImage } alt="The Hub Hero"/>
+              <img src={ HeroImg } alt="The Hub Hero"/>
             </div>
 
           </div>

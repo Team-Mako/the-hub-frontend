@@ -1,6 +1,6 @@
 .site-footer{
   @include flexGen(row, nowrap, center, center);
-  @include bgGrad(90deg, 1);
+  background: colors(lightBg);
 
   &__inner{
     @include flexGen(row, nowrap, space-between, center);
@@ -23,23 +23,19 @@
 
   p{
     @include flexGen(row, nowrap, space-between, center);
-    font-size: .9rem;
-    color: colors(lightBg);
+    color: colors(darkBg);
 
     a{
-      color: colors(lightBg);
-      opacity: .6;
+      color: colors(darkBg);
     }
 
     span{
       margin-left: 3rem;
-      opacity: .6;
     }
   }
 
   ul{
     @include flexGen(row, nowrap, space-evenly, center);
-    margin-bottom: 2rem;
   }
 
   li{
@@ -48,7 +44,7 @@
 
   a{
     @include flexGen(row, nowrap, space-between, center);
-    color: colors(lightBg);
+    color: colors(darkBg);
     transition: color .5s ease;
 
     &:hover{
@@ -62,7 +58,7 @@
     svg{
       margin-left: .5rem;
       margin-top: .1rem;
-      color: colors(lightBg);
+      color: colors(darkBg);
       transition: color .5s ease;
     }
   }
