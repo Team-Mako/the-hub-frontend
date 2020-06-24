@@ -5,11 +5,22 @@ function defaultTask(done) {
   done();
 }
 
-function imagemins() {
-  gulp.src('img/assets/*')
-      .pipe(imagemin())
-      .pipe(gulp.dest('src/assets/static'));
-}
+gulp.task('static', ()=>{
+  return gulp.src('img/assets/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest('src/assets/static'));
+});
 
-gulp.task('image', imagemins);
-gulp.task('default', gulp.series('image'), defaultTask);
+gulp.task('upload', ()=>{
+  return gulp.src('img/uploads/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest('src/assets/uploads'));
+});
+
+gulp.task('favicon', ()=>{
+  return gulp.src('img/favicon/*')
+  .pipe(imagemin())
+  .pipe(gulp.dest('public/favicon'));
+});
+
+gulp.task('default', gulp.series('static','upload','favicon'), defaultTask);

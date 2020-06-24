@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-// import { Route } from 'react-router-dom';
-
-import PostTileContainer from '../components/PostTileContainer';
 import CallToAction from '../components/CallToAction';
-import HeroImage from '../assets/static/the-hub-category-hero-image.jpg';
-
+import {DrinkCover} from '../components/Assets';
+import {FaHeart, FaEye} from 'react-icons/fa'
 
 class Category extends Component{
   constructor(){
@@ -48,7 +45,7 @@ class Category extends Component{
             </div>
 
             <div className='category-front__right'>
-              <img src={ HeroImage } alt="A Hero Image of a Purple Cocktail"/>
+              <img src={ DrinkCover } alt="A Hero Image of a Purple Cocktail"/>
             </div>
 
           </div>
@@ -75,36 +72,32 @@ class Category extends Component{
 
           {/* RESULTS */}
           <div>
-              (this.state.loading)
-              ?<p>Loading...</p>
-              :<PostTileContainer data={this.state.posts} />
+            <div className="postTileContainer">
+              <ul>
+                <li>
+                  {/* Post Img */}
+                  <div>
+                    {/* Author Avator */}
+                    <img src="" alt=""/>
+                    {/* Post Title */}
+                    <h3>Lorem Ipsum</h3>
+                    {/* Author Img */}
 
-              <div className="postTileContainer">
-                <ul>
-                  <li>
-                    {/* Post Img */}
-                    <div>
-                      {/* Author Avator */}
-                      <img src={ExampleThumbN} alt=""/>
-                      {/* Post Title */}
-                      <h3>{props.title}</h3>
-                      {/* Author Img */}
+                    {/* Author Name */}
+                    <p>Leona Davis</p>
 
-                      {/* Author Name */}
-                      <p>Leona Davis</p>
+                    {/* Favorite */}
+                    <FaHeart />
+                    000
+                    {/* View Counter */}
+                    <FaEye />
+                    000
+                  </div>
+                </li>
+              </ul>
 
-                      {/* Favorite */}
-                      <FaHeart />
-                      0
-                      {/* View Counter */}
-                      <FaEye />
-                      {props.views}
-                    </div>
-                  </li>
-                </ul>
-
-                <button>LOAD MORE</button>
-              </div>
+              <button>LOAD MORE</button>
+            </div>
           </div>
 
             </div>
