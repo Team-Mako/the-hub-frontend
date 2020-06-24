@@ -4,12 +4,23 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 10rem 2rem;
+  padding: 3rem 2rem 1rem 2rem;
 
   &__inner{
-    @include flexGen(column, nowrap, center, flex-start);
+    @include flexGen(row, nowrap, space-between, center);
     max-width: $max-width;
     width: 100%;
+  }
+
+  &__left{
+    width: 50%;
+    margin-bottom: -4rem;
+  }
+
+  &__right{
+    @include flexGen(column, nowrap, center, flex-end);
+    text-align: right;
+    width: 50%;
   }
 
   a{
