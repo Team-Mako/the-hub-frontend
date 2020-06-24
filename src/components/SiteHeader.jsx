@@ -1,12 +1,12 @@
 import React from 'react';
-import Logo from '../assets/static/the_hub_logo_color.svg';
 import { NavLink } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
+import { LogoRegular } from './Assets';
 
 const Header = () => (
   <section className="site-header">
     <div className="site-header__inner">
-      <NavLink to="/" className="site-header__logo"><img src={ Logo } alt="The Hub Logo" /></NavLink>
+      <NavLink to="/" className="site-header__logo"><img src={ LogoRegular } alt="The Hub Logo" /></NavLink>
 
       <ul>
           <li><NavLink to="/">Categories <FaChevronDown /> </NavLink></li>
