@@ -11,7 +11,6 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -21,17 +20,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    'stylelint-scss'
   ],
   rules: {
-    'react/destructuring-assignment': [2, 'never'],
-    'max-len': "off",
-    "jsx-a11y/label-has-associated-control": [ 2, {
-      "required": {
-          "some": [ "nesting", "id" ]
-      }
-    }],
-    "scss/dollar-variable-pattern": "^foo",
-    "scss/selector-no-redundant-nesting-selector": true,
+    'import/prefer-default-export': 'off'
   },
 };
