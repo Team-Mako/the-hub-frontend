@@ -22,6 +22,6 @@ $colors: (
 // Placeholders ex: @extend %btn;
 %btn{
   border-radius: 50px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.5rem !important;
   text-transform: uppercase;
 }
