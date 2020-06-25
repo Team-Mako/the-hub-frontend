@@ -22,6 +22,9 @@ module.exports = {
     'react',
   ],
   rules: {
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+    'max-len': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'object-curly-newline': 'off',
   },
 };

@@ -4,7 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 3rem 2rem 1rem 2rem;
+  padding: 1rem 2rem;
 
   &__inner{
     @include flexGen(row, nowrap, space-between, center);
@@ -14,7 +14,15 @@
 
   &__left{
     width: 50%;
+  }
+
+  &__rocket{
     margin-bottom: -4rem;
+  }
+
+  &__balloon{
+    margin-top: -1rem;
+    margin-bottom: -1rem;
   }
 
   &__right{
@@ -42,12 +50,14 @@
     font-family: $font-medium;
     line-height: 1.3;
     margin-bottom: 2rem;
+    letter-spacing: .1rem;
   }
 
   p{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: colors(lightBg);
-    line-height: 1.3;
+    line-height: 1.5;
     margin-bottom: 2rem;
+    letter-spacing: .1rem;
   }
 }

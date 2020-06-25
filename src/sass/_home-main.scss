@@ -11,15 +11,19 @@
     @include flexGen(row, nowrap, center, center);
   }
 
-  &__left{
-    width: 50%;
+  &__title{
+    font-size: 2rem;
+    margin: 0 2rem;
+    line-height: 1.3;
+
+    span{
+      color: colors(second);
+    }
   }
 
-  &__right{
-    width: 50%;
-    background: url('../assets/static/the-hub-square.svg');
-    background-position: 90% 60%;
-    background-repeat: no-repeat;
-    padding: 2rem;
+  .post-section{
+    background: lighten(colors(lightBg), 9%);
+    padding: 3rem 0;
+    margin: 3rem 0;
   }
 }

@@ -10,8 +10,8 @@
 
   &__call-to{
     @extend %btn;
-    background: colors(second);
     color: lighten(colors(lightBg), 100%) !important;
+    background: colors(second);
     font-size: .8rem;
 
     &:hover{
@@ -27,18 +27,49 @@
     }
   }
 
-  ul{
+  &__submenu{
+    @include flexGen(column, nowrap, center, center);
+    position: absolute;
+    background: colors(lightBg);
+    padding: 1rem;
+    margin-left: -1rem;
+    width: 130%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease;
+
+    li{
+      margin: 0 0 1.5rem 0 !important;
+    }
+
+    a{
+      padding: 0 !important;
+    }
+  }
+
+  &__menu{
     @include flexGen(row, nowrap, space-evenly, center);
   }
 
   li{
     margin: 0 1rem;
+    position: relative;
+    display: block;
+
+    &:hover{
+
+      .site-header__submenu{
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
   }
 
   a{
     @include flexGen(row, nowrap, space-between, center);
     color: colors(darkBg);
     transition: color .5s ease, background .5s ease;
+    padding: 1rem 0;
 
     &:hover{
       color: colors(second);

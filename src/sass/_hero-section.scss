@@ -1,0 +1,51 @@
+.hero-section{
+  @include flexGen(row, nowrap, center, center);
+
+  &__left{
+    @include flexGen(column, nowrap, center, flex-start);
+    width: 50%;
+    padding: 2rem;
+
+    h1{
+      font-size: 4rem;
+      font-family: $font-medium;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    p{
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    form{
+      @include flexGen(row, nowrap, flex-start, center);
+    }
+
+    input[type="search"]{
+      width: 40%;
+      border-bottom: 2px solid transparent;
+      padding: .3rem 0;
+
+      &:focus{
+        border-bottom: 2px solid colors(second);
+      }
+    }
+
+    button{
+      background: transparent;
+      border: 0;
+      color: colors(second);
+      font-size: 1.5rem;
+    }
+  }
+
+  &__right{
+    width: 50%;
+    background: url('../assets/static/the-hub-square.svg');
+    background-position: 90% 60%;
+    background-repeat: no-repeat;
+    padding: 2rem;
+  }
+}
