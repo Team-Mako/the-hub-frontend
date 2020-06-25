@@ -6,78 +6,77 @@ import PostTileContainer from '../components/PostTileContainer';
 import CallToAction from '../components/CallToAction';
 import HeroImage from '../assets/static/the-hub-category-hero-image.jpg';
 
-
-class Category extends Component{
-  constructor(){
-    super()
-    this.state={
-      posts:[],
-      loading: false
-    }
+class Category extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      loading: false,
+    };
   }
-
 
   // Listing posts
-  componentDidMount(){
+  componentDidMount() {
     Axios.get('http://localhost:3333/list-post')
-    .then( response => {
-      console.log(response)
-      this.setState({
-        posts: response.data,
-        loading: false
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          posts: response.data,
+          loading: false,
+        });
       })
-    })
-    .catch( error => {
-      console.log('Error fetching and parsing data', error)
-    })
+      .catch((error) => {
+        console.log('Error fetching and parsing data', error);
+      });
   }
 
-
-  render(){
-    return(
+  render() {
+    return (
       <>
-      <main className="category-front">
+        <main className="category-front">
 
-        <div className="category-front__inner">
-          {/* HERO */}
-          <div className='category-front__hero'>
+          <div className="category-front__inner">
+            {/* HERO */}
+            <div className="category-front__hero">
 
-            <div className='category-front__left'>
-              <h1>Have fun creating delicious drinks</h1>
-              <p>Fresh and fruity, with or without alcohol, it’s your choice. Find the best recipes to try it your self.</p>
+              <div className="category-front__left">
+                <h1>Have fun creating delicious drinks</h1>
+                <p>Fresh and fruity, with or without alcohol, it’s your choice. Find the best recipes to try it your self.</p>
+              </div>
+
+              <div className="category-front__right">
+                <img src={HeroImage} alt="A Hero of a Purple Cocktail" />
+              </div>
+
             </div>
 
-            <div className='category-front__right'>
-              <img src={ HeroImage } alt="A Hero Image of a Purple Cocktail"/>
+            {/*  SEARCH FILTER */}
+            <div className="category-front__filter">
+              <form>
+                <label>
+                  Made with
+
+                </label>
+                <label>
+                  Time to make it
+
+                </label>
+                <label>
+                  Type
+
+                </label>
+
+                <button>FILTER</button>
+              </form>
             </div>
 
-          </div>
-
-          {/*  SEARCH FILTER */}
-          <div className='category-front__filter'>
-            <form>
-              <label>
-                Made with
-
-              </label>
-              <label>
-                Time to make it
-
-              </label>
-              <label>
-                Type
-
-              </label>
-
-              <button>FILTER</button>
-            </form>
-          </div>
-
-          {/* RESULTS */}
-          <div>
+            {/* RESULTS */}
+            <div>
               (this.state.loading)
-              ?<p>Loading...</p>
-              :<PostTileContainer data={this.state.posts} />
+              ?
+              <p>Loading...</p>
+              :
+              <PostTileContainer data={this.state.posts} />
 
               <div className="postTileContainer">
                 <ul>
@@ -85,7 +84,7 @@ class Category extends Component{
                     {/* Post Img */}
                     <div>
                       {/* Author Avator */}
-                      <img src={ExampleThumbN} alt=""/>
+                      <img src={ExampleThumbN} alt="" />
                       {/* Post Title */}
                       <h3>{props.title}</h3>
                       {/* Author Img */}
@@ -105,16 +104,15 @@ class Category extends Component{
 
                 <button>LOAD MORE</button>
               </div>
-          </div>
-
             </div>
-          </main>
 
-          <CallToAction />
-          </>
-        )
-    }
+          </div>
+        </main>
 
+        <CallToAction />
+      </>
+    );
+  }
 }
 
-  export default Category;
+export default Category;
