@@ -15,7 +15,9 @@
 @import 'site-footer';
 @import 'call-to';
 @import 'home-main';
-@import 'category-front';
+@import 'category-section';
+@import 'hero-section';
+@import 'post-section';
 
 // Globals
 *{
@@ -30,8 +32,44 @@ img{
   max-width: 100%;
   height: auto;
   display: block;
+  border: none;
 }
 
 a{
   text-decoration: none;
+  outline: none;
+
+  &:focus, &:active, &:hover{
+    outline: none;
+  }
+}
+
+strong{
+  font-family: $font-bold;
+}
+
+form{
+  width: 100%;
+}
+
+input{
+  font-family: $font-regular;
+
+  &[type="search"]{
+    border: 0;
+  }
+}
+
+button{
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
 }

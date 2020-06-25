@@ -1,81 +1,148 @@
 import React, { Component } from 'react';
+import { FaHeart, FaEye } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
-import {DrinkCover, PostCoverExample, AuthorImgExample} from '../components/Assets';
-import {FaHeart, FaEye} from 'react-icons/fa'
+import { DrinkCover, PostCoverExample, AuthorImgExample } from '../components/Assets';
 
-class Category extends Component{
-  render(){
-    return(
+class Category extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    };
+  }
+
+  render() {
+    return (
       <>
-      <main className="category-front">
+        <section className="category-section">
 
-        <div className="category-front__inner">
-            {/* HERO PART*/}
-            <div className='category-front__hero'>
+          <div className="category-section__inner">
+            {/* HERO PART */}
+            <div className="hero-section">
 
-              <div className='category-front__left'>
-                <h1>Have fun creating delicious drinks</h1>
-                <p>Fresh and fruity, with or without alcohol, it’s your choice. Find the best recipes to try it your self.</p>
+              <div className="hero-section__left">
+                <h1>Have fun creating<br /> delicious drinks</h1>
+                <p>Fresh and fruity, with or<br /> without alcohol, it’s your<br /> choice. Find the best recipes<br /> to <strong>try it yourself.</strong></p>
               </div>
 
-              <div className='category-front__right'>
-                <img src={ DrinkCover } alt="A Hero Image of a Purple Cocktail"/>
+              <div className="hero-section__right">
+                <img src={DrinkCover} alt="A Hero of a Purple Cocktail" />
               </div>
 
             </div>
+          </div>
+        </section>
 
-            {/*  SEARCH FILTER */}
-            <div className='category-front__filter'>
-              <form>
-                <label>
-                  Made with
+        {/*  POSTS CONTAINER */}
+        <main className="post-section">
 
-                </label>
-                <label>
-                  Time to make it
+          <div className="post-section__inner">
 
-                </label>
-                <label>
-                  Type
+            <form>
+              <label>
+                Made with
 
-                </label>
+              </label>
+              <label>
+                Time to make it
 
-                <button>FILTER</button>
-              </form>
-            </div>
+              </label>
+              <label>
+                Type
 
-            {/*  POSTS CONTAINER */}
+              </label>
 
-            <div className="postTileContainer">
+              <button>FILTER</button>
+            </form>
 
-              <ul>
-                <li className="postTile">
-                  {/* Post Img */}
-                  <img src={PostCoverExample} alt="Img of a drink" className="postTile__postCover"/>
-                  {/* Post Title */}
-                  <h3>Seriously Good White Russian Cocktail Recipe</h3>
+            <div className="post-section__list">
+              <NavLink to="/" className="post-section__box">
+                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
+                <h3>Seriously Good White Russian Cocktail Recipe</h3>
 
-                  <div className="postTile__metaWrapper">
-                    {/* Author Avator */}
-                    <div className="postTile__authorWrapper"><img src={AuthorImgExample} alt="Img of the post creator" />
-                    {/* Author Name */}
-                    <p>Leona Davis</p></div>
-                    {/* Favorite */}
-                    <p><span><FaHeart />609</span>
-                    {/* View Counter */}
-                    <span><FaEye />120</span></p>
+                <div className="post-section__details">
+
+                  <div className="post-section__author">
+                    <img src={AuthorImgExample} alt="Img of the post creator" />
+                    <p>Leona</p>
                   </div>
-                </li>
-              </ul>
-            <button>LOAD MORE</button>
+
+                  <div className="post-section__meta">
+                    <span><FaHeart /> 609</span>
+                    <span><FaEye /> 120</span>
+                  </div>
+
+                </div>
+              </NavLink>
+
+              <NavLink to="/" className="post-section__box">
+                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
+                <h3>Seriously Good White Russian Cocktail Recipe</h3>
+
+                <div className="post-section__details">
+
+                  <div className="post-section__author">
+                    <img src={AuthorImgExample} alt="Img of the post creator" />
+                    <p>Leona</p>
+                  </div>
+
+                  <div className="post-section__meta">
+                    <span><FaHeart /> 609</span>
+                    <span><FaEye /> 120</span>
+                  </div>
+
+                </div>
+              </NavLink>
+
+              <NavLink to="/" className="post-section__box">
+                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
+                <h3>Seriously Good White Russian Cocktail Recipe</h3>
+
+                <div className="post-section__details">
+
+                  <div className="post-section__author">
+                    <img src={AuthorImgExample} alt="Img of the post creator" />
+                    <p>Leona</p>
+                  </div>
+
+                  <div className="post-section__meta">
+                    <span><FaHeart /> 609</span>
+                    <span><FaEye /> 120</span>
+                  </div>
+
+                </div>
+              </NavLink>
+
+              <NavLink to="/" className="post-section__box">
+                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
+                <h3>Seriously Good White Russian Cocktail Recipe</h3>
+
+                <div className="post-section__details">
+
+                  <div className="post-section__author">
+                    <img src={AuthorImgExample} alt="Img of the post creator" />
+                    <p>Leona</p>
+                  </div>
+
+                  <div className="post-section__meta">
+                    <span><FaHeart /> 609</span>
+                    <span><FaEye /> 120</span>
+                  </div>
+
+                </div>
+              </NavLink>
+            </div>
 
           </div>
-        </div>
-      </main>
 
-      <CallToAction />
+          <button>LOAD MORE</button>
+
+        </main>
+
+        <CallToAction />
       </>
-    )
+    );
   }
 }
 

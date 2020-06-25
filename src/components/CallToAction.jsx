@@ -1,16 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {
-  RocketImg, RocketGp, BalloonImg, BalloonGp,
-} from './Assets';
+import { RocketImg, RocketGp, BalloonImg, BalloonGp } from './Assets';
 
 const CallToAction = () => (
   <section className="call-to">
     <div className="call-to__inner">
 
       <div className="call-to__left">
-        {/* <img src={ RocketImg } srcSet={ RocketGp } alt="The Hub Rocket" /> */}
-        <img src={BalloonImg} srcSet={BalloonGp} alt="The Hub Balloon" />
+        {/* <img className="call-to__rocket" src={RocketImg} srcSet={RocketGp} alt="The Hub Rocket" /> */}
+        <img className="call-to__balloon" src={BalloonImg} srcSet={BalloonGp} alt="The Hub Balloon" />
       </div>
 
       <div className="call-to__right">
