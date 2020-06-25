@@ -4,7 +4,6 @@ import {DrinkCover, PostCoverExample, AuthorImgExample} from '../components/Asse
 import {FaHeart, FaEye} from 'react-icons/fa'
 
 class Category extends Component{
-
   render(){
     return(
       <>
@@ -46,6 +45,7 @@ class Category extends Component{
             </div>
 
             {/*  POSTS CONTAINER */}
+
             <div className="postTileContainer">
 
               <ul>
@@ -67,7 +67,6 @@ class Category extends Component{
                   </div>
                 </li>
               </ul>
-
             <button>LOAD MORE</button>
 
           </div>
