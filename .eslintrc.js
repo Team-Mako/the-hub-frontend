@@ -26,5 +26,7 @@ module.exports = {
     'max-len': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'object-curly-newline': 'off',
+    'global-require': 'off',
+    'import/no-dynamic-require': 'off'
   },
 };
