@@ -25,10 +25,11 @@
 
     input[type="search"]{
       width: 40%;
-      border-bottom: 2px solid transparent;
+      border-bottom: 2px solid colors(lightBg);
       padding: .3rem 0;
+      transition: border-bottom .5s ease;
 
-      &:focus{
+      &:focus, &:hover{
         border-bottom: 2px solid colors(second);
       }
     }
@@ -38,6 +39,11 @@
       border: 0;
       color: colors(second);
       font-size: 1.5rem;
+      transition: color .5s ease;
+
+      &:hover{
+        color: colors(prime);
+      }
     }
   }
 

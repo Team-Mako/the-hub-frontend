@@ -8,11 +8,14 @@ class Category extends Component {
   constructor() {
     super();
     this.state = {
-
+      title: 'Seriously Good White Russian Cocktail Recipe',
+      title2: 'Seriously Good White',
     };
   }
 
   render() {
+    const { title, title2 } = this.state;
+
     return (
       <>
         <section className="category-section">
@@ -59,7 +62,7 @@ class Category extends Component {
             <div className="post-section__list">
               <NavLink to="/" className="post-section__box">
                 <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
-                <h3>Seriously Good White Russian Cocktail Recipe</h3>
+                <h3>{title}</h3>
 
                 <div className="post-section__details">
 
@@ -78,7 +81,7 @@ class Category extends Component {
 
               <NavLink to="/" className="post-section__box">
                 <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
-                <h3>Seriously Good White Russian Cocktail Recipe</h3>
+                <h3>{title2}</h3>
 
                 <div className="post-section__details">
 
