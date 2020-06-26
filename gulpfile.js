@@ -1,26 +1,20 @@
-const gulp = require('gulp'),
-      imagemin = require('gulp-imagemin');
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
 
 function defaultTask(done) {
   done();
 }
 
-gulp.task('static', ()=>{
-  return gulp.src('img/assets/*')
+gulp.task('static', () => gulp.src('img/assets/*')
   .pipe(imagemin())
-  .pipe(gulp.dest('src/assets/static'));
-});
+  .pipe(gulp.dest('src/assets/static')));
 
-gulp.task('upload', ()=>{
-  return gulp.src('img/uploads/*')
+gulp.task('upload', () => gulp.src('img/uploads/*')
   .pipe(imagemin())
-  .pipe(gulp.dest('src/assets/uploads'));
-});
+  .pipe(gulp.dest('src/assets/uploads')));
 
-gulp.task('favicon', ()=>{
-  return gulp.src('img/favicon/*')
+gulp.task('favicon', () => gulp.src('img/favicon/*')
   .pipe(imagemin())
-  .pipe(gulp.dest('public/favicon'));
-});
+  .pipe(gulp.dest('public/favicon')));
 
-gulp.task('default', gulp.series('static','upload','favicon'), defaultTask);
+gulp.task('default', gulp.series('static', 'upload', 'favicon'), defaultTask);
