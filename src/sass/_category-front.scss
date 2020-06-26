@@ -32,13 +32,18 @@
     &__right{
       width: 50%;
       background: url('../assets/static/the-hub-square.svg');
-      background-position: 90% 60%;
+      // background-position: 90% 60%;
+      background-position: right top;
       background-repeat: no-repeat;
-      padding: 2rem;
+      padding: 2rem 0 2rem 4rem;
+      margin-right: 2rem;
+
 
       img{
           width: 545px;
           height: 414px;
+          margin-right: 2rem;
+          margin-left: auto;
       }
     }
 
@@ -49,7 +54,7 @@
         width: 100%;
 
         form{
-            @include flexGen(row, nowrap, space-between, center);
+          @include flexGen(row, nowrap, space-between, flex-end);
         }
 
         label{
@@ -64,11 +69,47 @@
             border-style: solid;
             font-size: .8rem;
         }
+
+
+        .Dropdown{
+          &-root{
+            background-color: colors(lightBg);
+            border-radius: 10px;
+            width: 18rem;
+            height: 3.5rem;
+            line-height: 3.5rem;
+
+            margin-top: .5rem;
+          }
+
+          &-placeholder{
+            padding: 0 1rem;
+
+            .optionWrapper{
+              @include flexGen(row, nowrap, space-between, center);
+
+              svg{
+                color: colors(second);
+              }
+            }
+          }
+
+          &-option{
+            background-color: rgba(colors(lightBg), .5);
+            position: relative;
+            z-index: 1;
+            width: 18rem;
+
+            &:hover{
+              background-color: rgba(colors(lightBg), .9);
+            }
+          }
+        }
     }
 
 
     .postTileContainer{
-      padding: 4rem 2rem 10rem 2rem;
+      padding: 1rem 2rem 10rem 2rem;
       @include flexGen(column, nowrap, center, center);
       font-family: $font-bold;
 
