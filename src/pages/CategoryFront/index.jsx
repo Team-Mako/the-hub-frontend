@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { FaHeart, FaEye } from 'react-icons/fa';
+import { FaHeart, FaEye, FaChevronDown } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-import CallToAction from '../components/CallToAction';
-import { DrinkCover, PostCoverExample, AuthorImgExample } from '../components/Assets';
+import Dropdown from 'react-dropdown';
+import CallToAction from '../../components/CallToAction';
+import { DrinkCover, PostCoverExample, AuthorImgExample } from '../../components/Assets';
 
 class Category extends Component {
   constructor() {
@@ -18,10 +19,10 @@ class Category extends Component {
 
     return (
       <>
-        <section className="category-section">
+        <main className="category-section">
 
           <div className="category-section__inner">
-            {/* HERO PART */}
+
             <div className="hero-section">
 
               <div className="hero-section__left">
@@ -34,26 +35,26 @@ class Category extends Component {
               </div>
 
             </div>
-          </div>
-        </section>
 
-        {/*  POSTS CONTAINER */}
-        <main className="post-section">
+          </div>
+        </main>
+
+        <section className="post-section">
 
           <div className="post-section__inner">
 
             <form>
               <label>
                 Made with
-
+                <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
               </label>
               <label>
                 Time to make it
-
+                <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
               </label>
               <label>
                 Type
-
+                <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
               </label>
 
               <button>FILTER</button>
@@ -141,7 +142,7 @@ class Category extends Component {
 
           <button>LOAD MORE</button>
 
-        </main>
+        </section>
 
         <CallToAction />
       </>

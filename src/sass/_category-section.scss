@@ -19,11 +19,13 @@
       font-family: $font-bold;
       font-size: 4rem;
       line-height: 5rem;
+      margin-top: 7rem;
+      margin-bottom: 1rem;
+      letter-spacing: .15rem;
     }
 
     p{
-      padding: 2rem 20rem 2rem 0;
-
+      padding-right: 20rem;
       font-size: 1.3rem;
       line-height: 1.75rem;
     }
@@ -32,13 +34,36 @@
   &__right{
     width: 50%;
     background: url('../assets/static/the-hub-square.svg');
-    background-position: 90% 60%;
+    background-position: top right;
     background-repeat: no-repeat;
-    padding: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 0;
 
     img{
       width: 545px;
       height: 414px;
+    }
+  }
+
+  &__filter{
+    padding: 4rem 2rem;
+    width: 100%;
+
+    form{
+      @include flexGen(row, nowrap, space-between, flex-end);
+    }
+
+    label{
+        font-size: 1rem;
+    }
+
+    button{
+        @extend %btn;
+        background: white;
+        color: colors(second);
+        border-color: colors(second);
+        border-style: solid;
+        font-size: .8rem;
     }
   }
 }
