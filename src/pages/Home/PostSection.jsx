@@ -12,7 +12,7 @@ class PostSection extends Component {
   }
 
   async componentDidMount() {
-    const response = await api.get('list-post');
+    const response = await api.get('list-post?_page=1&_limit=3');
     this.setState({ posts: response.data });
   }
 
