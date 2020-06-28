@@ -1,6 +1,7 @@
 .post-section{
   @include flexGen(column, nowrap, center, center);
   font-family: $font-bold;
+  padding-bottom: 10rem;
 
   &__inner{
     @include flexGen(row, wrap, space-between, center);
@@ -60,11 +61,47 @@
 
   // Filter Part
   form{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(row, nowrap, space-between, flex-end);
     width: 100%;
+    padding: 2rem 0 4rem 0;
 
     label{
       font-size: 1rem;
+    }
+
+    .Dropdown{
+      &-root{
+        background-color: colors(lightBg);
+        border-radius: 10px;
+        width: 18rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+
+        margin-top: .5rem;
+      }
+
+      &-placeholder{
+        padding: 0 1rem;
+
+        .optionWrapper{
+          @include flexGen(row, nowrap, space-between, center);
+
+          svg{
+            color: colors(second);
+          }
+        }
+      }
+
+      &-option{
+        background-color: rgba(colors(lightBg), .5);
+        position: relative;
+        z-index: 1;
+        width: 18rem;
+
+        &:hover{
+          background-color: rgba(colors(lightBg), .9);
+        }
+      }
     }
 
     button{
@@ -115,7 +152,6 @@
     border-color: colors(second);
     border-style: solid;
     font-size: .8rem;
-    margin-top: 5rem;
   }
 
   svg{

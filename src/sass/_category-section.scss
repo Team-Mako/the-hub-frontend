@@ -7,38 +7,37 @@
     width: 100%;
   }
 
-  &__hero{
+  .hero-section{
     @include flexGen(row, nowrap, center, center);
-  }
 
-  &__left{
-    width: 50%;
-    padding: 2rem;
+    &__left{
+      width: 50%;
+      padding: 0 2rem 2rem 2rem;
 
-    h1{
-      font-family: $font-bold;
-      font-size: 4rem;
-      line-height: 5rem;
+      h1{
+        font-family: $font-bold;
+        font-size: 4rem;
+        line-height: 5rem;
+        margin-top: 7rem;
+        margin-bottom: 1rem;
+        letter-spacing: .15rem;
+      }
+
+      p{
+        padding-right: 20rem;
+
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+      }
     }
 
-    p{
-      padding: 2rem 20rem 2rem 0;
-
-      font-size: 1.3rem;
-      line-height: 1.75rem;
-    }
-  }
-
-  &__right{
-    width: 50%;
-    background: url('../assets/static/the-hub-square.svg');
-    background-position: 90% 60%;
-    background-repeat: no-repeat;
-    padding: 2rem;
-
-    img{
-      width: 545px;
-      height: 414px;
+    &__right{
+      width: 50%;
+      background: url('../assets/static/the-hub-square.svg');
+      background-position: top right;
+      background-repeat: no-repeat;
+      margin-right: 2rem;
+      padding-bottom: 0;
     }
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { FaHeart, FaEye } from 'react-icons/fa';
+import Dropdown from 'react-dropdown';
+import { FaHeart, FaEye, FaChevronDown } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
 import { DrinkCover, PostCoverExample, AuthorImgExample } from '../components/Assets';
@@ -45,15 +46,15 @@ class Category extends Component {
             <form>
               <label>
                 Made with
-
+                <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
               </label>
               <label>
                 Time to make it
-
+                <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
               </label>
               <label>
                 Type
-
+                <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
               </label>
 
               <button>FILTER</button>
