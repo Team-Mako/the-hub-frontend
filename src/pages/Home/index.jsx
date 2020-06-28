@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { FaSearch, FaArrowRight } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
 import CallToAction from '../../components/CallToAction';
-import { HeroImg, DrinkCoverSml } from '../../components/Assets';
+import { HeroImg } from '../../components/Assets';
 import PostSection from './PostSection';
+import CategoryList from './CategoryList';
 
 class Home extends Component {
   constructor() {
@@ -12,10 +12,6 @@ class Home extends Component {
   }
 
   render() {
-    const catBg = {
-      background: `url(${DrinkCoverSml})`,
-    };
-
     return (
       <>
         <main className="home-main">
@@ -44,41 +40,7 @@ class Home extends Component {
         </main>
 
         <PostSection />
-
-        <section className="category-list">
-          <div className="category-list__inner">
-            <h2 className="home-main__title">Browse DIY projects<br /> <span>by category</span></h2>
-
-            <div className="category-list__list">
-
-              <NavLink to="/" className="category-list__box" style={catBg}>
-                <div className="category-list__gradient">
-                  <h3>Category</h3>
-                  <p>Stylish DIY projects to revamp your wardrobe</p>
-                  <p>See Projects <FaArrowRight /></p>
-                </div>
-              </NavLink>
-
-              <NavLink to="/" className="category-list__box" style={catBg}>
-                <div className="category-list__gradient">
-                  <h3>Category</h3>
-                  <p>Stylish DIY projects to revamp your wardrobe</p>
-                  <p>See Projects <FaArrowRight /></p>
-                </div>
-              </NavLink>
-
-              <NavLink to="/" className="category-list__box" style={catBg}>
-                <div className="category-list__gradient">
-                  <h3>Category</h3>
-                  <p>Stylish DIY projects to revamp your wardrobe</p>
-                  <p>See Projects <FaArrowRight /></p>
-                </div>
-              </NavLink>
-
-            </div>
-          </div>
-        </section>
-
+        <CategoryList />
         <CallToAction />
       </>
     );

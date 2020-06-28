@@ -1,7 +1,7 @@
 .category-list{
   @include flexGen(row, nowrap, center, center);
   width: 100%;
-  padding-bottom: 4rem;
+  padding-bottom: 8rem;
 
   &__inner{
     @include flexGen(column, nowrap, center, flex-start);
@@ -17,26 +17,27 @@
 
   &__gradient{
     @include flexGen(column, nowrap, flex-end, flex-start);
-    background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.8) 100%);
     height: 100%;
     padding: 2rem;
   }
 
   &__box{
     height: 550px;
-    width: calc(33.33% - 2rem);
+    width: calc(33.33% - 2.7rem);
     background-position: center !important;
-    background-size: 105% !important;
+    background-size: 110% !important;
+    background-repeat: no-repeat !important;
     color: lighten(colors(lightBg), 10%);
     transition: all .5s ease !important;
 
     &:nth-of-type(3n + 1){
-      margin-right: 3rem;
+      margin-right: 4rem;
       margin-top: -9rem;
     }
 
     &:nth-of-type(3n + 2){
-      margin-right: 3rem;
+      margin-right: 4rem;
       margin-top: -3rem;
     }
 
@@ -57,7 +58,7 @@
     }
 
     &:hover{
-      color: colors(second) !important;
+      // color: colors(second) !important;
       background-size: 120% !important;
 
       h3{
