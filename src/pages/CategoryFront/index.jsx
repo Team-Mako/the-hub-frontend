@@ -44,20 +44,20 @@ class Category extends Component {
           <div className="post-section__inner">
 
             <form>
-              <label>
+              <span className="post-section__label">
                 Made with
                 <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
-              </label>
-              <label>
+              </span>
+              <span className="post-section__label">
                 Time to make it
                 <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
-              </label>
-              <label>
+              </span>
+              <span className="post-section__label">
                 Type
                 <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionWrapper"><span>Select</span>  <FaChevronDown /></div>} />
-              </label>
+              </span>
 
-              <button>FILTER</button>
+              <button type="button">Filter</button>
             </form>
 
             <div className="post-section__list">
