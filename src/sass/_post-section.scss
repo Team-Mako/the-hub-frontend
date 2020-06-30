@@ -1,11 +1,11 @@
 .post-section{
   @include flexGen(column, nowrap, center, center);
   font-family: $font-bold;
-  margin-top: 4rem;
+  margin: 2rem 0 10rem 0;
 
   &__inner{
     @include flexGen(row, wrap, space-between, center);
-    padding: 2rem;
+    padding: 2rem 2rem 6rem 2rem;
     max-width: $max-width;
     width: 100%;
   }
@@ -53,6 +53,7 @@
 
   &__cover{
     border-radius: 10px;
+    width: 100%;
   }
 
   &__list{
@@ -61,20 +62,12 @@
 
   // Filter Part
   form{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(row, nowrap, space-between, flex-end);
     width: 100%;
+    margin-bottom: 9rem;
 
     label{
       font-size: 1rem;
-    }
-
-    button{
-      @extend %btn;
-      background: white;
-      color: colors(second);
-      border-color: colors(second);
-      border-style: solid;
-      font-size: .8rem;
     }
   }
 
@@ -114,7 +107,6 @@
     border-color: colors(second);
     border-style: solid;
     font-size: .8rem;
-    margin-top: 5rem;
   }
 
   svg{
