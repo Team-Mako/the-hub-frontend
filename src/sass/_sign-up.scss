@@ -1,0 +1,87 @@
+.sign-up{
+  @include flexGen(column, nowrap, center, center);
+  background: url("../assets/static/the-hub-signin-bg.png") no-repeat fixed center;
+  color: white;
+  padding: 7.5rem 0;
+
+  &__innerDiv{
+    max-width: 364px;
+  }
+
+  h1{
+    font-family: $font-bold;
+    font-size: 1.75rem;
+    padding: 2rem 0;
+  }
+
+
+  label{
+    font-family: $font-bold;
+  }
+
+  &__name{
+    width: 100%;
+    @include flexGen(row, nowrap, space-between, center);
+
+    // Space between first and last name
+    div:first-child{
+      margin-right: 1rem !important;
+    }
+  }
+
+
+  form{
+    @include flexGen(column, nowrap, center, center);
+
+    span{
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    input{
+      border-style: none;
+      border-radius: 10px;
+      height: 3.5rem;
+      line-height: 3.5rem;
+      padding-left: 1rem;
+      margin: .5rem 0;
+
+      width: 100%;
+    }
+  }
+
+  // Terms & Condition and Privacy Policy Checkbox
+  &__checkbox{
+    @include flexGen(row, nowrap, space-between, flex-start);
+    margin-bottom: 3rem !important;
+
+    input{
+      width: 50px !important;
+      margin-right: 1rem !important;
+      color: transparent;
+    }
+
+    p{
+      line-height: 1.5rem;
+    }
+
+    a{
+      text-decoration: underline;
+      color: white;
+    }
+  }
+
+  // CREATE ACCOUNT button
+  &__createBtn{
+    @extend %btn;
+    align-self: flex-end;
+    color: lighten(colors(lightBg), 100%) !important;
+    background: colors(second);
+    font-size: .8rem;
+    font-family: $font-bold;
+
+    &:hover{
+      background: colors(prime);
+    }
+  }
+}

@@ -3,19 +3,38 @@ import { FaHeart, FaEye, FaChevronDown } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import Dropdown from 'react-dropdown';
 import CallToAction from '../../components/CallToAction';
-import { DrinkCover, PostCoverExample, AuthorImgExample } from '../../components/Assets';
+import { DrinkCover } from '../../components/Assets';
+import api from '../../services/api';
 
 class Category extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      title: 'Seriously Good White Russian Cocktail Recipe',
-      title2: 'Seriously Good White',
+      posts: [],
+      postsNum: 9
     };
   }
 
+
+
+  async componentDidMount() {
+    const response = await api.get(`list-post?_page=1&_limit=${this.state.postsNum}`);
+    this.setState({ posts: response.data });
+    console.log(this.state)
+  }
+
+
+  handleMoreBtn = () => {
+    this.setState(prevState =>{
+      return {
+        postsNum: prevState.postsNum += 3
+      }
+    });
+  }
+
+
   render() {
-    const { title, title2 } = this.state;
+    const { posts } = this.state;
 
     return (
       <>
@@ -60,87 +79,31 @@ class Category extends Component {
               <button type="button">Filter</button>
             </form>
 
-            <div className="post-section__list">
-              <NavLink to="/" className="post-section__box">
-                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
-                <h3>{title}</h3>
+            <div className="post-section__list" >
+              {posts.map((post) => (
+                <NavLink key={post.id} to="/" className="post-section__box">
+                  <img className="post-section__cover" src={require(`../../assets/uploads/${post.post_cover}`)} alt="Img of a drink" />
+                  <h3>{post.post_title}</h3>
 
-                <div className="post-section__details">
+                  <div className="post-section__details">
 
-                  <div className="post-section__author">
-                    <img src={AuthorImgExample} alt="Img of the post creator" />
-                    <p>Leona</p>
+                    <div className="post-section__author">
+                      <img src={require(`../../assets/uploads/${post.user_avatar}`)} alt="Img of the post creator" />
+                      <p>{post.user_name}</p>
+                    </div>
+
+                    <div className="post-section__meta">
+                      <span><FaHeart /> {post.post_like}</span>
+                      <span><FaEye /> {post.post_views}</span>
+                    </div>
+
                   </div>
-
-                  <div className="post-section__meta">
-                    <span><FaHeart /> 609</span>
-                    <span><FaEye /> 120</span>
-                  </div>
-
-                </div>
-              </NavLink>
-
-              <NavLink to="/" className="post-section__box">
-                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
-                <h3>{title2}</h3>
-
-                <div className="post-section__details">
-
-                  <div className="post-section__author">
-                    <img src={AuthorImgExample} alt="Img of the post creator" />
-                    <p>Leona</p>
-                  </div>
-
-                  <div className="post-section__meta">
-                    <span><FaHeart /> 609</span>
-                    <span><FaEye /> 120</span>
-                  </div>
-
-                </div>
-              </NavLink>
-
-              <NavLink to="/" className="post-section__box">
-                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
-                <h3>Seriously Good White Russian Cocktail Recipe</h3>
-
-                <div className="post-section__details">
-
-                  <div className="post-section__author">
-                    <img src={AuthorImgExample} alt="Img of the post creator" />
-                    <p>Leona</p>
-                  </div>
-
-                  <div className="post-section__meta">
-                    <span><FaHeart /> 609</span>
-                    <span><FaEye /> 120</span>
-                  </div>
-
-                </div>
-              </NavLink>
-
-              <NavLink to="/" className="post-section__box">
-                <img className="post-section__cover" src={PostCoverExample} alt="Img of a drink" />
-                <h3>Seriously Good White Russian Cocktail Recipe</h3>
-
-                <div className="post-section__details">
-
-                  <div className="post-section__author">
-                    <img src={AuthorImgExample} alt="Img of the post creator" />
-                    <p>Leona</p>
-                  </div>
-
-                  <div className="post-section__meta">
-                    <span><FaHeart /> 609</span>
-                    <span><FaEye /> 120</span>
-                  </div>
-
-                </div>
-              </NavLink>
+                </NavLink>
+              ))}
             </div>
-
           </div>
 
-          <button>LOAD MORE</button>
+          <button type="button" onClick={this.handleMoreBtn}>LOAD MORE</button>
 
         </section>
 
