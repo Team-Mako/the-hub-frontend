@@ -1,0 +1,58 @@
+.comments{
+  width: 768px;
+  @include flexGen(column, nowrap, flex-start, flex-start);
+  margin-bottom: 7.5rem;
+
+  &__form{
+    width: 100%;
+    @include flexGen(column, nowrap, center, flex-start);
+    margin-bottom: 3.5rem;
+
+    label{
+      font-family: $font-bold;
+      color: colors(prime);
+    }
+
+    textarea{
+      margin-top: 1.2rem;
+      padding: 26px 30px;
+      width: 523px;
+      height: 120px;
+      border-radius: 10px;
+      border-color: #ADADAD;
+
+      resize: none;
+    }
+  }
+
+  &__list{
+
+    li{
+      @include flexGen(row, nowrap, flex-start, flex-start);
+    }
+
+    img{
+      object-fit: cover;
+      width: 30px;
+      height: 30px;
+      border-radius: 50px !important;
+      margin-right: 1.25rem;
+    }
+
+    div{
+      @include flexGen(column, nowrap, center, flex-start);
+      max-width: 490px;
+    }
+
+    span{
+      font-size: 0.875rem;
+      font-family: $font-bold;
+    }
+
+    p{
+      font-size: 1.1875rem;
+      margin-top: 1.68rem;
+      line-height: 2rem;
+    }
+  }
+}
