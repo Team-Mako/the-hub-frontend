@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'react-hooks'
   ],
   rules: {
     'import/prefer-default-export': 'off',
@@ -27,6 +28,8 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'object-curly-newline': 'off',
     'global-require': 'off',
-    'import/no-dynamic-require': 'off'
+    'import/no-dynamic-require': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
 };
