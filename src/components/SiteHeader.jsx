@@ -28,8 +28,8 @@ const Header = () => (
         </li>
         <li><NavLink to="/">About</NavLink></li>
         <li><NavLink to="/">Contact</NavLink></li>
-        <li><NavLink to="/">Sign In</NavLink></li>
-        <li><NavLink to="/" className="site-header__call-to">Sign Up</NavLink></li>
+        <li><NavLink to="/login">Sign In</NavLink></li>
+        <li><NavLink to="/signup" className="site-header__call-to">Sign Up</NavLink></li>
       </ul>
     </div>
   </section>
