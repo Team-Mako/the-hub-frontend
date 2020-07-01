@@ -1,11 +1,11 @@
 .post-section{
   @include flexGen(column, nowrap, center, center);
   font-family: $font-bold;
-  margin: 2rem 0 10rem 0;
+  margin: 2rem 0;
 
   &__inner{
     @include flexGen(row, wrap, space-between, center);
-    padding: 2rem 2rem 6rem 2rem;
+    padding: 2rem;
     max-width: $max-width;
     width: 100%;
   }
