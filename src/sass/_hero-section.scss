@@ -1,7 +1,7 @@
 .hero-section{
   @include flexGen(column, nowrap, center, center);
 
-  @include smallScn{
+  @include firstBrk{
     @include flexGen(row, nowrap, center, center);
   }
 
@@ -11,7 +11,8 @@
     width: 100%;
     padding: 2rem;
 
-    @include smallScn{
+    @include firstBrk{
+      order: 0;
       width: 50%;
     }
 
@@ -63,7 +64,7 @@
     background-repeat: no-repeat;
     padding: 2rem;
 
-    @include smallScn{
+    @include firstBrk{
       width: 50%;
     }
   }

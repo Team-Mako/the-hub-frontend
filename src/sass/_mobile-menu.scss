@@ -1,0 +1,64 @@
+.mobile-menu{
+  @include flexGen(column, nowrap, flex-start, center);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  background: lighten(colors(lightBg), 1%);
+  transform: translateX(105%);
+  transition: transform .2s ease;
+  top: 0;
+
+  &--active{
+    @include flexGen(column, nowrap, flex-start, center);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: lighten(colors(lightBg), 1%);
+    transform: translateX(0);
+    transition: transform .2s ease;
+    top: 0;
+  }
+
+  &__top, &__bottom{
+    width: 100%;
+  }
+
+  &__top{
+    @include flexGen(column, nowrap, center, center);
+    @include bgGrad(90deg, 1);
+
+    figure{
+      margin: 2rem;
+    }
+  }
+
+  &__info{
+    margin-bottom: 2rem;
+  }
+
+  &__name{
+    font-size: 1.5rem;
+    color: lighten(colors(lightBg), 100%);
+    letter-spacing: .1rem;
+    margin-bottom: .5rem;
+    text-align: center;
+  }
+
+  &__email{
+    color: lighten(colors(lightBg), 100%);
+    opacity: .6;
+    text-align: center;
+  }
+
+  &__close-btn{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: lighten(colors(lightBg), 100%);
+    background: transparent;
+    border: 0;
+  }
+}
