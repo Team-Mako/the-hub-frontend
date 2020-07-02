@@ -7,10 +7,12 @@ import LogoAlt from '../assets/static/the-hub-logo-alt.svg';
 import HeroImage from '../assets/static/the-hub-hero-image.jpg';
 import DrinkHero from '../assets/static/the-hub-drink-category-cover.jpg';
 import DrinkSmall from '../assets/static/the-hub-drink-category-cover-small.jpg';
+// Images for development side
 import PostCover from '../assets/uploads/examplPic4Post.jpg';
 import leonaDavis from '../assets/uploads/leonaDavis.jpg';
 import sampleImg1 from '../assets/uploads/singlePost_1.png';
 import sampleImg2 from '../assets/uploads/singlePost_2.png';
+import avatar from '../assets/uploads/avatar.png';
 
 export const LogoSmall = LogoAlt;
 export const RocketImg = Rocket;
@@ -25,3 +27,4 @@ export const PostCoverExample = PostCover;
 export const AuthorImgExample = leonaDavis;
 export const SampleImg1 = sampleImg1;
 export const SampleImg2 = sampleImg2;
+export const UserAvatar = avatar;

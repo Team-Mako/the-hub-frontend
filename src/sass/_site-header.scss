@@ -1,6 +1,10 @@
 .site-header{
   @include flexGen(row, nowrap, center, center);
-  padding: 2rem;
+  padding: 1rem;
+
+  @include firstBrk{
+    padding: 2rem;
+  }
 
   &__inner{
     @include flexGen(row, nowrap, space-between, center);
@@ -20,7 +24,11 @@
   }
 
   &__logo{
-    width: 5% !important;
+    width: 22% !important;
+
+    @include firstBrk{
+      width: 5% !important;
+    }
 
     img{
       width: 100%;
@@ -48,7 +56,11 @@
   }
 
   &__menu{
-    @include flexGen(row, nowrap, space-evenly, center);
+    display: none;
+
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-evenly, center);
+    }
   }
 
   li{

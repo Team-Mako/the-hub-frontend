@@ -25,24 +25,24 @@
 }
 
 // Media Queries
-$smallScn: 420px;
-$mediumScn: 0;
-$bigScn: 0;
+$firstBrk: 420px;
+$secondBrk: 0;
+$thirdBrk: 0;
 
-@mixin smallScn{
-  @media (min-width: $smallScn) {
+@mixin firstBrk{
+  @media (min-width: $firstBrk) {
     @content;
   }
 }
 
-@mixin mediumScn{
-  @media (min-width: $mediumScn){
+@mixin secondBrk{
+  @media (min-width: $secondBrk){
     @content;
   }
 }
 
-@mixin bigScn{
-  @media (min-width: $bigScn){
+@mixin thirdBrk{
+  @media (min-width: $thirdBrk){
     @content;
   }
 }
