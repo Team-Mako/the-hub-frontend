@@ -81,3 +81,30 @@ button{
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
+
+.carousel{
+  .slide{
+    background: transparent;
+  }
+
+  &-slider{
+    .control{
+      &-prev{
+        left: .5rem !important;
+      }
+
+      &-next{
+        right: .5rem !important;
+      }
+
+      &-arrow{
+        top: 7rem !important;
+        height: 40px !important;
+        background: colors(second) !important;
+        opacity: 1 !important;
+        font-size: .7rem !important;
+        padding: .7rem !important;
+      }
+    }
+  }
+}
