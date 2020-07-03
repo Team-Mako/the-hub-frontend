@@ -30,7 +30,7 @@ function MobileHeader() {
           </figure>
           <div className="mobile-menu__info">
             <p className="mobile-menu__name">Laura Monné</p>
-            <p className="mobile-menu__email">laura@laura.com</p>
+            <p className="mobile-menu__email">laura@laura.om</p>
           </div>
         </div>
         <div className="mobile-menu__bottom">
