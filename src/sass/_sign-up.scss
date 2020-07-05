@@ -1,27 +1,20 @@
 .sign-up{
-  @include flexGen(column, nowrap, center, center);
-  background: url("../assets/static/the-hub-signin-bg.png") no-repeat fixed center;
+  @include flexGen(column, nowrap, flex-start, center);
+  background: url("../assets/static/the-hub-signin-bg.png") no-repeat center;
+  background-size: cover;
   color: white;
-  padding: 7.5rem 0;
+  min-height: 100%;
+  padding-bottom: 7rem;
 
-  &__innerDiv{
-    max-width: 364px;
-  }
-
-  h1{
-    font-family: $font-bold;
-    font-size: 1.75rem;
-    padding: 2rem 0;
-  }
-
-
-  label{
-    font-family: $font-bold;
+  &__inner{
+    @include flexGen(column, nowrap, center, center);
+    max-width: $max-width;
+    width: 100%;
   }
 
   &__name{
-    width: 100%;
     @include flexGen(row, nowrap, space-between, center);
+    width: 100%;
 
     // Space between first and last name
     div:first-child{
@@ -29,30 +22,9 @@
     }
   }
 
-
-  form{
-    @include flexGen(column, nowrap, center, center);
-
-    span{
-      width: 100%;
-      margin: 1rem 0;
-    }
-
-    input{
-      border-style: none;
-      border-radius: 10px;
-      height: 3.5rem;
-      line-height: 3.5rem;
-      padding-left: 1rem;
-      margin: .5rem 0;
-
-      width: 100%;
-    }
-  }
-
   // Terms & Condition and Privacy Policy Checkbox
   &__checkbox{
-    @include flexGen(row, nowrap, space-between, flex-start);
+    @include flexGen(row, nowrap, space-between, center);
     margin-bottom: 3rem !important;
 
     input{
@@ -72,16 +44,87 @@
   }
 
   // CREATE ACCOUNT button
-  &__createBtn{
+  &__create-btn{
     @extend %btn;
     align-self: flex-end;
     color: lighten(colors(lightBg), 100%) !important;
     background: colors(second);
     font-size: .8rem;
     font-family: $font-bold;
+    transition: background .5s ease;
 
     &:hover{
       background: colors(prime);
+    }
+  }
+
+  &__header{
+    @include flexGen(row, nowrap, center, center);
+    width:100%;
+    padding: 3rem;
+    margin-bottom: 6rem;
+  }
+
+  &__menu-outter{
+    @include flexGen(row, nowrap, space-between, center);
+    max-width: $max-width;
+    width: 100%;
+  }
+
+  &__logo{
+    width: 5%;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  &__password-label{
+    @include flexGen(row, nowrap, space-between, center);
+    margin: 0;
+    width: 100%;
+
+    a{
+      color: white;
+    }
+  }
+
+  ul{
+    @include flexGen(row, nowrap, space-between, center);
+
+    li:first-of-type{
+      margin-right: 2rem;
+    }
+  }
+
+  h1{
+    font-family: $font-bold;
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  label{
+    font-family: $font-bold;
+  }
+
+  form{
+    @include flexGen(column, nowrap, center, center);
+    max-width: 400px;
+
+    span{
+      width: 100%;
+      margin: 1rem 0;
+    }
+
+    input{
+      border-style: none;
+      border-radius: 10px;
+      height: 3.5rem;
+      line-height: 3.5rem;
+      padding-left: 1rem;
+      margin: .5rem 0;
+
+      width: 100%;
     }
   }
 }

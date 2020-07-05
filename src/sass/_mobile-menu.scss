@@ -1,24 +1,21 @@
-.mobile-menu{
+%mobile{
   @include flexGen(column, nowrap, flex-start, center);
-  position: absolute;
-  height: 100%;
+  position: fixed;
   width: 100%;
   z-index: 9999;
   background: lighten(colors(lightBg), 1%);
-  transform: translateX(105%);
   transition: transform .2s ease;
   top: 0;
+  bottom: 0;
+}
+
+.mobile-menu{
+  @extend %mobile;
+  transform: translateX(105%);
 
   &--active{
-    @include flexGen(column, nowrap, flex-start, center);
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 9999;
-    background: lighten(colors(lightBg), 1%);
+    @extend %mobile;
     transform: translateX(0);
-    transition: transform .2s ease;
-    top: 0;
   }
 
   &__top, &__bottom{

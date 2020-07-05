@@ -432,5 +432,88 @@
       "category_subtitle": "Stylish DIY projects to revamp your wardrobe",
       "category_slug": "drinks"
     }
+  ],
+
+  "team-member": [
+    {
+      "id": 1,
+      "fullName": "Julia Fransece",
+      "title": "PM / Designer",
+      "facePic": "Julia.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "https://www.behance.net/",
+      "github": "",
+      "bio":"UX/UI designer with background in public relations. Great eye for details, very organized, and hard worker."
+    },
+    {
+      "id": 2,
+      "fullName": "Gustavo Palladini",
+      "title": "Lead Designer",
+      "facePic": "Gustavo.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "https://www.behance.net/",
+      "github": "",
+      "bio": "Art Director / Graphic Designer from Brazil, with over 12 years of experience. I'm contributing to this project by creating solutions for branding, UX, and UI."
+    },
+    {
+      "id": 3,
+      "fullName": "Marina Lemos",
+      "title": "Designer",
+      "facePic": "Marina.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "https://www.behance.net/",
+      "github": "",
+      "bio": "UX/UI designer with 3 years of experience creating visual solutions for web and mobile applications. I have an editorial design background with many projects for digital and printed media."
+    },
+    {
+      "id": 4,
+      "fullName": "Yuvraj Singh",
+      "title": "Designer",
+      "facePic": "Yuvraj.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "https://www.behance.net/",
+      "github": "",
+      "bio": "UX/UI designer with background in Engineering Computer Science. Actively helping the team in the UX/UI of the project while studying the market for it."
+    },
+    {
+      "id": 5,
+      "fullName": "Mandeep Kaur",
+      "title": "Designer",
+      "facePic": "Mandeep.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "https://www.behance.net/",
+      "github": "",
+      "bio": "UX/UI Designer with a background in Graduation in Computer Science. I am working on the technical aspects of design from the user end."
+    },
+    {
+      "id": 6,
+      "fullName": "Leonard Gutz",
+      "title": "Lead Developer",
+      "facePic": "Leonart.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "",
+      "github": "https://github.com/",
+      "bio": "Full Stack Developer with background in Accounting. Lead developer responsible for managing the developer team."
+    },
+    {
+      "id": 7,
+      "fullName": "Liz Britto",
+      "title": "Developer",
+      "facePic": "Liz.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "",
+      "github": "https://github.com/",
+      "bio": "Front End Developer with background in Architecture and Planning. My goal is to improve my knowledge in development area always using problem-solving skill."
+    },
+    {
+      "id": 8,
+      "fullName": "Taichi Murai",
+      "title": "Developer",
+      "facePic": "Taichi.png",
+      "linkedIn": "https://www.linkedin.com/",
+      "behance": "",
+      "github": "https://github.com/",
+      "bio": "Front End Developer with background in Biochemical Engineering. With agile project experience developing Web & Mobile app, and skills in JavaScript ES6, Node.js and React.js."
+    }
   ]
 }
