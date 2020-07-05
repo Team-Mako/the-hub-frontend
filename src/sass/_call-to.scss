@@ -56,7 +56,7 @@
     width: 100%;
 
     @include firstBrk{
-      align-items: flex-end;
+      align-items: flex-end !important;
       width: 50%;
     }
   }

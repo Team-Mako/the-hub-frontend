@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PageHeader from './PageHeader';
 
 const LogIn = () => (
-  <main className="log-in">
+  <main className="sign-up">
     <PageHeader />
-    <div className="log-in__innerDiv">
+    <div className="sign-up__inner">
       <h1>Login to The HUB</h1>
       <form>
         <span>
@@ -13,11 +14,14 @@ const LogIn = () => (
         </span>
 
         <span>
-          <div className="log-in__passwordLabel"><label>Password</label><a href="# ">Forgot password?</a></div>
+          <div className="sign-up__password-label">
+            <label>Password</label>
+            <NavLink to="/">Forgot password?</NavLink>
+          </div>
           <input type="password" name="password" placeholder="8+ Character" min="8" />
         </span>
 
-        <a type="submit" className="log-in__createBtn" href="# ">LOG IN</a>
+        <a type="submit" className="sign-up__create-btn" href="# ">LOG IN</a>
       </form>
     </div>
   </main>

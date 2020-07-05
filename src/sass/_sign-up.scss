@@ -1,7 +1,9 @@
 .sign-up{
-  @include flexGen(column, nowrap, center, center);
+  @include flexGen(column, nowrap, flex-start, center);
   background: url("../assets/static/the-hub-signin-bg.png") no-repeat center;
+  background-size: cover;
   color: white;
+  min-height: 100%;
   padding-bottom: 7rem;
 
   &__inner{
@@ -22,7 +24,7 @@
 
   // Terms & Condition and Privacy Policy Checkbox
   &__checkbox{
-    @include flexGen(row, nowrap, space-between, flex-start);
+    @include flexGen(row, nowrap, space-between, center);
     margin-bottom: 3rem !important;
 
     input{
@@ -49,6 +51,7 @@
     background: colors(second);
     font-size: .8rem;
     font-family: $font-bold;
+    transition: background .5s ease;
 
     &:hover{
       background: colors(prime);
@@ -58,7 +61,8 @@
   &__header{
     @include flexGen(row, nowrap, center, center);
     width:100%;
-    padding: 2rem;
+    padding: 3rem;
+    margin-bottom: 6rem;
   }
 
   &__menu-outter{
@@ -72,6 +76,16 @@
 
     img{
       width: 100%;
+    }
+  }
+
+  &__password-label{
+    @include flexGen(row, nowrap, space-between, center);
+    margin: 0;
+    width: 100%;
+
+    a{
+      color: white;
     }
   }
 
