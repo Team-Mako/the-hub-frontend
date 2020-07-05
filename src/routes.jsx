@@ -5,6 +5,7 @@ import Category from './pages/CategoryFront';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import SinglePost from './pages/SinglePost';
+import About from './pages/About';
 import Headers from './components/Headers';
 
 function Routes() {
@@ -27,7 +28,8 @@ function Routes() {
       <Route path="/single-post" exact>
         <Headers />
         <SinglePost />
-      </Route>
+      </Route>        
+      <Route path="/about" exact component={About} />
     </Switch>
   );
 }
