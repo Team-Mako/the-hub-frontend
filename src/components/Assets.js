@@ -4,6 +4,7 @@ import Balloon from '../assets/static/the-hub-balloons.png';
 import Balloon2x from '../assets/static/the-hub-balloons@2x.png';
 import Logo from '../assets/static/the-hub-logo-color.svg';
 import LogoAlt from '../assets/static/the-hub-logo-alt.svg';
+import LogoNoColor from '../assets/static/the-hub-logo-white.svg';
 import HeroImage from '../assets/static/the-hub-hero-image.jpg';
 import DrinkHero from '../assets/static/the-hub-drink-category-cover.jpg';
 import DrinkSmall from '../assets/static/the-hub-drink-category-cover-small.jpg';
@@ -23,6 +24,8 @@ export const LogoRegular = Logo;
 export const HeroImg = HeroImage;
 export const DrinkCover = DrinkHero;
 export const DrinkCoverSml = DrinkSmall;
+export const LogoWhite = LogoNoColor;
+
 export const PostCoverExample = PostCover;
 export const AuthorImgExample = leonaDavis;
 export const SampleImg1 = sampleImg1;

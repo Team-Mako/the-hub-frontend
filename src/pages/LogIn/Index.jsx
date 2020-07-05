@@ -1,7 +1,9 @@
 import React from 'react';
+import PageHeader from './PageHeader';
 
 const LogIn = () => (
   <main className="log-in">
+    <PageHeader />
     <div className="log-in__innerDiv">
       <h1>Login to The HUB</h1>
       <form>

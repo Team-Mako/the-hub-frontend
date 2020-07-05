@@ -1,15 +1,17 @@
 import React from 'react';
+import PageHeader from './PageHeader';
 
 const SignUp = () => (
   <main className="sign-up">
-    <div className="sign-up__innerDiv">
+    <PageHeader />
+    <div className="sign-up__inner">
       <h1>Sign up to The HUB</h1>
 
       <form>
         <span className="sign-up__name">
           <div>
             <label>First Name</label>
-            <input name="name" type="text" placeholder="Type your first name" />
+            <input id="name" name="name" type="text" placeholder="Type your first name" />
           </div>
 
           <div>
@@ -38,7 +40,7 @@ const SignUp = () => (
           <p>Creating an account means you are okay with our <a href="# ">Terms of Service</a>, <a href="# ">Privacy Policy</a>.</p>
         </span>
 
-        <a type="submit" className="sign-up__createBtn" href="# ">CREATE ACCOUNT</a>
+        <a type="submit" className="sign-up__create-btn" href="# ">CREATE ACCOUNT</a>
       </form>
     </div>
   </main>

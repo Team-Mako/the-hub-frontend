@@ -1,20 +1,30 @@
 .site-footer{
   @include flexGen(row, nowrap, center, center);
-  background: colors(lightBg);
+  @include bgGrad(180deg, 1);
+
+  @include firstBrk{
+    background: colors(lightBg);
+  }
 
   &__inner{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(column, nowrap, center, center);
     max-width: $max-width;
     width: 100%;
     padding: 3rem 2rem;
-  }
 
-  &__right{
-    @include flexGen(column, nowrap, center, flex-end);
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-between, center);
+    }
   }
 
   &__logo{
-    width: 5% !important;
+    width: 30% !important;
+    margin-bottom: 2rem;
+
+    @include firstBrk{
+      width: 5% !important;
+      margin-bottom: 0 !important;
+    }
 
     img{
       width: 100%;
@@ -22,30 +32,56 @@
   }
 
   p{
-    @include flexGen(row, nowrap, space-between, center);
-    color: colors(darkBg);
+    @include flexGen(column, nowrap, center, center);
+    color: lighten(colors(lightBg), 100%);
+    line-height: 1.5;
+    order: 1;
+    margin-top: 1rem;
 
-    a{
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-between, center);
       color: colors(darkBg);
+      margin-top: 0;
+      order: 0;
+
+      span{
+        margin-left: 3rem;
+      }
     }
 
-    span{
-      margin-left: 3rem;
+    a{
+      color: lighten(colors(lightBg), 100%);
+
+      @include firstBrk{
+        color: colors(darkBg);
+      }
     }
   }
 
   ul{
-    @include flexGen(row, nowrap, space-evenly, center);
+    @include flexGen(column, nowrap, center, center);
+
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-evenly, center);
+    }
   }
 
   li{
-    margin: 0 1rem;
+    margin: .4rem 0;
+
+    @include firstBrk{
+      margin: 0 1rem;
+    }
   }
 
   a{
     @include flexGen(row, nowrap, space-between, center);
-    color: colors(darkBg);
+    color: lighten(colors(lightBg), 100%);
     transition: color .5s ease;
+
+    @include firstBrk{
+      color: colors(darkBg);
+    }
 
     &:hover{
       color: colors(prime);
@@ -53,13 +89,6 @@
       svg{
         color: colors(prime);
       }
-    }
-
-    svg{
-      margin-left: .5rem;
-      margin-top: .1rem;
-      color: colors(darkBg);
-      transition: color .5s ease;
     }
   }
 }

@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import { LogoRegular } from './Assets';
 
 const Header = () => (
-  <section className="site-header">
+  <header className="site-header">
     <div className="site-header__inner">
       <NavLink to="/" className="site-header__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
 
@@ -32,7 +32,7 @@ const Header = () => (
         <li><NavLink to="/signup" className="site-header__call-to">Sign Up</NavLink></li>
       </ul>
     </div>
-  </section>
+  </header>
 );
 
 export default Header;
