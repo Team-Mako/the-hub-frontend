@@ -17,6 +17,7 @@
     color: lighten(colors(lightBg), 100%) !important;
     background: colors(second);
     font-size: .8rem;
+    transition: background .5s ease;
 
     &:hover{
       background: colors(prime);

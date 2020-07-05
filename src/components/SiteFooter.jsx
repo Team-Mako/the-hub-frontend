@@ -1,13 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaChevronDown } from 'react-icons/fa';
-import { LogoRegular } from './Assets';
+import MediaQuery from 'react-responsive';
+import { LogoWhite, LogoRegular } from './Assets';
 
 const Footer = () => (
   <section className="site-footer">
     <div className="site-footer__inner">
 
-      <NavLink to="/" className="site-footer__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
+      <MediaQuery maxDeviceWidth={420}>
+        <NavLink to="/" className="site-footer__logo"><img src={LogoWhite} alt="The Hub Logo" /></NavLink>
+      </MediaQuery>
+      <MediaQuery minDeviceWidth={420}>
+        <NavLink to="/" className="site-footer__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
+      </MediaQuery>
 
       <p>
         <NavLink to="/">Terms & Conditions</NavLink>
@@ -15,17 +20,11 @@ const Footer = () => (
       </p>
 
       <ul>
-        <li>
-          <NavLink to="/">
-            Categories
-            <FaChevronDown />
-          </NavLink>
-        </li>
+        <li><NavLink to="/">Categories</NavLink></li>
         <li><NavLink to="/">About</NavLink></li>
         <li><NavLink to="/">Contact</NavLink></li>
         <li><NavLink to="/signup">Sign In</NavLink></li>
       </ul>
-
     </div>
   </section>
 );

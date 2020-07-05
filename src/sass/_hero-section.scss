@@ -44,7 +44,7 @@
       margin-top: 2rem;
 
       @include firstBrk{
-        @include flexGen(row, nowrap, center, flex-start);
+        @include flexGen(row, nowrap, flex-start, center);
         margin-top: 0;
       }
     }

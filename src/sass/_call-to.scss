@@ -4,31 +4,61 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1rem 2rem;
+  padding: 3rem 2rem;
+
+  @include firstBrk{
+    padding: 1rem 2rem;
+  }
 
   &__inner{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(column, nowrap, space-between, center);
     max-width: $max-width;
     width: 100%;
+
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-between, center);
+    }
   }
 
   &__left{
-    width: 50%;
+    width: 100%;
+    order: 1;
+
+    @include firstBrk{
+      width: 50%;
+      order: 0;
+    }
   }
 
   &__rocket{
-    margin-bottom: -4rem;
+
+    @include firstBrk{
+      margin-top: -1rem;
+      margin-bottom: -4rem;
+      order: 0;
+    }
   }
 
   &__balloon{
-    margin-top: -1rem;
-    margin-bottom: -1rem;
+    margin-left: -2rem;
+    margin-top: 2rem;
+
+    @include firstBrk{
+      margin-top: -1rem;
+      margin-bottom: -1rem;
+      margin-left: 0 !important;
+    }
   }
 
   &__right{
-    @include flexGen(column, nowrap, center, flex-end);
-    text-align: right;
-    width: 50%;
+    @include flexGen(column, nowrap, center, flex-start);
+    text-align: left;
+    width: 100%;
+
+    @include firstBrk{
+      align-items: flex-end !important;
+      width: 50%;
+    }
   }
 
   a{
