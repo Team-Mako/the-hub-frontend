@@ -16,12 +16,12 @@ function MobileHeader() {
 
   return (
     <>
-      <section className="mobile-header">
+      <header className="mobile-header">
         <div className="mobile-header__inner">
           <NavLink to="/" className="mobile-header__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
           <button type="button" className="mobile-header__btn" onClick={toggleMenu}><span aria-hidden="true" className="visually-hidden">Menu Button</span><FaBars /></button>
         </div>
-      </section>
+      </header>
 
       <div className={active ? 'mobile-menu--active' : 'mobile-menu'}>
         <div className="mobile-menu__top">
