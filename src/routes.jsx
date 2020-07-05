@@ -5,6 +5,7 @@ import Category from './pages/CategoryFront';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import SinglePost from './pages/SinglePost';
+import About from './pages/About';
 
 function Routes() {
   return (
@@ -14,6 +15,7 @@ function Routes() {
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={LogIn} />
       <Route path="/single-post" exact component={SinglePost} />
+      <Route path="/about" exact component={About} />
     </Switch>
   );
 }
