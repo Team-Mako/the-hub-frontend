@@ -43,21 +43,6 @@
     }
   }
 
-  // CREATE ACCOUNT button
-  &__create-btn{
-    @extend %btn;
-    align-self: flex-end;
-    color: lighten(colors(lightBg), 100%) !important;
-    background: colors(second);
-    font-size: .8rem;
-    font-family: $font-bold;
-    transition: background .5s ease;
-
-    &:hover{
-      background: colors(prime);
-    }
-  }
-
   &__header{
     @include flexGen(row, nowrap, center, center);
     width:100%;
@@ -105,26 +90,69 @@
 
   label{
     font-family: $font-bold;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    &:first-of-type{
+      margin-right: 2.5rem;
+    }
+
+    &:first-of-type, &:nth-of-type(2){
+      width: 45%;
+    }
+
+
+    &:last-of-type{
+      @include flexGen(row, nowrap, space-between, center);
+
+      p{
+        line-height: 1.5;
+      }
+
+      a{
+        color: colors(second);
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   form{
-    @include flexGen(column, nowrap, center, center);
+    @include flexGen(row, wrap, flex-end, center);
     max-width: 400px;
 
-    span{
-      width: 100%;
-      margin: 1rem 0;
-    }
-
     input{
-      border-style: none;
-      border-radius: 10px;
-      height: 3.5rem;
-      line-height: 3.5rem;
-      padding-left: 1rem;
-      margin: .5rem 0;
 
-      width: 100%;
+      &[type="text"], &[type="password"], &[type="email"]{
+        border-style: none;
+        border-radius: 10px;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        padding-left: 1rem;
+        margin: .5rem 0;
+        width: 100%;
+      }
+
+      &[type="checkbox"]{
+        width: 40px;
+        height: 40px;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  button{
+    @extend %btn;
+    background: colors(second);
+    border: 0;
+    color: lighten(colors(lightBg), 100%);
+    transition: background .5s ease;
+    font-family: $font-bold;
+
+    &:hover{
+      background: colors(prime);
     }
   }
 }

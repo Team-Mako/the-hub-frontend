@@ -1,49 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import PageHeader from './PageHeader';
+import api from '../../services/api';
+import Alerts from '../../components/Alerts';
 
-const SignUp = () => (
-  <main className="sign-up">
-    <PageHeader />
-    <div className="sign-up__inner">
-      <h1>Sign up to The HUB</h1>
+function SingUp() {
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [policy, setPolicy] = useState(false);
 
-      <form>
-        <span className="sign-up__name">
-          <div>
-            <label>First Name</label>
-            <input id="name" name="name" type="text" placeholder="Type your first name" />
-          </div>
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
 
-          <div>
-            <label>Last Name</label>
-            <input name="lastName" type="text" placeholder="Type your last name" />
-          </div>
-        </span>
+  const handleLastName = (e) => {
+    setLastName(e.target.value);
+  };
 
-        <span>
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="johndoe@email.com" />
-        </span>
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
 
-        <span>
-          <label>Password</label>
-          <input type="password" name="password" placeholder="8+ Character" min="8" />
-        </span>
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
 
-        <span>
-          <label>Confirm Password</label>
-          <input type="password" name="password2" placeholder="8+ Character" min="8" />
-        </span>
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+  };
 
-        <span className="sign-up__checkbox">
-          <input type="checkbox" name="policy" />
-          <p>Creating an account means you are okay with our <a href="# ">Terms of Service</a>, <a href="# ">Privacy Policy</a>.</p>
-        </span>
+  const handlePolicy = (e) => {
+    setPolicy(e.target.checked);
+  };
 
-        <a type="submit" className="sign-up__create-btn" href="# ">CREATE ACCOUNT</a>
-      </form>
-    </div>
-  </main>
-);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password === confirmPassword) {
+      api.post('/create-user', {
+        name,
+        lastName,
+        email,
+        password,
+      })
+        .then((res) => {
+          setName('');
+          setLastName('');
+          setEmail('');
+          setPassword('');
+          setConfirmPassword('');
+          setPolicy(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
-export default SignUp;
+  return (
+    <main className="sign-up">
+      <PageHeader />
+      <div className="sign-up__inner">
+        <h1>Sign up to The HUB</h1>
+
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Name</p>
+            <input type="text" placeholder="John" min="3" value={name} onChange={handleName} required />
+          </label>
+
+          <label>
+            <p>Last Name</p>
+            <input type="text" placeholder="Doe" min="3" value={lastName} onChange={handleLastName} required />
+          </label>
+
+          <label>
+            <p>Email</p>
+            <input type="email" placeholder="johndoe@email.com" min="3" value={email} onChange={handleEmail} required />
+          </label>
+
+          <label>
+            <p>Password</p>
+            <input type="password" placeholder="8+ Characters" min="8" value={password} onChange={handlePassword} required />
+          </label>
+
+          <label>
+            <p>Confirm Password</p>
+            <input type="password" placeholder="8+ Characters" min="8" value={confirmPassword} onChange={handleConfirmPassword} required />
+          </label>
+
+          <label>
+            <input type="checkbox" name="policy" value={policy} onChange={handlePolicy} required />
+            <p>Creating an account means you are okay with our <NavLink to="/">Terms of Service</NavLink>, <NavLink to="/">Privacy Policy</NavLink>.</p>
+          </label>
+
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+      <Alerts />
+    </main>
+  );
+}
+
+export default SingUp;
