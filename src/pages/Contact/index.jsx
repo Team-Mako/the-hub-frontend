@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { FaHeart, FaEye, FaChevronDown } from 'react-icons/fa';
 import Dropdown from 'react-dropdown';
 
@@ -9,29 +8,28 @@ class Contact extends React.Component {
     this.state = {
       name: '',
       email: '',
-      topic: '',
       message: '',
     };
   }
 
+  handleNameChange(e) {
+    this.setState({ name: e.target.value });
+  }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handleMessageChange(e) {
+    this.setState({ message: e.target.value });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    axios({
-      method: 'POST',
-      url: 'http://localhost:3000/send',
-      data: this.state,
-    }).then((response) => {
-      if (response.data.status === 'success') {
-        alert('Message Sent.');
-        this.resetForm();
-      } else if (response.data.status === 'fail') {
-        alert('Message failed to send.');
-      }
-    });
   }
 
   resetForm() {
-    this.setState({ name: '', email: '', topic: '', message: '' });
+    this.setState({ name: '', email: '', message: '' });
   }
 
   render() {
@@ -59,22 +57,6 @@ class Contact extends React.Component {
         </form>
       </div>
     );
-  }
-
-  onNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  onTopicChange(event) {
-    this.setState({ topic: event.target.value });
-  }
-
-  onMessageChange(event) {
-    this.setState({ message: event.target.value });
   }
 }
 

@@ -26,7 +26,7 @@ const Header = () => (
             <li><NavLink to="/category/outdoors">Outdoors</NavLink></li>
           </ul>
         </li>
-        <li><NavLink to="/">About</NavLink></li>
+        <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
         <li><NavLink to="/login">Sign In</NavLink></li>
         <li><NavLink to="/signup" className="site-header__call-to">Sign Up</NavLink></li>

@@ -35,6 +35,7 @@ function Routes() {
         <SinglePost />
       </Route>
       <Route path="/about" exact component={About} />
+      <Headers />
     </Switch>
   );
 }
