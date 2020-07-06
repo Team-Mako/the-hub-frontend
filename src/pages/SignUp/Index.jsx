@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PageHeader from './PageHeader';
 import api from '../../services/api';
@@ -11,6 +11,8 @@ function SingUp() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [policy, setPolicy] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -36,6 +38,12 @@ function SingUp() {
     setPolicy(e.target.checked);
   };
 
+  const timer = () => {
+    setTimeout(() => {
+      setAlert(false);
+    }, 5100);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
@@ -51,11 +59,25 @@ function SingUp() {
           setEmail('');
           setPassword('');
           setConfirmPassword('');
-          setPolicy(false);
+          setPolicy('');
+          setAlert(true);
+          setAlertMessage('Account created! Sending you to the login page!');
         })
         .catch((error) => {
-          console.log(error);
+          setAlert(true);
+          switch (error.response.data.error.errno) {
+            case 1062:
+              setAlertMessage('This email already has been taken!');
+              break;
+            default:
+              setAlertMessage('Somenthig went wrong, try again!');
+          }
+          timer();
         });
+    } else {
+      setAlert(true);
+      setAlertMessage('Password confirmation does not match!');
+      timer();
     }
   };
 
@@ -99,7 +121,7 @@ function SingUp() {
           <button type="submit">Create Account</button>
         </form>
       </div>
-      <Alerts />
+      <Alerts active={alert} message={alertMessage} />
     </main>
   );
 }

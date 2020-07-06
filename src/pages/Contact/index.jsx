@@ -14,38 +14,18 @@ class Contact extends React.Component {
     };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    axios({
-      method: 'POST',
-      url: 'http://localhost:3000/send',
-      data: this.state,
-    }).then((response) => {
-      if (response.data.status === 'success') {
-        alert('Message Sent.');
-        this.resetForm();
-      } else if (response.data.status === 'fail') {
-        alert('Message failed to send.');
-      }
-    });
-  }
-
-  resetForm() {
-    this.setState({ name: '', email: '', topic: '', message: '' });
-  }
-
   render() {
     return (
       <div className="out-contactForm">
         <p>We'd Love To Hear From You.</p>
-        <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+        <form id="contact-form">
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
-            <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+            <input type="text" className="form-control" id="name" value={this.state.name} />
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">Email</label>
-            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} />
           </div>
           <div className="form-group">
             <label htmlFor="topic">Choose a Topic</label>
@@ -53,28 +33,12 @@ class Contact extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
-            <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
+            <textarea className="form-control" rows="5" id="message" value={this.state.message} />
           </div>
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
       </div>
     );
-  }
-
-  onNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  onEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  onTopicChange(event) {
-    this.setState({ topic: event.target.value });
-  }
-
-  onMessageChange(event) {
-    this.setState({ message: event.target.value });
   }
 }
 
