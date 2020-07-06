@@ -10,6 +10,9 @@
 // variables
 @import 'variables';
 
+// keyframes
+@import 'keyframes';
+
 // @imports
 @import 'site-header';
 @import 'site-footer';
@@ -26,6 +29,7 @@
 @import 'mobile-menu';
 @import 'mobile-header';
 @import 'about';
+@import 'alerts';
 
 // Globals
 *{
