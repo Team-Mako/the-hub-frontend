@@ -19,16 +19,13 @@ function Routes() {
         <Headers />
         <Category />
       </Route>
-      <Route path="/signup" exact>
-        <SignUp />
-      </Route>
-      <Route path="/login" exact>
-        <LogIn />
-      </Route>
       <Route path="/single-post" exact>
         <Headers />
         <SinglePost />
-      </Route>        
+      </Route>
+
+      <Route path="/signup" exact component={SignUp} />
+      <Route path="/login" exact component={LogIn} />
       <Route path="/about" exact component={About} />
     </Switch>
   );
