@@ -7,6 +7,7 @@ import LogIn from './pages/LogIn';
 import SinglePost from './pages/SinglePost';
 import About from './pages/About';
 import Headers from './components/Headers';
+import Contact from './pages/Contact';
 
 function Routes() {
   return (
@@ -25,10 +26,14 @@ function Routes() {
       <Route path="/login" exact>
         <LogIn />
       </Route>
+      <Route path="/contact" exact>
+        <Headers />
+        <Contact />
+      </Route>
       <Route path="/single-post" exact>
         <Headers />
         <SinglePost />
-      </Route>        
+      </Route>
       <Route path="/about" exact component={About} />
     </Switch>
   );
