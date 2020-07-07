@@ -7,21 +7,19 @@ const LogIn = () => (
     <PageHeader />
     <div className="sign-up__inner">
       <h1>Login to The HUB</h1>
-      <form>
-        <span>
-          <label>Username or Email Address</label>
-          <input type="email" name="email" placeholder="johndoe@email.com" />
-        </span>
+      <form className="forms__login">
+        <label>
+          <p>Email</p>
+          <input type="email" placeholder="johndoe@email.com" />
+        </label>
 
-        <span>
-          <div className="sign-up__password-label">
-            <label>Password</label>
-            <NavLink to="/">Forgot password?</NavLink>
-          </div>
+        <label>
+          <p>Password</p>
+          <NavLink to="/">Forgot password?</NavLink>
           <input type="password" name="password" placeholder="8+ Character" min="8" />
-        </span>
+        </label>
 
-        <a type="submit" className="sign-up__create-btn" href="# ">LOG IN</a>
+        <button type="submit">LOG IN</button>
       </form>
     </div>
   </main>

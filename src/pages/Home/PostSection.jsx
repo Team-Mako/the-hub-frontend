@@ -15,7 +15,7 @@ class PostSection extends Component {
   }
 
   async componentDidMount() {
-    const response = await api.get('list-post?_page=1&_limit=3');
+    const response = await api.get('/list-post?pg=1&limit=3');
     this.setState({ posts: response.data });
   }
 
@@ -34,7 +34,7 @@ class PostSection extends Component {
               <Carousel showThumbs={false} showIndicators={false} showStatus={false} infiniteLoop>
                 { posts.map((post) => (
 
-                  <NavLink key={post.id} to="/" className="post-section__box">
+                  <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
                     <img className="post-section__cover" src={require(`../../assets/uploads/${post.post_cover}`)} alt="Img of a drink" />
                     <h3>{post.post_title}</h3>
 
@@ -60,7 +60,7 @@ class PostSection extends Component {
           <MediaQuery minDeviceWidth={420}>
             <div className="post-section__list">
               { posts.map((post) => (
-                <NavLink key={post.id} to="/" className="post-section__box">
+                <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
                   <img className="post-section__cover" src={require(`../../assets/uploads/${post.post_cover}`)} alt="Img of a drink" />
                   <h3>{post.post_title}</h3>
 
