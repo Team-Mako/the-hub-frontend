@@ -26,7 +26,7 @@ class CategoryList extends Component {
 
           <div className="category-list__list">
             {categories.map((category) => (
-              <NavLink key={category.id} to="/" className="category-list__box" style={{ backgroundImage: `url(${require(`../../assets/uploads/${category.category_cover_small}`)})` }}>
+              <NavLink key={category.category_id} to="/" className="category-list__box" style={{ backgroundImage: `url(${require(`../../assets/uploads/${category.category_cover_small}`)})` }}>
                 <div className="category-list__gradient">
                   <h3>{category.category_title}</h3>
                   <p>{category.category_subtitle}</p>

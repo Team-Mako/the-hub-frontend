@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PageHeader from './PageHeader';
 import api from '../../services/api';
@@ -87,7 +87,7 @@ function SingUp() {
       <div className="sign-up__inner">
         <h1>Sign up to The HUB</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form className="forms__sign-up" onSubmit={handleSubmit}>
           <label>
             <p>Name</p>
             <input type="text" placeholder="John" min="3" value={name} onChange={handleName} required />

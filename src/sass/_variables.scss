@@ -25,3 +25,15 @@ $colors: (
   padding: 1rem 1.5rem !important;
   text-transform: uppercase;
 }
+
+%inputs{
+  &[type="text"], &[type="password"], &[type="email"]{
+    border-style: none;
+    border-radius: 10px;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    padding-left: 1rem;
+    margin: .5rem 0;
+    width: 100%;
+  }
+}

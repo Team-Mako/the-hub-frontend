@@ -24,13 +24,16 @@ function Routes() {
         <Headers />
         <Contact />
       </Route>
-      <Route path="/single-post" exact>
+      <Route path="/DIY/:slug" exact>
         <Headers />
         <SinglePost />
       </Route>
+      <Route path="/about" exact>
+        <Headers />
+        <About />
+      </Route>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={LogIn} />
-      <Route path="/about" exact component={About} />
     </Switch>
   );
 }
