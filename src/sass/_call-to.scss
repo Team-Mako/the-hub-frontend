@@ -52,11 +52,11 @@
 
   &__right{
     @include flexGen(column, nowrap, center, flex-start);
-    text-align: left;
     width: 100%;
 
     @include firstBrk{
       align-items: flex-end !important;
+      text-align: right;
       width: 50%;
     }
   }

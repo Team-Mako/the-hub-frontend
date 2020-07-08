@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PageHeader from './PageHeader';
@@ -8,8 +8,10 @@ import api from '../../services/api';
 function LogIn(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [alert, setAlert] = useState('');
+  const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [loading, setLoading] = useState('Sign In');
+  const [button, setButton] = useState(false);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -21,12 +23,14 @@ function LogIn(props) {
 
   const timer = () => {
     setTimeout(() => {
-      setAlert(true);
+      setAlert(false);
     }, 5100);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading('Finding you...');
+    setButton(true);
     api.post('/create-session', {
       email,
       password,
@@ -40,10 +44,17 @@ function LogIn(props) {
           payload: data,
         });
 
-        console.log(res.data);
+        setAlert(true);
+        setAlertMessage('Welcome!');
+        timer();
+        setLoading('We found you!');
       })
       .catch((error) => {
-        console.log(error.response.data);
+        setAlert(true);
+        setAlertMessage('Your email or password doesn\'t match, please try again!');
+        timer();
+        setLoading('Sign In');
+        setButton(false);
       });
   };
 
@@ -64,7 +75,7 @@ function LogIn(props) {
             <input type="password" name="password" placeholder="8+ Character" min="8" value={password} onChange={handlePassword} required />
           </label>
 
-          <button type="submit">Sign In</button>
+          <button disabled={button} type="submit">{loading}</button>
         </form>
       </div>
       <Alerts active={alert} message={alertMessage} />

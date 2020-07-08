@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaChevronDown } from 'react-icons/fa';
 import { LogoRegular } from './Assets';
 
-function Header() {
+function Header({ session }) {
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -29,8 +29,13 @@ function Header() {
           </li>
           <li><NavLink to="/about">About</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
-          <li><NavLink to="/login">Sign In</NavLink></li>
-          <li><NavLink to="/signup" className="site-header__call-to">Sign Up</NavLink></li>
+          {session ? ''
+            : (
+              <>
+                <li><NavLink to="/login">Sign In</NavLink></li>
+                <li><NavLink to="/signup" className="site-header__call-to">Sign Up</NavLink></li>
+              </>
+            )}
         </ul>
       </div>
     </header>

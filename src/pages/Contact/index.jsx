@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import api from '../../services/api';
 
-function Contact() {
+function Contact({ auth }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -16,6 +18,8 @@ function Contact() {
   const handleMessage = (e) => {
     setMessage(e.target.value);
   };
+
+  api.get('/test');
 
   return (
     <div className="out-contactForm">
@@ -42,4 +46,6 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default connect((state) => ({
+  auth: state.auth,
+}))(Contact);
