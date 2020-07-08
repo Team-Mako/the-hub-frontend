@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 function Alerts(props) {
   const { active, message } = props;
@@ -10,15 +9,5 @@ function Alerts(props) {
     </div>
   );
 }
-
-Alerts.propTypes = {
-  active: PropTypes.bool,
-  message: PropTypes.string,
-};
-
-Alerts.defaultProps = {
-  active: false,
-  message: '',
-};
 
 export default Alerts;

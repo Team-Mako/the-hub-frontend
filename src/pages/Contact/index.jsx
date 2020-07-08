@@ -1,45 +1,45 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { FaHeart, FaEye, FaChevronDown } from 'react-icons/fa';
-import Dropdown from 'react-dropdown';
+import React, { useState } from 'react';
 
-class Contact extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      email: '',
-      topic: '',
-      message: '',
-    };
-  }
+function Contact() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  render() {
-    return (
-      <div className="out-contactForm">
-        <p>We'd Love To Hear From You.</p>
-        <form id="contact-form">
-          <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input type="text" className="form-control" id="name" value={this.state.name} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Email</label>
-            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="topic">Choose a Topic</label>
-            <Dropdown options={['one', 'two', 'three', 'four']} onChange={this._onSelect} placeholder={<div className="optionTopic"><span>Select</span>  <FaChevronDown /></div>} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea className="form-control" rows="5" id="message" value={this.state.message} />
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    );
-  }
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleMessage = (e) => {
+    setMessage(e.target.value);
+  };
+
+  return (
+    <div className="out-contactForm">
+      <p>We'd Love To Hear From You.</p>
+      <form id="contact-form">
+        <div className="form-group">
+          <label htmlFor="name">Full Name</label>
+          <input type="text" className="form-control" value={name} onChange={handleName} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleInputEmail1">Email</label>
+          <input type="email" className="form-control" value={email} onChange={handleEmail} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="topic">Choose a Topic</label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message</label>
+          <textarea className="form-control" rows="5" value={message} onChange={handleMessage} />
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  );
 }
 
 export default Contact;
