@@ -16,7 +16,7 @@ function Routes() {
         <Headers />
         <Home />
       </Route>
-      <Route path="/category" exact>
+      <Route path="/category/:slug" exact>
         <Headers />
         <Category />
       </Route>
