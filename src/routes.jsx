@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Home from './pages/Home';
 import Category from './pages/CategoryFront';
 import SignUp from './pages/SignUp';
@@ -8,8 +9,11 @@ import SinglePost from './pages/SinglePost';
 import About from './pages/About';
 import Headers from './components/Headers';
 import Contact from './pages/Contact';
+import api from './services/api';
 
-function Routes() {
+function Routes({ auth }) {
+  api.defaults.headers.Authorization = `Bearer ${auth.token}`;
+
   return (
     <Switch>
       <Route path="/" exact>
@@ -21,8 +25,12 @@ function Routes() {
         <Category />
       </Route>
       <Route path="/contact" exact>
-        <Headers />
-        <Contact />
+        {!auth.session ? <Redirect to="/" /> : (
+          <>
+            <Headers />
+            <Contact />
+          </>
+        )}
       </Route>
       <Route path="/DIY/:slug" exact>
         <Headers />
@@ -38,4 +46,6 @@ function Routes() {
   );
 }
 
-export default Routes;
+export default connect((state) => ({
+  auth: state.auth,
+}))(Routes);
