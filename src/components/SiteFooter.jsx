@@ -3,30 +3,32 @@ import { NavLink } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 import { LogoWhite, LogoRegular } from './Assets';
 
-const Footer = () => (
-  <section className="site-footer">
-    <div className="site-footer__inner">
+function Footer() {
+  return (
+    <section className="site-footer">
+      <div className="site-footer__inner">
 
-      <MediaQuery maxDeviceWidth={420}>
-        <NavLink to="/" className="site-footer__logo"><img src={LogoWhite} alt="The Hub Logo" /></NavLink>
-      </MediaQuery>
-      <MediaQuery minDeviceWidth={420}>
-        <NavLink to="/" className="site-footer__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
-      </MediaQuery>
+        <MediaQuery maxDeviceWidth={420}>
+          <NavLink to="/" className="site-footer__logo"><img src={LogoWhite} alt="The Hub Logo" /></NavLink>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={420}>
+          <NavLink to="/" className="site-footer__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
+        </MediaQuery>
 
-      <p>
-        <NavLink to="/">Terms & Conditions</NavLink>
-        <span>&copy; Team Mako 2020</span>
-      </p>
+        <p>
+          <NavLink to="/">Terms & Conditions</NavLink>
+          <span>&copy; Team Mako 2020</span>
+        </p>
 
-      <ul>
-        <li><NavLink to="/">Categories</NavLink></li>
-        <li><NavLink to="/">About</NavLink></li>
-        <li><NavLink to="/">Contact</NavLink></li>
-        <li><NavLink to="/signup">Sign In</NavLink></li>
-      </ul>
-    </div>
-  </section>
-);
+        <ul>
+          <li><NavLink to="/">Categories</NavLink></li>
+          <li><NavLink to="/">About</NavLink></li>
+          <li><NavLink to="/">Contact</NavLink></li>
+          <li><NavLink to="/signup">Sign In</NavLink></li>
+        </ul>
+      </div>
+    </section>
+  );
+}
 
 export default Footer;
