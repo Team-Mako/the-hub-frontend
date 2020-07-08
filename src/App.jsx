@@ -5,7 +5,7 @@ import './config/ReactotronConfig';
 import Routes from './routes';
 import './sass/style.scss';
 import SiteFooter from './components/SiteFooter';
-import store from './store';
+import { store } from './store';
 import ScrollTop from './components/ScrollTop';
 
 function App() {
