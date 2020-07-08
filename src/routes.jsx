@@ -20,18 +20,17 @@ function Routes() {
         <Headers />
         <Category />
       </Route>
-      <Route path="/contact" exact>
-        <Headers />
-        <Contact />
-      </Route>
+      <Route path="/contact" exact component={Contact} />
       <Route path="/single-post" exact>
         <Headers />
         <SinglePost />
       </Route>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={LogIn} />
-      <Route path="/about" exact component={About} />
-      <Headers />
+      <Route path="/about" exact>
+        <Headers />
+        <About />
+      </Route>
     </Switch>
   );
 }
