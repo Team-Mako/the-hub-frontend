@@ -6,8 +6,8 @@ import Logo from '../assets/static/the-hub-logo-color.svg';
 import LogoAlt from '../assets/static/the-hub-logo-alt.svg';
 import LogoNoColor from '../assets/static/the-hub-logo-white.svg';
 import HeroImage from '../assets/static/the-hub-hero-image.jpg';
-import DrinkHero from '../assets/static/the-hub-drink-category-cover.jpg';
-import DrinkSmall from '../assets/static/the-hub-drink-category-cover-small.jpg';
+import DrinkHero from '../assets/uploads/the-hub-drink-category-cover.jpg';
+import DrinkSmall from '../assets/uploads/the-hub-drink-category-cover-small.jpg';
 // Images for development side
 import PostCover from '../assets/uploads/examplPic4Post.jpg';
 import leonaDavis from '../assets/uploads/leonaDavis.jpg';
@@ -16,14 +16,14 @@ import sampleImg2 from '../assets/uploads/singlePost_2.png';
 import avatar from '../assets/uploads/avatar.png';
 
 // Images for About page
-import julia from '../assets/uploads/Julia.png';
-import gustavo from '../assets/uploads/Gustavo.png';
-import marina from '../assets/uploads/Marina.png';
-import yuvraj from '../assets/uploads/Yuvraj.png';
-import mandeep from '../assets/uploads/Mandeep.png';
-import leonart from '../assets/uploads/Leonart.png';
-import liz from '../assets/uploads/Liz.png';
-import taichi from '../assets/uploads/Taichi.png';
+import julia from '../assets/static/Julia.png';
+import gustavo from '../assets/static/Gustavo.png';
+import marina from '../assets/static/Marina.png';
+import yuvraj from '../assets/static/Yuvraj.png';
+import mandeep from '../assets/static/Mandeep.png';
+import leonart from '../assets/static/Leonart.png';
+import liz from '../assets/static/Liz.png';
+import taichi from '../assets/static/Taichi.png';
 
 export const LogoSmall = LogoAlt;
 export const RocketImg = Rocket;

@@ -52,7 +52,7 @@ class About extends Component {
               {members.map((member) => (
                 <div key={member.id} to="/" className="about__memberTile">
 
-                  <img src={require(`../../assets/uploads/${member.facePic}`)} alt="" onMouseOver={() => showBio(member.bio, member.id)} onFocus={() => showBio(member.bio, member.id)} onMouseOut={() => hideBio(member.id)} onBlur={() => hideBio(member.id)} />
+                  <img src={require(`../../assets/static/${member.facePic}`)} alt="" onMouseOver={() => showBio(member.bio, member.id)} onFocus={() => showBio(member.bio, member.id)} onMouseOut={() => hideBio(member.id)} onBlur={() => hideBio(member.id)} />
 
                   <h3>{member.fullName}</h3>
 

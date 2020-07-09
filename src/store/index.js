@@ -1,6 +1,11 @@
 import { createStore } from 'redux';
+import { persistStore } from 'redux-persist';
 import rootReducer from './reducers/rootReducer';
+import persistReducers from './reducers/persistReducers';
 
-const store = createStore(rootReducer);
+const enhancer = process.env.NODE_ENV === 'development' ? console.tron.createEnhancer() : null;
 
-export default store;
+const store = createStore(persistReducers(rootReducer), enhancer);
+const persistor = persistStore(store);
+
+export { store, persistor };
