@@ -7,7 +7,7 @@
   }
 
   &__inner{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(row, nowrap, flex-start, center);
     max-width: $max-width;
     width: 100%;
   }
@@ -25,10 +25,10 @@
   }
 
   &__logo{
-    width: 22% !important;
+    width: 22%;
 
     @include firstBrk{
-      width: 5% !important;
+      width: 72px;
     }
 
     img{
@@ -58,10 +58,17 @@
 
   &__menu{
     display: none;
+    margin-left: auto;
 
     @include firstBrk{
       @include flexGen(row, nowrap, space-evenly, center);
     }
+  }
+
+  &__avatar{
+    width: 52px;
+    border-radius: 100%;
+    overflow: hidden;
   }
 
   li{
@@ -93,5 +100,10 @@
       margin-top: .1rem;
       color: colors(second);
     }
+  }
+
+  form{
+    width: 30%;
+    margin-left: 2rem;
   }
 }

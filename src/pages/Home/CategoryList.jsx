@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 import api from '../../services/api';
 
-function CategoryList() {
+const CategoryList = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -33,6 +33,6 @@ function CategoryList() {
       </div>
     </section>
   );
-}
+};
 
 export default CategoryList;

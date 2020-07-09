@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Home from './pages/Home';
 import Category from './pages/CategoryFront';
@@ -9,6 +9,7 @@ import SinglePost from './pages/SinglePost';
 import About from './pages/About';
 import Headers from './components/Headers';
 import Contact from './pages/Contact';
+import Dashboard from './pages/Dashboard';
 import api from './services/api';
 
 function Routes({ auth }) {
@@ -17,31 +18,31 @@ function Routes({ auth }) {
   return (
     <Switch>
       <Route path="/" exact>
-        <Headers />
+        <Headers searchBar={false} />
         <Home />
       </Route>
       <Route path="/category/:slug" exact>
-        <Headers />
+        <Headers searchBar />
         <Category />
       </Route>
       <Route path="/contact" exact>
-        {!auth.session ? <Redirect to="/" /> : (
-          <>
-            <Headers />
-            <Contact />
-          </>
-        )}
+        <Headers searchBar />
+        <Contact />
       </Route>
       <Route path="/DIY/:slug" exact>
-        <Headers />
+        <Headers searchBar />
         <SinglePost />
       </Route>
       <Route path="/about" exact>
-        <Headers />
+        <Headers searchBar />
         <About />
       </Route>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={LogIn} />
+      <Route path="/dashboard" exact isPrivate>
+        <Headers searchBar />
+        <Dashboard />
+      </Route>
     </Switch>
   );
 }

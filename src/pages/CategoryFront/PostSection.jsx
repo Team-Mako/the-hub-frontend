@@ -3,7 +3,7 @@ import { FaHeart, FaEye } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import api from '../../services/api';
 
-function PostSection() {
+const PostSection = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -61,6 +61,6 @@ function PostSection() {
 
     </section>
   );
-}
+};
 
 export default PostSection;
