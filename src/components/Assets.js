@@ -6,9 +6,11 @@ import Logo from '../assets/static/the-hub-logo-color.svg';
 import LogoAlt from '../assets/static/the-hub-logo-alt.svg';
 import LogoNoColor from '../assets/static/the-hub-logo-white.svg';
 import HeroImage from '../assets/static/the-hub-hero-image.jpg';
+import defaultPic from '../assets/static/the-hub-no-pic.svg';
+
+// Images for development side
 import DrinkHero from '../assets/uploads/the-hub-drink-category-cover.jpg';
 import DrinkSmall from '../assets/uploads/the-hub-drink-category-cover-small.jpg';
-// Images for development side
 import PostCover from '../assets/uploads/examplPic4Post.jpg';
 import leonaDavis from '../assets/uploads/leonaDavis.jpg';
 import sampleImg1 from '../assets/uploads/singlePost_1.png';
@@ -32,15 +34,16 @@ export const BalloonImg = Balloon;
 export const BalloonGp = `${Balloon} 720w, ${Balloon2x} 360w`;
 export const LogoRegular = Logo;
 export const HeroImg = HeroImage;
-export const DrinkCover = DrinkHero;
-export const DrinkCoverSml = DrinkSmall;
 export const LogoWhite = LogoNoColor;
+export const NoPic = defaultPic;
 
 export const PostCoverExample = PostCover;
 export const AuthorImgExample = leonaDavis;
 export const SampleImg1 = sampleImg1;
 export const SampleImg2 = sampleImg2;
 export const UserAvatar = avatar;
+export const DrinkCover = DrinkHero;
+export const DrinkCoverSml = DrinkSmall;
 
 export const Julia = julia;
 export const Gustavo = gustavo;

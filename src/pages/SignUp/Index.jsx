@@ -4,7 +4,7 @@ import PageHeader from './PageHeader';
 import api from '../../services/api';
 import Alerts from '../../components/Alerts';
 
-function SingUp() {
+const SignUp = () => {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -54,12 +54,8 @@ function SingUp() {
         password,
       })
         .then((res) => {
-          setName('');
-          setLastName('');
-          setEmail('');
           setPassword('');
           setConfirmPassword('');
-          setPolicy('');
           setAlert(true);
           setAlertMessage('Account created! Sending you to the login page!');
         })
@@ -124,6 +120,6 @@ function SingUp() {
       <Alerts active={alert} message={alertMessage} />
     </main>
   );
-}
+};
 
-export default SingUp;
+export default SignUp;

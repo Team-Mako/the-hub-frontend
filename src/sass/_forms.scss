@@ -94,4 +94,34 @@
       }
     }
   }
+
+  &__search{
+
+    input[type="search"]{
+      width: 250px;
+      border-bottom: 2px solid colors(lightBg);
+      padding: .3rem 0;
+      transition: border-bottom .5s ease;
+
+      &:focus, &:hover{
+        border-bottom: 2px solid colors(second);
+      }
+
+      @include firstBrk{
+        width: 250px;
+      }
+    }
+
+    button{
+      background: transparent;
+      border: 0;
+      color: colors(second);
+      font-size: 1.5rem;
+      transition: color .5s ease;
+
+      &:hover{
+        color: colors(prime);
+      }
+    }
+  }
 }

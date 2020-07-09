@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FaBars, FaTimes, FaSignOutAlt } from 'react-icons/fa';
 import { LogoRegular, UserAvatar } from './Assets';
 
-function MobileHeader() {
+const MobileHeader = () => {
   const [active, setActive] = useState(false);
 
   const toggleMenu = () => {
@@ -42,6 +42,6 @@ function MobileHeader() {
       </div>
     </>
   );
-}
+};
 
 export default MobileHeader;

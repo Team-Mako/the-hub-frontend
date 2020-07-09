@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PageHeader from './PageHeader';
 import Alerts from '../../components/Alerts';
 import api from '../../services/api';
 
-function LogIn(props) {
+const LogIn = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [loading, setLoading] = useState('Sign In');
   const [button, setButton] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -48,6 +49,7 @@ function LogIn(props) {
         setAlertMessage('Welcome!');
         timer();
         setLoading('We found you!');
+        setRedirect(true);
       })
       .catch((error) => {
         setAlert(true);
@@ -60,6 +62,7 @@ function LogIn(props) {
 
   return (
     <main className="sign-up">
+      {redirect ? <Redirect to="/" /> : ''}
       <PageHeader />
       <div className="sign-up__inner">
         <h1>Login to The HUB</h1>
@@ -81,6 +84,6 @@ function LogIn(props) {
       <Alerts active={alert} message={alertMessage} />
     </main>
   );
-}
+};
 
 export default connect()(LogIn);

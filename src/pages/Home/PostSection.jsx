@@ -6,7 +6,7 @@ import MediaQuery from 'react-responsive';
 import api from '../../services/api';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-function PostSection() {
+const PostSection = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -82,6 +82,6 @@ function PostSection() {
 
     </section>
   );
-}
+};
 
 export default PostSection;
