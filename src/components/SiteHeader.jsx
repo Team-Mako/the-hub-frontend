@@ -8,7 +8,6 @@ function Header({ session }) {
     <header className="site-header">
       <div className="site-header__inner">
         <NavLink to="/" className="site-header__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>
-
         <ul className="site-header__menu">
           <li>
             <NavLink to="/category">
