@@ -5,39 +5,37 @@ import { HeroImg } from '../../components/Assets';
 import PostSection from './PostSection';
 import CategoryList from './CategoryList';
 
-function Home() {
-  return (
-    <>
-      <main className="home-main">
-        <div className="home-main__inner">
+const Home = () => (
+  <>
+    <main className="home-main">
+      <div className="home-main__inner">
 
-          <section className="hero-section">
+        <section className="hero-section">
 
-            <div className="hero-section__left">
-              <h1>Discover your <br /> DIY for today</h1>
+          <div className="hero-section__left">
+            <h1>Discover your <br /> DIY for today</h1>
 
-              <p>The HUB is the best place to <br /> find & showcase any project<br /> that <strong>you can do it yourself</strong></p>
+            <p>The HUB is the best place to <br /> find & showcase any project<br /> that <strong>you can do it yourself</strong></p>
 
-              <form>
-                <input type="search" placeholder="What do you want to create?" />
-                <button type="button"><span aria-hidden="true" className="visually-hidden">Search Button</span><FaSearch /></button>
-              </form>
-            </div>
+            <form>
+              <input type="search" placeholder="What do you want to create?" />
+              <button type="button"><span aria-hidden="true" className="visually-hidden">Search Button</span><FaSearch /></button>
+            </form>
+          </div>
 
-            <div className="hero-section__right">
-              <img src={HeroImg} alt="The Hub Hero" />
-            </div>
+          <div className="hero-section__right">
+            <img src={HeroImg} alt="The Hub Hero" />
+          </div>
 
-          </section>
+        </section>
 
-        </div>
-      </main>
+      </div>
+    </main>
 
-      <PostSection />
-      <CategoryList />
-      <CallToAction />
-    </>
-  );
-}
+    <PostSection />
+    <CategoryList />
+    <CallToAction />
+  </>
+);
 
 export default Home;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Alerts(props) {
+const Alers = (props) => {
   const { active, message } = props;
 
   return (
@@ -8,6 +8,6 @@ function Alerts(props) {
       <p>{message}</p>
     </div>
   );
-}
+};
 
-export default Alerts;
+export default Alers;
