@@ -1,0 +1,95 @@
+.dashboard{
+  @include flexGen(row, nowrap, center, flex-start);
+  margin-bottom: 3rem;
+  min-height: 70%;
+
+  &__inner{
+    @include flexGen(row, nowrap, space-between, flex-start);
+    max-width: $max-width;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  &__profile{
+    @include flexGen(column, nowrap, center, center);
+    background: lighten(colors(lightBg), 7%);
+    width: 25%;
+    padding: 2rem;
+
+    a{
+      @extend %btn;
+      border: 2px solid colors(second);
+      color: colors(second);
+      margin-top: 4rem;
+      transition: all .5s ease;
+
+      &:hover{
+        background: colors(second);
+        color: lighten(colors(lightBg), 10%);
+      }
+    }
+
+    img{
+      border-radius: 100%;
+    }
+  }
+
+  &__panel{
+    background: lighten(colors(lightBg), 7%);
+    width: 72%;
+    padding: 2rem;
+
+
+    button{
+      @extend %btn;
+      display: block;
+      color: colors(second);
+      border: 2px solid colors(second);
+      margin: 1rem auto;
+      background: transparent;
+      transition: all .5s ease;
+
+      &:hover{
+        background: colors(second);
+        color: lighten(colors(lightBg), 100%);
+      }
+    }
+  }
+
+  &__nav{
+    width: 100%;
+    font-size: 1.3rem;
+    font-family: $font-bold;
+
+    a{
+      display: inline-block;
+      margin-right: 1.5rem;
+      color: colors(second);
+      padding-bottom: .5rem;
+    }
+
+    .active{
+      color: colors(accent);
+      border-bottom: 3px solid colors(accent);
+    }
+  }
+
+  p{
+    line-height: 1.5;
+
+    &:first-of-type{
+      font-family: $font-bold;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    &:nth-of-type(2){
+      color: colors(second);
+    }
+
+    &:last-of-type{
+      text-align: center;
+      margin-top: 3rem;
+    }
+  }
+}

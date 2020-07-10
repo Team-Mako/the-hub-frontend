@@ -5,6 +5,7 @@ import Balloon2x from '../assets/static/the-hub-balloons@2x.png';
 import Logo from '../assets/static/the-hub-logo-color.svg';
 import LogoAlt from '../assets/static/the-hub-logo-alt.svg';
 import LogoNoColor from '../assets/static/the-hub-logo-white.svg';
+import GreyLogo from '../assets/static/the-hub-logo-grey.svg';
 import HeroImage from '../assets/static/the-hub-hero-image.jpg';
 import defaultPic from '../assets/static/the-hub-no-pic.svg';
 
@@ -35,6 +36,7 @@ export const BalloonGp = `${Balloon} 720w, ${Balloon2x} 360w`;
 export const LogoRegular = Logo;
 export const HeroImg = HeroImage;
 export const LogoWhite = LogoNoColor;
+export const LogoGrey = GreyLogo;
 export const NoPic = defaultPic;
 
 export const PostCoverExample = PostCover;
