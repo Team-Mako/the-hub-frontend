@@ -46,6 +46,7 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity .5s ease;
+    z-index: 9999;
 
     li{
       margin: 0 0 1.5rem 0 !important;
