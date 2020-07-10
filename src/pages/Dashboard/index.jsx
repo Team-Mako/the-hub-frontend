@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import UserPanel from './UserPanel';
+import Insights from './Insights';
 
-const Dashboard = () => {
-  const [test, setTest] = useState(false);
-
-  return (
-    <h1>Hi</h1>
-  );
-};
+const Dashboard = () => (
+  <>
+    <UserPanel />
+    <Insights />
+  </>
+);
 
 export default Dashboard;

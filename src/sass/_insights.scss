@@ -1,0 +1,43 @@
+.insights{
+  padding: 3.5rem;
+  max-width: 844px;
+  max-height: 1310px;
+  background-color: colors(lightBg);
+  @include gridGen(1fr 1fr, 1fr 1.5fr 1fr, 45px, 45px);
+
+  &>div{
+    background-color: white;
+    border-radius: 10px;
+    padding: 21px 28px 34px 28px;
+  }
+
+  h3{
+    font-size: 1.19rem;
+    font-family: $font-bold;
+  }
+
+  &__views{
+    grid-column: 1/-1;
+  }
+
+  &__receieved,
+  &__given{
+    @include flexGen(column, nowrap, space-between, flex-start);
+
+    span{
+      @include flexGen(row, nowrap, space-between, center);
+      width: 100%;
+      padding-top: 2rem;
+    }
+
+    h4{
+      font-size: 1.19rem;
+    }
+
+    p{
+      font-size: 2.44rem;
+      font-family: $font-bold;
+      color: colors(second);
+    }
+  }
+}
