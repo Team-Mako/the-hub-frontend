@@ -39,7 +39,7 @@ const Header = ({ session, searchBar }) => (
         {session ? (
           <>
             <li><NavLink to="/create-project" className="site-header__call-to">Create a Project</NavLink></li>
-            <li><NavLink to="/dashboard" className="site-header__avatar"><img src={NoPic} alt="User Avatar" /></NavLink></li>
+            <li><NavLink to="/my-projects" className="site-header__avatar"><img src={NoPic} alt="User Avatar" /></NavLink></li>
           </>
         )
           : (

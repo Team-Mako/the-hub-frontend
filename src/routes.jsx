@@ -9,7 +9,8 @@ import SinglePost from './pages/SinglePost';
 import About from './pages/About';
 import Headers from './components/Headers';
 import Contact from './pages/Contact';
-import Dashboard from './pages/Dashboard';
+import MyProjects from './pages/Dashboard/MyProjects';
+import Favourites from './pages/Dashboard/Favourites';
 import api from './services/api';
 
 function Routes({ auth }) {
@@ -37,12 +38,16 @@ function Routes({ auth }) {
         <Headers searchBar />
         <About />
       </Route>
+      <Route path="/my-projects" exact isPrivate>
+        <Headers searchBar />
+        <MyProjects />
+      </Route>
+      <Route path="/favourites" exact isPrivate>
+        <Headers searchBar />
+        <Favourites />
+      </Route>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={LogIn} />
-      <Route path="/dashboard" exact isPrivate>
-        <Headers searchBar />
-        <Dashboard />
-      </Route>
     </Switch>
   );
 }

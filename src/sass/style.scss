@@ -34,6 +34,8 @@
 @import 'about';
 @import 'alerts';
 @import 'contact';
+@import 'dashboard';
+@import 'my-projects';
 
 // Globals
 *{
@@ -124,6 +126,41 @@ button{
         font-size: .7rem !important;
         padding: .7rem !important;
       }
+    }
+  }
+}
+
+.no-project{
+  @include flexGen(column, nowrap, center, center);
+  width: 100%;
+  padding: 4rem 0;
+
+  img{
+    width: 90px;
+  }
+
+  h3{
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+  }
+
+  p{
+    font-family: $font-regular !important;
+    margin-top: 2rem !important;
+    width: 30%;
+  }
+
+  a{
+    @extend %btn;
+    margin-top: 3rem;
+    border: 2px solid colors(second);
+    color: colors(second);
+    transition: all;
+
+    &:hover{
+      background: colors(second);
+      color: lighten(colors(lightBg), 100%);
     }
   }
 }
