@@ -16,7 +16,6 @@ const Dashboard = ({ children }) => (
       <section className="dashboard__panel">
         <nav className="dashboard__nav">
           <NavLink to="/my-projects">My Projects</NavLink>
-          <NavLink to="/create-project">New Project</NavLink>
           <NavLink to="/favourites">Favourites</NavLink>
           <NavLink to="/insights">Insights</NavLink>
         </nav>
