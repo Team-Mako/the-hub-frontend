@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-dropdown": "^1.7.0",
+    "react-dropzone": "^11.0.1",
     "react-google-charts": "^3.0.15",
     "react-icons": "^3.10.0",
     "react-onclickoutside": "^6.9.0",
