@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import PageHeader from './PageHeader';
 import api from '../../services/api';
 import Alerts from '../../components/Alerts';
@@ -13,6 +13,7 @@ const SignUp = () => {
   const [policy, setPolicy] = useState(false);
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -44,6 +45,12 @@ const SignUp = () => {
     }, 5100);
   };
 
+  const redirectTimer = () => {
+    setTimeout(() => {
+      setRedirect(true);
+    }, 3500);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
@@ -58,6 +65,7 @@ const SignUp = () => {
           setConfirmPassword('');
           setAlert(true);
           setAlertMessage('Account created! Sending you to the login page!');
+          redirectTimer();
         })
         .catch((error) => {
           setAlert(true);
@@ -118,6 +126,7 @@ const SignUp = () => {
         </form>
       </div>
       <Alerts active={alert} message={alertMessage} />
+      {redirect ? <Redirect to="/login" /> : ''}
     </main>
   );
 };

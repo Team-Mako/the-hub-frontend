@@ -11,6 +11,8 @@ import Headers from './components/Headers';
 import Contact from './pages/Contact';
 import MyProjects from './pages/Dashboard/MyProjects';
 import Favourites from './pages/Dashboard/Favourites';
+import Insights from './pages/Dashboard/Insights';
+import CreateProject from './pages/Dashboard/CreateProject';
 import api from './services/api';
 
 function Routes({ auth }) {
@@ -45,6 +47,14 @@ function Routes({ auth }) {
       <Route path="/favourites" exact isPrivate>
         <Headers searchBar />
         <Favourites />
+      </Route>
+      <Route path="/insights" exact isPrivate>
+        <Headers searchBar />
+        <Insights />
+      </Route>
+      <Route path="/create-project" exact isPrivate>
+        <Headers searchBar />
+        <CreateProject />
       </Route>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" exact component={LogIn} />

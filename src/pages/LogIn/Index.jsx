@@ -28,6 +28,12 @@ const LogIn = (props) => {
     }, 5100);
   };
 
+  const redirectTimer = () => {
+    setTimeout(() => {
+      setRedirect(true);
+    }, 2000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading('Finding you...');
@@ -49,7 +55,7 @@ const LogIn = (props) => {
         setAlertMessage('Welcome!');
         timer();
         setLoading('We found you!');
-        setRedirect(true);
+        redirectTimer();
       })
       .catch((error) => {
         setAlert(true);
@@ -62,7 +68,7 @@ const LogIn = (props) => {
 
   return (
     <main className="sign-up">
-      {redirect ? <Redirect to="/" /> : ''}
+      {redirect ? <Redirect to="/my-projects" /> : ''}
       <PageHeader />
       <div className="sign-up__inner">
         <h1>Login to The HUB</h1>

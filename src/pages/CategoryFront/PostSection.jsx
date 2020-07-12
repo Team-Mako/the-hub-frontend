@@ -5,12 +5,20 @@ import api from '../../services/api';
 
 const PostSection = () => {
   const [posts, setPosts] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     async function getPosts() {
       const response = await api.get('/list-post');
       setPosts(response.data);
     }
+
+    async function getTotal() {
+      const response = await api.get('/count-post');
+      setTotal(response.data[0].total);
+    }
+
+    getTotal();
     getPosts();
   }, []);
 
@@ -36,13 +44,13 @@ const PostSection = () => {
         <div className="post-section__list">
           {posts.map((post) => (
             <NavLink key={post.post_id} to="/" className="post-section__box">
-              <img className="post-section__cover" src={require(`../../assets/uploads/${post.post_cover}`)} alt="Img of a drink" />
+              <img className="post-section__cover" src={require(`../../assets/uploads/${post.post_cover}`)} alt={post.post_title} />
               <h3>{post.post_title}</h3>
 
               <div className="post-section__details">
 
                 <div className="post-section__author">
-                  <img src={require(`../../assets/uploads/${post.user_avatar}`)} alt="Img of the post creator" />
+                  <img src={require(`../../assets/uploads/${post.user_avatar}`)} alt={post.user_name} />
                   <p>{post.user_name}</p>
                 </div>
 
@@ -57,7 +65,7 @@ const PostSection = () => {
         </div>
       </div>
 
-      <button type="button">Load More</button>
+      {total > 9 ? <button type="button">Load More</button> : ''}
 
     </section>
   );
