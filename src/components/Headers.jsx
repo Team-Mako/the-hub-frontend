@@ -7,10 +7,10 @@ import MobileHeader from './MobileHeader';
 function Headers({ auth, searchBar }) {
   return (
     <>
-      <MediaQuery maxDeviceWidth={420}>
+      <MediaQuery maxDeviceWidth={700}>
         <MobileHeader session={auth.session} />
       </MediaQuery>
-      <MediaQuery minDeviceWidth={420}>
+      <MediaQuery minDeviceWidth={701}>
         <SiteHeader session={auth.session} searchBar={searchBar} />
       </MediaQuery>
     </>
