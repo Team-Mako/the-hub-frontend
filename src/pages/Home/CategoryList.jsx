@@ -17,7 +17,10 @@ const CategoryList = () => {
   return (
     <section className="category-list">
       <div className="category-list__inner">
-        <h2 className="home-main__title">Browse DIY projects<br /> <span>by category</span></h2>
+        <div className="category-list__heading">
+          <h2 className="home-main__title">Browse DIY projects<br /> <span>by category</span></h2>
+          <p>Build your own guitar, learn how to cook a new dish, gardening… <br />We have a lot of cool projects for you to explore.</p>
+        </div>
 
         <div className="category-list__list">
           {categories.map((category) => (

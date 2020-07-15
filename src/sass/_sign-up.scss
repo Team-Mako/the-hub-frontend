@@ -10,13 +10,18 @@
     @include flexGen(column, nowrap, center, center);
     max-width: $max-width;
     width: 100%;
+    padding: 1rem;
   }
 
   &__header{
     @include flexGen(row, nowrap, center, center);
     width:100%;
-    padding: 3rem;
+    padding: 3rem 1rem;
     margin-bottom: 6rem;
+
+    @include thirdBrk {
+      padding: 3rem;
+    }
   }
 
   &__menu-outter{
@@ -26,7 +31,11 @@
   }
 
   &__logo{
-    width: 5%;
+    width: 50px;
+
+    @include thirdBrk {
+      width: 100px;
+    }
 
     img{
       width: 100%;
@@ -34,10 +43,19 @@
   }
 
   ul{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(column, nowrap, space-between, center);
+
+    @include firstBrk {
+      @include flexGen(row, nowrap, space-between, center);
+    }
 
     li:first-of-type{
-      margin-right: 2rem;
+      padding-bottom: 1.5rem;
+
+      @include firstBrk {
+        margin-right: 2rem;
+        padding-bottom: 0;
+      }
     }
   }
 

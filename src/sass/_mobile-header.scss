@@ -1,7 +1,6 @@
 .mobile-header{
   @include flexGen(row, nowrap, center, center);
   padding: 1rem;
-  margin-bottom: 2rem;
 
   &__inner{
     @include flexGen(row, nowrap, space-between, center);
@@ -9,7 +8,7 @@
   }
 
   &__logo{
-    width: 100px;
+    width: 70px;
 
     img{
       width: 100%;
@@ -19,7 +18,6 @@
   &__btn{
     font-size: 2.5rem;
     color: colors(prime);
-    margin-right: 1rem;
     background: transparent;
     border: 0;
   }

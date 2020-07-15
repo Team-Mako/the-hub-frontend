@@ -10,6 +10,17 @@
     padding: 2rem 0;
   }
 
+  &__heading{
+    @include flexGen(row, nowrap, flex-start, center);
+    width: 100%;
+
+    p{
+      margin: 0 2rem 2rem 2rem;
+      font-size: 1.1875rem;
+      line-height: 2rem;
+    }
+  }
+
   &__list{
     @include flexGen(row, wrap, flex-start, flex-start);
     width: 100%;
