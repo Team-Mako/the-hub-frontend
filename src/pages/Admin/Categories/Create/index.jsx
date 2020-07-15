@@ -39,13 +39,12 @@ const CreateCategory = () => {
         setAlertMessage(res.data.message);
         timer();
         setCover('');
-
-        console.log(res);
+        setSubtitle('');
+        setTitle('');
       })
       .catch((error) => {
         setAlert(true);
         setAlertMessage(error.response.data.sqlMessage);
-        console.log(error);
         timer();
       });
   };
