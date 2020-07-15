@@ -1,4 +1,6 @@
-export default function auth(state = { session: false }, action) {
+import api from '../../services/api';
+
+export default function auth(state = {}, action) {
   let login;
   switch (action.type) {
     case 'USER_LOGIN':
@@ -6,6 +8,14 @@ export default function auth(state = { session: false }, action) {
         token: action.payload.token,
         session: true,
       };
+      api.defaults.headers.Authorization = `Bearer ${action.payload.token}`;
+      return login;
+    case 'ADMIN_LOGIN':
+      login = {
+        token: action.payload.token,
+        adminSession: true,
+      };
+      api.defaults.headers.Authorization = `Bearer ${action.payload.token}`;
       return login;
     default:
       return state;

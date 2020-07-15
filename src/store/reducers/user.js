@@ -8,6 +8,13 @@ export default function user(state = {}, action) {
         user_email: action.payload.user.user_email,
       };
       return login;
+    case 'ADMIN_LOGIN':
+      login = {
+        admin_id: action.payload.admin.admin_id,
+        admin_name: action.payload.admin.admin_name,
+        admin_email: action.payload.admin.admin_email,
+      };
+      return login;
     default:
       return state;
   }
