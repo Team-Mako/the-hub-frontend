@@ -15,6 +15,7 @@
       @include flexGen(column, nowrap, center, flex-start);
       order: 0;
       width: 50%;
+      padding-right: 0;
     }
 
     h1{
@@ -23,8 +24,15 @@
       line-height: 1.2;
 
       @include firstBrk{
-        font-size: 4rem;
         margin-bottom: 2rem;
+      }
+
+      @include secondBrk{
+        font-size: 3.5rem;
+      }
+
+      @include thirdBrk{
+        font-size: 4rem;
       }
     }
 
@@ -33,9 +41,17 @@
 
       @include firstBrk{
         display: block;
-        font-size: 1.4rem;
+        font-size: 1rem;
         line-height: 1.5;
         margin-bottom: 2rem;
+      }
+
+      @include secondBrk{
+        font-size: 1.2rem;
+      }
+
+      @include thirdBrk{
+        font-size: 1.4rem;
       }
     }
 

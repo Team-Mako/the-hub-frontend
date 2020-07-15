@@ -47,7 +47,8 @@
       margin-bottom: 2rem;
 
       &:first-of-type{
-        margin-right: 2.5rem;
+        margin-right: auto;
+        margin-left: 0;
       }
 
       &:first-of-type, &:nth-of-type(2){
@@ -96,19 +97,30 @@
   }
 
   &__search{
+    @include flexGen(row, nowrap, center, flex-end);
+
+    @include firstBrk{
+      position: absolute;
+      bottom: -1.5rem;
+      right: 0rem;
+      margin-left: 0 !important;
+      min-width: 250px;
+    }
+
+    @include secondBrk{
+      position: initial;
+      padding: 0 0 0 2rem;
+    }
 
     input[type="search"]{
       width: 250px;
+      flex-grow: 2;
       border-bottom: 2px solid colors(lightBg);
       padding: .3rem 0;
       transition: border-bottom .5s ease;
 
       &:focus, &:hover{
         border-bottom: 2px solid colors(second);
-      }
-
-      @include firstBrk{
-        width: 250px;
       }
     }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaLinkedin, FaGithub, FaBehance } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaBehance, FaHome } from 'react-icons/fa';
 import CallToAction from '../../components/CallToAction';
 import api from '../../services/api';
 
@@ -43,7 +43,9 @@ class About extends Component {
             <div className="about__leftDiv">
               <span>
                 <h1>Meet the Team</h1>
-                <p>The hub is brought to you by the 8 creative designers + passionate developers in Vancouver. </p>
+                <p>Collaboration is our middle name.<br />We are a group of different career background,
+                  life-long learners ready to solve any problem.
+                </p>
               </span>
             </div>
 
@@ -61,7 +63,9 @@ class About extends Component {
                   <span>
                     <a href={member.linkedIn} aria-label="Link to linkedIn"><FaLinkedin /></a>
 
-                    { member.behance ? <a href={member.behance} aria-label="Link to behance"><FaBehance /></a> : <a href={member.github} aria-label="Link to github"><FaGithub /></a>}
+                    { member.behance ? <a href={member.behance} aria-label="Link to behance"><FaBehance /></a> : ''}
+                    { member.homepage ? <a href={member.homepage} aria-label="Link to homepage"><FaHome /></a> : ''}
+                    { member.github ? <a href={member.github} aria-label="Link to github"><FaGithub /></a> : ''}
                   </span>
                 </div>
               ))}

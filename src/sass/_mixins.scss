@@ -25,9 +25,9 @@
 }
 
 // Media Queries
-$firstBrk: 700px;
-$secondBrk: 0;
-$thirdBrk: 0;
+$firstBrk: 725px;
+$secondBrk: 1000px;
+$thirdBrk: 1180px;
 
 @mixin firstBrk{
   @media (min-width: $firstBrk) {
