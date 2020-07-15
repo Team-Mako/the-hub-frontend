@@ -439,8 +439,9 @@
       "fullName": "Julia Fransece",
       "title": "PM / Designer",
       "facePic": "Julia.png",
-      "linkedIn": "https://www.linkedin.com/",
-      "behance": "https://www.behance.net/",
+      "linkedIn": "https://www.linkedin.com/in/maria-julia-francese-ba7210102/",
+      "behance": "",
+      "homepage": "",
       "github": "",
       "bio":"UX/UI designer with background in public relations. Great eye for details, very organized, and hard worker."
     },
@@ -449,8 +450,9 @@
       "fullName": "Gustavo Palladini",
       "title": "Lead Designer",
       "facePic": "Gustavo.png",
-      "linkedIn": "https://www.linkedin.com/",
-      "behance": "https://www.behance.net/",
+      "linkedIn": "https://www.linkedin.com/in/gpalladini/",
+      "behance": "",
+      "homepage": "https://gp.art.br/",
       "github": "",
       "bio": "Art Director / Graphic Designer from Brazil, with over 12 years of experience. I'm contributing to this project by creating solutions for branding, UX, and UI."
     },
@@ -459,8 +461,9 @@
       "fullName": "Marina Lemos",
       "title": "Designer",
       "facePic": "Marina.png",
-      "linkedIn": "https://www.linkedin.com/",
-      "behance": "https://www.behance.net/",
+      "linkedIn": "https://www.linkedin.com/in/marina-lemos-ux-ui/",
+      "behance": "https://www.behance.net/lemos_marina",
+      "homepage": "",
       "github": "",
       "bio": "UX/UI designer with 3 years of experience creating visual solutions for web and mobile applications. I have an editorial design background with many projects for digital and printed media."
     },
@@ -469,8 +472,9 @@
       "fullName": "Yuvraj Singh",
       "title": "Designer",
       "facePic": "Yuvraj.png",
-      "linkedIn": "https://www.linkedin.com/",
-      "behance": "https://www.behance.net/",
+      "linkedIn": "",
+      "behance": "",
+      "homepage": "",
       "github": "",
       "bio": "UX/UI designer with background in Engineering Computer Science. Actively helping the team in the UX/UI of the project while studying the market for it."
     },
@@ -479,8 +483,9 @@
       "fullName": "Mandeep Kaur",
       "title": "Designer",
       "facePic": "Mandeep.png",
-      "linkedIn": "https://www.linkedin.com/",
-      "behance": "https://www.behance.net/",
+      "linkedIn": "https://www.linkedin.com/in/mandeep-kaur-2762a0196/",
+      "behance": "",
+      "homepage": "",
       "github": "",
       "bio": "UX/UI Designer with a background in Graduation in Computer Science. I am working on the technical aspects of design from the user end."
     },
@@ -489,9 +494,10 @@
       "fullName": "Leonard Gutz",
       "title": "Lead Developer",
       "facePic": "Leonart.png",
-      "linkedIn": "https://www.linkedin.com/",
+      "linkedIn": "https://www.linkedin.com/in/leonart-gutz-64a4b715a/",
       "behance": "",
-      "github": "https://github.com/",
+      "homepage": "",
+      "github": "https://github.com/leonartgutz",
       "bio": "Full Stack Developer with background in Accounting. Lead developer responsible for managing the developer team."
     },
     {
@@ -499,9 +505,10 @@
       "fullName": "Liz Britto",
       "title": "Developer",
       "facePic": "Liz.png",
-      "linkedIn": "https://www.linkedin.com/",
+      "linkedIn": "https://www.linkedin.com/in/lizcostafernandes/",
       "behance": "",
-      "github": "https://github.com/",
+      "homepage": "",
+      "github": "https://github.com/lizbrito",
       "bio": "Front End Developer with background in Architecture and Planning. My goal is to improve my knowledge in development area always using problem-solving skill."
     },
     {
@@ -509,9 +516,10 @@
       "fullName": "Taichi Murai",
       "title": "Developer",
       "facePic": "Taichi.png",
-      "linkedIn": "https://www.linkedin.com/",
+      "linkedIn": "https://www.linkedin.com/in/taich-murai-770731184/",
       "behance": "",
-      "github": "https://github.com/",
+      "homepage": "",
+      "github": "https://github.com/epmt6528",
       "bio": "Front End Developer with background in Biochemical Engineering. With agile project experience developing Web & Mobile app, and skills in JavaScript ES6, Node.js and React.js."
     }
   ]

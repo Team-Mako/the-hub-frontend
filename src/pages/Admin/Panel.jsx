@@ -10,6 +10,7 @@ const Panel = ({ children }) => (
       <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/admin/categories">Categories</NavLink>
+        <NavLink to="/admin/materials">Materials</NavLink>
         <NavLink to="/">Posts</NavLink>
         <NavLink to="/">Users</NavLink>
       </nav>

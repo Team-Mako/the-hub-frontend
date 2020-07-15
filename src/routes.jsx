@@ -17,7 +17,9 @@ import CreateProject from './pages/Dashboard/CreateProject';
 import AdminLogin from './pages/Admin/Login';
 import AdminHome from './pages/Admin/Home';
 import AdminCategories from './pages/Admin/Categories';
+import AdminMaterials from './pages/Admin/Materials';
 import AdminCreateCategory from './pages/Admin/Categories/Create';
+import AdminCreateMaterial from './pages/Admin/Materials/Create';
 import api from './services/api';
 
 function Routes({ auth }) {
@@ -82,6 +84,8 @@ function Routes({ auth }) {
       <Route path="/admin/home" exact isAdmin component={AdminHome} />
       <Route path="/admin/categories" exact isAdmin component={AdminCategories} />
       <Route path="/admin/create-category" exact isAdmin component={AdminCreateCategory} />
+      <Route path="/admin/materials" exact isAdmin component={AdminMaterials} />
+      <Route path="/admin/create-material" exact isAdmin component={AdminCreateMaterial} />
     </Switch>
   );
 }

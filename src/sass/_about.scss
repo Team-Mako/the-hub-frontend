@@ -1,17 +1,31 @@
 .about{
   width: 100%;
-  padding: 2rem 2rem 10rem 2rem;
+  padding: 1rem 1rem 10rem 1rem;
+
+  @include secondBrk {
+    padding: 2rem 2rem 10rem 2rem;
+  }
+
 
   &__innerDiv{
-    display: grid;
-    grid-template-columns: 40% 60%;
+    @include flexGen(column, nowrap, center, center);
+
+    @include secondBrk {
+      display: grid !important;
+      grid-template-columns: 40% 60%;
+    }
   }
 
   h1{
     font-family: $font-bold;
     color: colors(second);
-    font-size: 2.5rem;
-    margin: 3rem 0;
+    font-size: 1.75rem;
+    margin: 1rem 0;
+
+    @include firstBrk {
+      font-size: 2.5rem;
+      margin: 3rem 0;
+    }
   }
 
   &__leftDiv{
@@ -26,13 +40,22 @@
     }
 
     p{
-      font-size: 1.25rem;
-      line-height: 30px;
+      font-size: 1rem;
+      line-height: 22px;
+
+      @include firstBrk {
+        font-size: 1.25rem;
+        line-height: 30px;
+      }
     }
   }
 
   &__membersDiv{
-    @include gridGen(repeat(3, 1fr), repeat(3, 1fr), 1rem, 1.5rem);
+    @include gridGen(repeat(2, 1fr), repeat(4, 1fr), 1rem, 1.5rem);
+
+    @include firstBrk {
+      @include gridGen(repeat(3, 1fr), repeat(3, 1fr), 1rem, 1.5rem);
+    }
     max-width: 46rem;
     margin: 0 auto;
   }
@@ -69,6 +92,7 @@
   }
 
   &__logo{
+    display: none;
     background: url("../assets/static/the-hub-logo-color.svg") no-repeat scroll center;
     background-size: 9.3rem;
     width: 100%;
@@ -78,7 +102,9 @@
     grid-column: 2/3;
     grid-row: 2/3;
 
-    @include flexGen(column, nowrap, center, center);
+    @include firstBrk {
+      @include flexGen(column, nowrap, center, center);
+    }
 
     .about__bio{
       background-color: rgba(white, .9);

@@ -1,7 +1,14 @@
 .comments{
-  width: 768px;
   @include flexGen(column, nowrap, flex-start, flex-start);
+
+  max-width: 768px;
   margin-bottom: 7.5rem;
+  padding: 2rem;
+  align-self: flex-start;
+
+  @include secondBrk{
+    padding: 0;
+  }
 
   &__form{
     width: 100%;
@@ -16,12 +23,15 @@
     textarea{
       margin-top: 1.2rem;
       padding: 26px 30px;
-      width: 523px;
+      width: 250px;
       height: 120px;
       border-radius: 10px;
       border-color: #ADADAD;
-
       resize: none;
+
+      @include firstBrk{
+        width: 523px;
+      }
     }
   }
 
@@ -50,9 +60,14 @@
     }
 
     p{
-      font-size: 1.1875rem;
+      font-size: .75rem;
       margin-top: 1.68rem;
-      line-height: 2rem;
+      line-height: 1.25rem;
+
+      @include secondBrk{
+        font-size: 1.1875rem;
+        line-height: 2rem;
+      }
     }
   }
 }

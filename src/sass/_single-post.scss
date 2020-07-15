@@ -1,38 +1,66 @@
 .single-post{
   @include flexGen(column, nowrap, center, center);
+  max-width: 768px;
+  margin: 0 auto;
 
   &__inner{
     max-width: 768px;
-    margin: 3.125rem 0;
+    margin: 3.125rem 2rem;
+
+    @include secondBrk{
+      margin: 3.125rem 0;
+    }
   }
 
   // POST TITLE
   &__title{
-    @include flexGen(row, nowrap, space-between, center);
+    @include flexGen(column, nowrap, space-between, center);
+
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-between, center);
+    }
 
     h1{
       font-family: $font-bold;
       color: colors(second);
-      font-size: 2rem;
+      font-size: 1.5rem;
+
+      @include firstBrk{
+        font-size: 2rem;
+      }
     }
 
     svg{
       width: 28px;
       height: 28px;
       color: #33333380;
+      align-self: flex-end;
+      margin-top: 1rem;
+
+      @include firstBrk{
+        margin: 0;
+      }
     }
   }
 
 
   // AUTHOR INFO
   &__details{
-    @include flexGen(row, nowrap, flex-start, center);
+    @include flexGen(column, nowrap, flex-start, center);
     margin: 1rem 0 3rem 0;
+
+    @include firstBrk{
+      @include flexGen(row, nowrap, space-between, center);
+    }
   }
 
   &__author{
     @include flexGen(row, nowrap, space-between, center);
-    margin-right: 8rem;
+    margin: 0 0 2rem 0;
+
+    @include firstBrk{
+      margin: 0 8rem 0 0;
+    }
 
 
     img{
@@ -46,6 +74,9 @@
     p{
       font-family: $font-bold;
       font-size: 1rem;
+      width: 100%;
+
+
     }
   }
 
@@ -63,8 +94,6 @@
   // POST COVER IMG
   &__cover{
     border-radius: 5px;
-    width: 768px;
-    height: 431px;
     object-fit: cover;
   }
 

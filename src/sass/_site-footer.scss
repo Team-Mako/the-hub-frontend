@@ -2,7 +2,7 @@
   @include flexGen(row, nowrap, center, center);
   @include bgGrad(180deg, 1);
 
-  @include firstBrk{
+  @include secondBrk {
     background: colors(lightBg);
   }
 
@@ -12,16 +12,17 @@
     width: 100%;
     padding: 3rem 2rem;
 
-    @include firstBrk{
+    @include secondBrk {
       @include flexGen(row, nowrap, space-between, center);
     }
   }
 
   &__logo{
     width: 30% !important;
+    max-width: 115px;
     margin-bottom: 2rem;
 
-    @include firstBrk{
+    @include secondBrk {
       width: 5% !important;
       margin-bottom: 0 !important;
     }
@@ -38,7 +39,7 @@
     order: 1;
     margin-top: 1rem;
 
-    @include firstBrk{
+    @include secondBrk{
       @include flexGen(row, nowrap, space-between, center);
       color: colors(darkBg);
       margin-top: 0;
@@ -52,7 +53,7 @@
     a{
       color: lighten(colors(lightBg), 100%);
 
-      @include firstBrk{
+      @include secondBrk{
         color: colors(darkBg);
       }
     }
@@ -61,7 +62,7 @@
   ul{
     @include flexGen(column, nowrap, center, center);
 
-    @include firstBrk{
+    @include secondBrk{
       @include flexGen(row, nowrap, space-evenly, center);
     }
   }
@@ -69,7 +70,7 @@
   li{
     margin: .4rem 0;
 
-    @include firstBrk{
+    @include secondBrk{
       margin: 0 1rem;
     }
   }
@@ -79,7 +80,7 @@
     color: lighten(colors(lightBg), 100%);
     transition: color .5s ease;
 
-    @include firstBrk{
+    @include secondBrk{
       color: colors(darkBg);
     }
 
