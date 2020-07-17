@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Headers from './components/Headers';
 import SiteFooter from './components/SiteFooter';
 import Home from './pages/Home';
@@ -13,6 +12,7 @@ import Contact from './pages/Contact';
 import MyProjects from './pages/Dashboard/MyProjects';
 import Favourites from './pages/Dashboard/Favourites';
 import Insights from './pages/Dashboard/Insights';
+import EditProfile from './pages/Dashboard/EditProfile';
 import CreateProject from './pages/Dashboard/CreateProject';
 import AdminLogin from './pages/Admin/Login';
 import AdminHome from './pages/Admin/Home';
@@ -20,11 +20,8 @@ import AdminCategories from './pages/Admin/Categories';
 import AdminMaterials from './pages/Admin/Materials';
 import AdminCreateCategory from './pages/Admin/Categories/Create';
 import AdminCreateMaterial from './pages/Admin/Materials/Create';
-import api from './services/api';
 
-function Routes({ auth }) {
-  api.defaults.headers.Authorization = `Bearer ${auth.token}`;
-
+function Routes() {
   return (
     <Switch>
       <Route path="/" exact>
@@ -52,6 +49,14 @@ function Routes({ auth }) {
         <About />
         <SiteFooter />
       </Route>
+      <Route path="/signup" exact>
+        <SignUp />
+        <SiteFooter />
+      </Route>
+      <Route path="/signin" exact>
+        <LogIn />
+        <SiteFooter />
+      </Route>
       <Route path="/my-projects" exact isPrivate>
         <Headers searchBar />
         <MyProjects />
@@ -72,12 +77,9 @@ function Routes({ auth }) {
         <CreateProject />
         <SiteFooter />
       </Route>
-      <Route path="/signup" exact>
-        <SignUp />
-        <SiteFooter />
-      </Route>
-      <Route path="/signin" exact>
-        <LogIn />
+      <Route path="/edit-profile" exact isPrivate>
+        <Headers searchBar />
+        <EditProfile />
         <SiteFooter />
       </Route>
       <Route path="/admin" exact component={AdminLogin} />
@@ -90,6 +92,4 @@ function Routes({ auth }) {
   );
 }
 
-export default connect((state) => ({
-  auth: state.auth,
-}))(Routes);
+export default Routes;

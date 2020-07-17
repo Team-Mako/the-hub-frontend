@@ -54,7 +54,7 @@ const PostSection = () => {
           </div>
         </MediaQuery>
 
-        <MediaQuery minDeviceWidth={420}>
+        <MediaQuery minDeviceWidth={421}>
           <div className="post-section__list">
             { posts.map((post) => (
               <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">

@@ -47,7 +47,7 @@ const Insights = ({ user }) => {
   }, [user.user_id]);
 
   return (
-    <Dashboard>
+    <Dashboard nav>
       <div className="insights">
 
         <div className="insights__box">

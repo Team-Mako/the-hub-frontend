@@ -80,6 +80,9 @@
       padding: 2rem;
     }
 
+    &--alt{
+      padding: 2rem;
+    }
 
     button{
       @extend %btn;

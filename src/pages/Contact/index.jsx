@@ -18,27 +18,34 @@ const Contact = () => {
   };
 
   return (
-    <div className="out-contactForm">
-      <p>We'd Love To Hear From You.</p>
-      <form id="contact-form">
-        <div className="form-group">
-          <label htmlFor="name">Full Name</label>
-          <input type="text" className="form-control" value={name} onChange={handleName} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email</label>
-          <input type="email" className="form-control" value={email} onChange={handleEmail} />
-        </div>
-        <div className="form-group">
-          <label htmlFor="topic">Choose a Topic</label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea className="form-control" rows="5" value={message} onChange={handleMessage} />
-        </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-    </div>
+    <form className="contact-form">
+      <h2>We'd Love To Hear From You</h2>
+      <div className="form-group">
+        <label>
+          <p>Full Name</p>
+          <input type="text" className="form-control" placeholder="e.g. Jane Doe" value={name} onChange={handleName} />
+        </label>
+      </div>
+      <div className="form-group">
+        <label>
+          <p>Email</p>
+          <input type="email" className="form-control" placeholder="e.g. janedoe@gmail.com" value={email} onChange={handleEmail} />
+        </label>
+      </div>
+      <div className="form-group">
+        <label>
+          <p>Subject</p>
+          <input type="email" className="form-control" placeholder="e.g. Size of images" value={email} onChange={handleEmail} />
+        </label>
+      </div>
+      <div className="form-group">
+        <label>
+          <p>Message</p>
+          <textarea className="form-control" rows="5" placeholder="e.g. Write your message here. We will be happy to receive your message!" value={message} onChange={handleMessage} />
+        </label>
+      </div>
+      <button type="submit" className="btn btn-primary">Submit</button>
+    </form>
   );
 };
 

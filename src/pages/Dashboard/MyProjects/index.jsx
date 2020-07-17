@@ -26,7 +26,7 @@ const MyProjects = () => {
   }, []);
 
   return (
-    <Dashboard>
+    <Dashboard nav>
       {total === 0 ? <NoProject /> : (
         <>
           <div className="my-projects">

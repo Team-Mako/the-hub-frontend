@@ -1,106 +1,73 @@
-.outterContactForm{
-  @include flexGen(column, nowrap, flex-start, center);
-  background: url("../assets/static/the-hub-signin-bg.png") no-repeat center;
-  background-size: cover;
-  color: white;
-  min-height: 100%;
-  padding-bottom: 7rem;
+.contact-form{
+  @include flexGen(column, wrap, center, flex-start);
+  margin: auto;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  min-height: calc(100% - 324px);
+  font-family: $font-medium;
+  color: colors(accent);
 
-  &__header{
-    @include flexGen(row, nowrap, center, center);
-    width:100%;
-    padding: 3rem;
-    margin-bottom: 6rem;
+  h2 {
+    padding-top: 30px;
+    font-size: 1.4rem;
+    font-family: $font-bold;
+    margin: 1rem 0;
   }
 
-  &__menu-outter{
-    @include flexGen(row, nowrap, space-between, center);
-    max-width: $max-width;
+  .form-group {
     width: 100%;
   }
 
-  &__logo{
-    width: 5%;
+  label {
+    display: block;
+    padding: 0;
+    margin: 1rem 0;
 
-    img{
-      width: 100%;
+    p{
+      margin-bottom: 1rem;
     }
   }
 
-  ul{
-    @include flexGen(row, nowrap, space-between, center);
-
-    li:first-of-type{
-      margin-right: 2rem;
-    }
-  }
-
-  h2{
-    font-family: $font-bold;
-    font-size: 1.75rem;
-    margin-bottom: 2.5rem;
-  }
-
-  label{
-    font-family: $font-bold;
+  input {
     width: 100%;
-    margin-bottom: 2rem;
-
-    &:first-of-type{
-      margin-right: 2.5rem;
-    }
-
-    &:last-of-type{
-      @include flexGen(row, nowrap, space-between, center);
-
-      p{
-        line-height: 1.5;
-      }
-
-      a{
-        color: colors(second);
-
-        &:hover{
-          text-decoration: underline;
-        }
-      }
-    }
+    font-size: 16px;
+    padding: 1rem;
+    background-color: colors(lightBg);
+    border: none;
+    border-radius: 8px;
   }
 
-  form{
-    @include flexGen(row, wrap, flex-end, center);
-    max-width: 400px;
-
-    input{
-
-      &[type="text"], &[type="email"]{
-        border-style: none;
-        border-radius: 10px;
-        height: 3.5rem;
-        line-height: 3.5rem;
-        padding-left: 1rem;
-        margin: .5rem 0;
-        width: 100%;
-      }
-
-      &[type="checkbox"]{
-        width: 40px;
-        height: 40px;
-        margin-right: 1rem;
-      }
-    }
+  textarea{
+    background-color: colors(lightBg);
+    border: none;
+    width: 100%;
+    min-height: 160px;
+    border-radius: 8px;
+    background-clip: padding-box;
+    font-family: $font-regular;
+    font-size: 16px;
+    padding: 1rem;
+    line-height: 1.5;
   }
 
-  button{
+  .btn {
     @extend %btn;
     background: colors(second);
     border: 0;
     color: lighten(colors(lightBg), 100%);
     transition: background .5s ease;
     font-family: $font-bold;
+    margin: 2rem 0;
+    margin-left: auto;
 
     &:hover{
       background: colors(prime);
+    }
+
+    &:disabled{
+      opacity: .5;
+      cursor: not-allowed;
+      background: colors(second);
     }
   }
 }
