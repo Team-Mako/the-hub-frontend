@@ -9,7 +9,7 @@ const PageHeader = () => (
 
       <ul className="sign-up__menu">
         <li>Already a member?</li>
-        <li><NavLink to="/login" className="site-header__call-to">Sign In</NavLink></li>
+        <li><NavLink to="/signin" className="site-header__call-to">Sign In</NavLink></li>
       </ul>
     </div>
   </header>
