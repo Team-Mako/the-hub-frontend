@@ -11,7 +11,7 @@ gulp.task('static', () => gulp.src('img/assets/*')
 
 gulp.task('upload', () => gulp.src('img/uploads/*')
   .pipe(imagemin())
-  .pipe(gulp.dest('src/assets/uploads')));
+  .pipe(gulp.dest('optImg')));
 
 gulp.task('favicon', () => gulp.src('img/favicon/*')
   .pipe(imagemin())

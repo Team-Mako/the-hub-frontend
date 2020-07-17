@@ -2,7 +2,6 @@ import React from 'react';
 import { FaHeart, FaEye, FaPaperPlane, FaStar } from 'react-icons/fa';
 import CallToAction from '../../components/CallToAction';
 import Comments from './Comments';
-import { SampleImg1, SampleImg2, AuthorImgExample, PostCoverExample } from '../../components/Assets';
 
 const SinglePost = () => (
   <>
@@ -19,7 +18,7 @@ const SinglePost = () => (
           {/* AUTHOR INFO */}
           <div className="single-post__details">
             <div className="single-post__author">
-              <img src={AuthorImgExample} alt="Post Author" />
+              <img src="" alt="Post Author" />
               <p>Leona Davis</p>
             </div>
 
@@ -30,7 +29,7 @@ const SinglePost = () => (
           </div>
 
           {/* POST COVER IMG */}
-          <img src={PostCoverExample} alt="Post Cover" className="single-post__cover" />
+          <img src="" alt="Post Cover" className="single-post__cover" />
 
           {/* POST DESCRIPTION */}
           <p className="single-post__description">A Moscow mule is a cocktail made with vodka, spicy ginger beer, and lime juice, garnished with a slice or wedge of lime. It is a type of buck, therefore sometimes called a vodka buck. The Moscow mule is popularly served in a copper mug, which takes on the cold temperature of the liquid.</p>
@@ -68,7 +67,7 @@ const SinglePost = () => (
                   I usually squeeze the lime juice myself. You can sure try a bottled juice, but the results will not be as fresh.
                 </p>
 
-                <img src={SampleImg1} alt="" />
+                <img src="" alt="" />
               </li>
 
               <li>
@@ -78,7 +77,7 @@ const SinglePost = () => (
                   Serve it in a Copper mug or highball glass. On the rocks; poured over ice.
                 </p>
 
-                <img src={SampleImg2} alt="" />
+                <img src="" alt="" />
               </li>
             </ul>
           </div>

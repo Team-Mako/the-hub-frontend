@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaTrashAlt, FaPlus } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/fa';
 import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
 
@@ -14,6 +14,7 @@ const CreateProject = () => {
   const [modalMaterial, setModalMaterial] = useState('');
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [dropzone, setDropzone] = useState('Drag \'n\' drop your file here, or click to select a file');
 
   const timer = () => {
     setTimeout(() => {
@@ -88,6 +89,16 @@ const CreateProject = () => {
     setModalMaterial(e.target.value);
   };
 
+  const handleDrop = (e) => {
+    console.log(e.target.value);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    setDropzone('Drop the beat!');
+    console.log(e);
+  };
+
   const handleModalSubmit = (e) => {
     e.preventDefault();
 
@@ -129,12 +140,16 @@ const CreateProject = () => {
 
     const formData = new FormData(e.target);
 
-    api.post('/test', formData, { headers: { 'content-type': 'multipart/form-data' } })
+    api.post('/create-post', formData, { headers: { 'content-type': 'multipart/form-data' } })
       .then((res) => {
-        console.log(res.data);
+        setAlert(true);
+        setAlertMessage(res.data.message);
+        timer();
       })
-      .catch((error) => {
-        console.log(error.response);
+      .catch((err) => {
+        setAlert(true);
+        setAlertMessage(err.response.data.error);
+        timer();
       });
   };
 
@@ -146,10 +161,16 @@ const CreateProject = () => {
           <h1>Start building your project</h1>
 
           <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+
+            <label className="create-post__dropzone">
+              <p>{dropzone}</p>
+              <input type="file" name="cover" onChange={handleDrop} />
+            </label>
+
             <div className="create-post__left">
               <label>
                 <p>Select a category</p>
-                <select name="category" onChange={handleMaterialList} required>
+                <select name="categoryId" onChange={handleMaterialList} required>
                   <option value="">Select...</option>
                   {categoryList.map((category) => (
                     <option key={category.category_id} value={category.category_id}>{category.category_title}</option>
@@ -164,7 +185,7 @@ const CreateProject = () => {
 
               <label>
                 <p>Difficulty</p>
-                <select name="material" required>
+                <select name="difficult" required>
                   <option value="">Select...</option>
                   <option value="Easy">Easy</option>
                   <option value="Medium">Medium</option>
@@ -174,7 +195,7 @@ const CreateProject = () => {
 
               <label>
                 <p>Duration</p>
-                <select name="material" required>
+                <select name="duration" required>
                   <option value="">Select...</option>
                   <option value="1min to 30min">1min to 30min</option>
                   <option value="30min to 1hr">30min to 1hr</option>
@@ -186,6 +207,7 @@ const CreateProject = () => {
                 <p>Short description</p>
                 <textarea name="desc" required />
               </label>
+
             </div>
 
             <div className="create-post__right">
@@ -194,14 +216,18 @@ const CreateProject = () => {
               <div className="create-post__dynamic">
                 {materialFields.map((materialField, index) => (
                   <div key={index} className="create-post__dynamic-material">
+
                     <select name="material" onChange={(e) => handleMaterialsFields(e, index)} required>
                       <option value="">Select...</option>
                       {materialList.map((material) => (
                         <option key={material.material_id} value={material.material_id}>{material.material_name}</option>
                       ))}
                     </select>
+
                     <input type="text" placeholder="measurement" name="meas" onChange={(e) => handleMaterialsFields(e, index)} required />
+
                     <button type="button" onClick={handleRemoveMaterialsFields}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button>
+
                   </div>
                 ))}
               </div>
@@ -215,13 +241,23 @@ const CreateProject = () => {
               <div className="create-post__dynamic">
                 {steps.map((step, index) => (
                   <div key={index} className="create-post__dynamic-step">
+
                     <h3>Step {index + 1}</h3>
+
                     <textarea name="stepDescription" onChange={(e) => handleSteps(e, index)} required />
+
                     <label>
+                      <span className="create-post__file-btn">Add a Image</span>
+
+                      {/* <span className="create-post__file-name">{steps[index].stepCover.substr(12)}</span> */}
+
                       <input type="file" name="stepCover" accept="image/*" value={steps[index].stepCover} onChange={(e) => handleSteps(e, index)} />
                     </label>
+
                     <input type="text" name="stepVideo" placeholder="Video link" onChange={(e) => handleSteps(e, index)} />
+
                     <button type="button" onClick={handleRemoveSteps}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button>
+
                   </div>
                 ))}
               </div>
