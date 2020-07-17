@@ -1,0 +1,174 @@
+.create-post{
+  @include flexGen(row, nowrap, center, center);
+  margin-bottom: 4rem;
+
+  &__inner{
+    @include flexGen(column, nowrap, center, flex-start);
+    max-width: $max-width;
+    width: 100%;
+    color: colors(accent);
+  }
+
+  &__dynamic{
+    @include flexGen(column, nowrap, center, center);
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &-material{
+      @include flexGen(row, nowrap, space-between, center);
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    &-step{
+      @include flexGen(row, wrap, space-between, center);
+      width: 100%;
+      margin-bottom: 1rem;
+
+      h3{
+        margin-bottom: 1rem;
+      }
+
+      label{
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    input{
+      width: calc(50% - 1rem) !important;
+
+      &[name="stepVideo"]{
+        width: calc(90% - 1rem) !important;
+      }
+    }
+
+    select{
+      width: calc(40% - 1rem) !important;
+    }
+
+    button{
+      width: 10%;
+    }
+  }
+
+  &__area-title{
+    margin-top: 4rem;
+
+    &:first-of-type{
+      margin-top: 0 !important;
+    }
+  }
+
+  &__left{
+    @include flexGen(column, nowrap, center, flex-start);
+  }
+
+  &__new-material{
+    font-size: 1rem;
+    border: 0 !important;
+    padding: 0 !important;
+    text-transform: capitalize !important;
+
+    &:hover{
+      background: transparent !important;
+      color: colors(accent) !important;
+      text-decoration: underline;
+    }
+  }
+
+  h1{
+    font-size: 1.8rem;
+    font-family: $font-bold;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  form{
+    @include gridGen(repeat(2, 1fr), auto, 3rem, 3rem);
+    align-items: start;
+    padding: 1rem;
+
+    label{
+      width: 100%;
+      margin-bottom: 2rem;
+
+      select{
+        width: 100%;
+      }
+    }
+
+    p{
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+
+      &:nth-of-type(2){
+        font-size: 1rem;
+        color: colors(second);
+      }
+    }
+
+    select{
+      @extend %input-project;
+      padding: 1rem;
+
+      &[name="category"]{
+        width: 100% !important;
+      }
+    }
+
+    input{
+      @extend %input-project;
+      padding: 1rem;
+
+      &[type="text"]{
+        width: 100%;
+      }
+
+      &[type="file"]{
+        // display: none;
+      }
+    }
+
+    textarea{
+      @extend %input-project;
+      font-family: $font-regular;
+      width: 100%;
+      height: 250px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button{
+
+      &[type="button"] {
+        @extend %btn;
+        background: transparent;
+        color: colors(accent);
+        border: 2px solid colors(accent);
+        transition: all .5s ease;
+
+        &:hover{
+          color: lighten(colors(lightBg), 10%);
+          background: colors(accent);
+        }
+      }
+
+      &[type="submit"]{
+        @extend %btn;
+        color: colors(second);
+        font-weight: bold;
+        border: 2px solid colors(second);
+        background: transparent;
+        transition: all .5s ease;
+        margin-top: 2rem;
+        display: block;
+        margin-left: auto;
+
+        &:hover{
+          color: lighten(colors(lightBg), 10%);
+          background: colors(second);
+        }
+      }
+    }
+  }
+}

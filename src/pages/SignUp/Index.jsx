@@ -126,7 +126,7 @@ const SignUp = () => {
         </form>
       </div>
       <Alerts active={alert} message={alertMessage} />
-      {redirect ? <Redirect to="/login" /> : ''}
+      {redirect ? <Redirect to="/signin" /> : ''}
     </main>
   );
 };

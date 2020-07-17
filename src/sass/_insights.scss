@@ -1,11 +1,22 @@
 .insights{
-  @include gridGen(repeat(2, 1fr), auto, 2rem, 2rem);
+  @include flexGen(column, nowrap, space-between, center);
   margin-top: 3rem;
+
+  @include secondBrk{
+    display: grid !important;
+    @include gridGen(repeat(2, 1fr), auto, 2rem, 2rem);
+  }
 
   &__box{
     @include flexGen(column, nowrap, center, center);
     background: lighten(colors(lightBg), 100%);
     padding: 1rem;
+    width: 100%;
+    margin: 2rem 0;
+
+    @include secondBrk{
+      margin: 0;
+    }
 
     &--big{
       @extend .insights__box;
