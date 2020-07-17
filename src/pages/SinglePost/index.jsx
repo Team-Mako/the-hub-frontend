@@ -1,96 +1,101 @@
-import React from 'react';
-import { FaHeart, FaEye, FaPaperPlane, FaStar } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { FaHeart, FaEye, FaStar } from 'react-icons/fa';
 import CallToAction from '../../components/CallToAction';
 import Comments from './Comments';
+import api from '../../services/api';
+import { filesURL } from '../../config/filesBucket';
 
-const SinglePost = () => (
-  <>
-    <div className="single-post">
-      <main>
+const SinglePost = () => {
+  const [post, setPost] = useState('');
+  const [materials, setMaterials] = useState([]);
+  const [steps, setSteps] = useState([]);
 
-        <div className="single-post__inner">
-          {/* POST TITLE */}
-          <span className="single-post__title">
-            <h1>Seriously Good Moscow Mule Cocktail</h1>
-            <FaStar />
-          </span>
+  const { slug } = useParams();
 
-          {/* AUTHOR INFO */}
-          <div className="single-post__details">
-            <div className="single-post__author">
-              <img src="" alt="Post Author" />
-              <p>Leona Davis</p>
+  useEffect(() => {
+    async function getPost() {
+      const postData = await api.get(`/show-post/${slug}`);
+      setPost(postData.data[0]);
+
+      const materialData = await api.get(`/post-material/${postData.data[0].post_id}`);
+      setMaterials(materialData.data);
+
+      const stepData = await api.get(`/post-step/${postData.data[0].post_id}`);
+      setSteps(stepData.data);
+    }
+
+    getPost();
+  }, [slug]);
+
+  return (
+    <>
+      <div className="single-post">
+        <main>
+
+          <div className="single-post__inner">
+            <span className="single-post__title">
+              <h1>{post.post_title}</h1>
+              <FaStar />
+            </span>
+
+            <div className="single-post__details">
+              <div className="single-post__author">
+                <img src={post.user_avatar ? `${filesURL}${post.user_avatar}` : require('../../assets/static/the-hub-no-pic.svg')} alt="Post Author" />
+                <p>{post.user_name}</p>
+              </div>
+
+              <div className="single-post__meta">
+                <span><FaHeart /> 609</span>
+                <span><FaEye /> 120</span>
+              </div>
             </div>
 
-            <div className="single-post__meta">
-              <span><FaHeart /> 609</span>
-              <span><FaEye /> 120</span>
+            <img src={post.post_cover ? `${filesURL}${post.post_cover}` : ''} alt="Post Cover" className="single-post__cover" />
+
+            <p className="single-post__description">{post.post_description}</p>
+
+            <div className="single-post__ingredients">
+              <div className="single-post__ingredients-inner">
+
+                <span>You are going to need</span>
+
+                <ul>
+                  {materials.map((material) => (
+                    <li key={material.material_id}>{material.material_name} {material.post_material_meas}</li>
+                  ))}
+                </ul>
+
+              </div>
             </div>
-          </div>
 
-          {/* POST COVER IMG */}
-          <img src="" alt="Post Cover" className="single-post__cover" />
+            <div className="single-post__steps">
 
-          {/* POST DESCRIPTION */}
-          <p className="single-post__description">A Moscow mule is a cocktail made with vodka, spicy ginger beer, and lime juice, garnished with a slice or wedge of lime. It is a type of buck, therefore sometimes called a vodka buck. The Moscow mule is popularly served in a copper mug, which takes on the cold temperature of the liquid.</p>
-
-          {/* INGREDIENTS LIST */}
-          <div className="single-post__ingredients">
-            <div className="single-post__ingredients-inner">
-
-              <span>You are going to need</span>
+              <h2>How to do it yourself</h2>
 
               <ul>
-                <li> 4 oz Ginger beer </li>
-                <li> 1 1/2 oz Vodka </li>
-                <li> 1/6 oz Lime juice </li>
+                {steps.map((step, index) => (
+                  <li key={step.post_step_id}>
+                    <span>Step {index + 1}</span>
+
+                    <p>{step.post_step_description}</p>
+
+                    <img src={step.post_step_cover ? `${filesURL}${step.post_step_cover}` : ''} alt="Step Cover" />
+                  </li>
+                ))}
               </ul>
-
-              <a href="# "><FaPaperPlane />Send ingridients as a text message</a>
             </div>
+
           </div>
 
-          {/* STEPS */}
-          <div className="single-post__steps">
+        </main>
 
-            <h2>How to do it yourself</h2>
+        <Comments />
+      </div>
 
-            <ul>
-              <li>
-                <span>Step 1</span>
-
-                <p>
-                  Smirnoff brand vodka is my favourite for Moscow mules. It has an excellent price and is easy to find. The ginger beer is going to bring up all the flavours, so don’t worry too much if you can’t find a good Vodka.
-
-                  Fever-Tree brand ginger beer is perfect for this drink. You can find them at Natural Grocers, an even at Superstore or Whole foods. Please, share in the comments if you have any suggestions of other places to find it,
-
-                  I usually squeeze the lime juice myself. You can sure try a bottled juice, but the results will not be as fresh.
-                </p>
-
-                <img src="" alt="" />
-              </li>
-
-              <li>
-                <span>Step 2</span>
-
-                <p>
-                  Serve it in a Copper mug or highball glass. On the rocks; poured over ice.
-                </p>
-
-                <img src="" alt="" />
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-      </main>
-
-      <Comments />
-    </div>
-
-    <CallToAction />
-  </>
-);
+      <CallToAction />
+    </>
+  );
+};
 
 export default SinglePost;
