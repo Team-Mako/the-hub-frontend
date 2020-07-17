@@ -7,7 +7,7 @@ const NoProject = () => (
     <img src={LogoGrey} alt="The Hub Logo" />
     <h3>Create your first project</h3>
     <p>Upload a set of steps to create your first DIY project.</p>
-    <NavLink to="/">Create a Project</NavLink>
+    <NavLink to="/create-project">Create a Project</NavLink>
   </div>
 );
 

@@ -11,13 +11,22 @@
   }
 
   &__heading{
-    @include flexGen(row, nowrap, flex-start, center);
+    @include flexGen(column, nowrap, center, flex-start);
     width: 100%;
 
+    @include secondBrk{
+      @include flexGen(row, nowrap, flex-start, center);
+    }
+
     p{
-      margin: 0 2rem 2rem 2rem;
+      padding: 0 2rem 2rem 2rem;
       font-size: 1.1875rem;
       line-height: 2rem;
+      width: 100% !important;
+
+      @include secondBrk{
+        width: 50% !important;
+      }
     }
   }
 
@@ -44,7 +53,7 @@
     transition: all .5s ease !important;
     margin-top: 2rem;
 
-    @include firstBrk{
+    @include secondBrk{
       width: calc(33.33% - 2.7rem);
       height: 550px;
       background-size: 110% !important;
@@ -52,7 +61,7 @@
 
     &:nth-of-type(3n + 1){
 
-      @include firstBrk{
+      @include secondBrk{
         margin-right: 4rem;
         margin-top: -9rem;
       }
@@ -60,7 +69,7 @@
 
     &:nth-of-type(3n + 2){
 
-      @include firstBrk{
+      @include secondBrk{
         margin-right: 4rem;
         margin-top: -3rem;
       }
@@ -68,28 +77,28 @@
 
     &:nth-of-type(3n){
 
-      @include firstBrk{
+      @include secondBrk{
         margin-top: 3rem;
       }
     }
 
     &:first-of-type(){
 
-      @include firstBrk{
+      @include secondBrk{
         margin-top: 0;
       }
     }
 
     &:nth-of-type(2){
 
-      @include firstBrk{
+      @include secondBrk{
         margin-top: 6rem;
       }
     }
 
     &:nth-of-type(3){
 
-      @include firstBrk{
+      @include secondBrk{
         margin-top: 12rem;
       }
     }
@@ -119,7 +128,7 @@
 
   p{
     width: 50%;
-    font-family: 1.1rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     transition: transform .2s;
 

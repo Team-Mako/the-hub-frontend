@@ -102,9 +102,8 @@
     @include firstBrk{
       position: absolute;
       bottom: -1.5rem;
-      right: 0rem;
+      right: 2rem;
       margin-left: 0 !important;
-      min-width: 250px;
     }
 
     @include secondBrk{
@@ -113,7 +112,7 @@
     }
 
     input[type="search"]{
-      width: 250px;
+      min-width: 250px;
       flex-grow: 2;
       border-bottom: 2px solid colors(lightBg);
       padding: .3rem 0;
