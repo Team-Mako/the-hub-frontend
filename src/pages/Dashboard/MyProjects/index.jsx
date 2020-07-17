@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Dashboard from '../Dashboard';
 import api from '../../../services/api';
 import NoProject from './NoProject';
+import { filesURL } from '../../../config/filesBucket';
 
 const MyProjects = () => {
   const [posts, setPosts] = useState([]);
@@ -32,7 +33,7 @@ const MyProjects = () => {
             {posts.map((post) => (
               <div key={post.post_id} className="my-projects__box">
 
-                <img className="my-projects__cover" src={require(`../../../assets/uploads/${post.post_cover}`)} alt={post.post_title} />
+                <img className="my-projects__cover" src={`${filesURL}${post.post_cover}`} alt={post.post_title} />
 
                 <div className="my-projects__info">
                   <NavLink to={`/edit/${post.post_url}`} title="Edit"><span aria-hidden="true" className="visually-hidden">Edit Post</span><FaEdit /></NavLink>

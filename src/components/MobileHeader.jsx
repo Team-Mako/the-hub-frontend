@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaBars, FaTimes, FaSignOutAlt } from 'react-icons/fa';
-import { LogoRegular, UserAvatar } from './Assets';
+import { LogoRegular } from './Assets';
 
 const MobileHeader = () => {
   const [active, setActive] = useState(false);
@@ -26,7 +26,7 @@ const MobileHeader = () => {
       <div className={active ? 'mobile-menu--active' : 'mobile-menu'}>
         <div className="mobile-menu__top">
           <figure>
-            <img src={UserAvatar} alt="User Avatar" />
+            <img src="" alt="User Avatar" />
           </figure>
           <div className="mobile-menu__info">
             <p className="mobile-menu__name">Laura Monné</p>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { AuthorImgExample } from '../../components/Assets';
 
 const Comments = () => (
   <div className="comments">
@@ -11,7 +10,7 @@ const Comments = () => (
 
     <ul className="comments__list">
       <li>
-        <img src={AuthorImgExample} alt="" />
+        <img src="" alt="" />
 
         <div><span>Mark Lunna</span>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ero labore et </p>

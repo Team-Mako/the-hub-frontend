@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Chart } from 'react-google-charts';
 import Dashboard from '../Dashboard';
+import api from '../../../services/api';
 
-const Insights = () => {
+const Insights = ({ user }) => {
   const colors = ['#f92962', '#782e74', '#0b7a75', '#0fa9a2', '#fa5b86'];
+  const [categories, setCategories] = useState([]);
+  const [materials, setMaterials] = useState([]);
+
+  useEffect(() => {
+    async function getInsightsCategory() {
+      await api.get(`/top-categories?userId=${user.user_id}`)
+        .then((res) => {
+          if (res.data.length > 0) {
+            const dataArr = [['Category', 'Ratio']];
+            res.data.map((item) => {
+              dataArr.push([item.category_title, item.top]);
+            });
+
+            setCategories(dataArr);
+          } else {
+            setCategories([['Category', 'Ratio']]);
+          }
+        });
+    }
+
+    async function getInsightsMaterials() {
+      await api.get(`/top-materials?userId=${user.user_id}`)
+        .then((res) => {
+          if (res.data.length > 0) {
+            const dataArr = [['Material', 'Ratio']];
+            res.data.map((item) => {
+              dataArr.push([item.material_name, item.top]);
+            });
+
+            setMaterials(dataArr);
+          } else {
+            setMaterials([['Material', 'Ratio']]);
+          }
+        });
+    }
+
+    getInsightsCategory();
+    getInsightsMaterials();
+  }, [user.user_id]);
 
   return (
     <Dashboard>
@@ -15,12 +56,7 @@ const Insights = () => {
             chartType="PieChart"
             width="100%"
             height="400px"
-            data={[
-              ['Category', 'Ratio'],
-              ['Chicken', 5],
-              ['Orange Juice', 2],
-              ['Candle', 2],
-            ]}
+            data={materials}
             options={{
               pieHole: 0.45,
               legend: {
@@ -37,13 +73,7 @@ const Insights = () => {
             chartType="PieChart"
             width="100%"
             height="400px"
-            data={[
-              ['Category', 'Ratio'],
-              ['Drinks', 5],
-              ['Clothing', 2],
-              ['Cooking', 2],
-              ['Crafts', 0.5],
-              ['Furniture', 0.5]]}
+            data={categories}
             options={{
               pieHole: 0.5,
               legend: {
@@ -101,4 +131,6 @@ const Insights = () => {
   );
 };
 
-export default Insights;
+export default connect((state) => ({
+  user: state.user,
+}))(Insights);
