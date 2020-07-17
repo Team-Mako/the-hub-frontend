@@ -1,14 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { NoPic } from '../../components/Assets';
 
-const Dashboard = ({ children }) => (
+const Dashboard = ({ children, user }) => (
   <main className="dashboard">
     <div className="dashboard__inner">
       <section className="dashboard__profile">
         <img src={NoPic} alt="User profile avatar" />
-        <p>Jane</p>
-        <p>email@email.ca</p>
+        <p>{user.user_name}</p>
+        <p>{user.user_email}</p>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum, consequatur!</p>
         <NavLink to="/">Edit Profile</NavLink>
       </section>
@@ -25,4 +26,6 @@ const Dashboard = ({ children }) => (
   </main>
 );
 
-export default Dashboard;
+export default connect((state) => ({
+  user: state.user,
+}))(Dashboard);

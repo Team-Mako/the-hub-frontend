@@ -18,10 +18,10 @@ const Header = ({ session, searchBar }) => (
 
       <ul className="site-header__menu">
         <li>
-          <NavLink to="/category">
+          <a href="/#category">
             Categories
             <FaChevronDown />
-          </NavLink>
+          </a>
           <ul className="site-header__submenu">
             <li><NavLink to="/category/clothing">Clothing</NavLink></li>
           </ul>
