@@ -15,7 +15,7 @@ const CategoryList = () => {
   }, []);
 
   return (
-    <section className="category-list">
+    <section className="category-list" id="category">
       <div className="category-list__inner">
         <div className="category-list__heading">
           <h2 className="home-main__title">Browse DIY projects<br /> <span>by category</span></h2>

@@ -7,7 +7,7 @@
   }
 
   @include secondBrk{
-    padding: 2rem;
+    padding: 0;
   }
 
   &__inner{
@@ -15,6 +15,10 @@
     max-width: $max-width;
     width: 100%;
     position: relative;
+
+    @include secondBrk{
+      padding: 2rem;
+    }
   }
 
   &__call-to{
@@ -115,6 +119,6 @@
 
   form{
     width: 30%;
-    margin-left: 2rem;
+    padding-left: 2rem;
   }
 }

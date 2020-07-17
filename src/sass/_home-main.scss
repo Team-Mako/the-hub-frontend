@@ -5,6 +5,10 @@
     @include flexGen(column, nowrap, center, center);
     max-width: $max-width;
     width: 100%;
+
+    @include firstBrk{
+      padding: 0 2rem;
+    }
   }
 
   &__hero{
