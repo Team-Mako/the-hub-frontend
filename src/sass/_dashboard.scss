@@ -3,18 +3,34 @@
   margin-bottom: 3rem;
   min-height: 70%;
 
+
+
   &__inner{
-    @include flexGen(row, nowrap, space-between, flex-start);
+    @include flexGen(column, nowrap, space-between, center);
     max-width: $max-width;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
+
+    @include firstBrk{
+      padding: 2rem;
+    }
+
+    @include secondBrk{
+      @include flexGen(row, nowrap, space-between, flex-start);
+    }
   }
 
   &__profile{
     @include flexGen(column, nowrap, center, center);
     background: lighten(colors(lightBg), 7%);
-    width: 25%;
-    padding: 2rem;
+    width: 100%;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+
+    @include secondBrk{
+      width: 25%;
+      padding: 2rem;
+    }
 
     a{
       @extend %btn;
@@ -44,6 +60,7 @@
 
       &:nth-of-type(2){
         color: colors(second);
+
       }
 
       &:last-of-type{
@@ -55,8 +72,13 @@
 
   &__panel{
     background: lighten(colors(lightBg), 7%);
-    width: 72%;
-    padding: 2rem;
+    width: 100%;
+    padding: 2rem 1rem;
+
+    @include secondBrk{
+      width: 72%;
+      padding: 2rem;
+    }
 
 
     button{
@@ -73,18 +95,35 @@
         color: lighten(colors(lightBg), 100%);
       }
     }
+
+    .no-project{
+      p{
+        width: 100%;
+        text-align: center;
+      }
+    }
   }
 
   &__nav{
     width: 100%;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-family: $font-bold;
+    @include flexGen(row, nowrap, center, center);
+
+    @include secondBrk{
+      display: block !important;
+      font-size: 1.3rem;
+    }
 
     a{
       display: inline-block;
       margin-right: 1.5rem;
       color: colors(second);
       padding-bottom: .5rem;
+
+      &:last-of-type{
+        margin-right: 0;
+      }
     }
 
     .active{
