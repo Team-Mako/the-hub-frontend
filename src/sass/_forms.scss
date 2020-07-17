@@ -135,4 +135,58 @@
       }
     }
   }
+
+  &__profile{
+    @include flexGen(row, wrap, space-between, center);
+    width: 60%;
+    margin-bottom: 4rem;
+
+    &:nth-of-type(2) {
+      label{
+        width: 100%;
+      }
+    }
+
+    &-title{
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      font-family: $font-bold;
+      color: colors(accent)
+    }
+
+    label{
+      width: 48%;
+      margin-bottom: 2rem;
+
+      &:nth-of-type(3), &:nth-of-type(4){
+        width: 100%;
+      }
+    }
+
+    p{
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      color: colors(accent)
+    }
+
+    input, textarea{
+      background: lighten(colors(lightBg), 7%);
+      width: 100%;
+      padding: 1rem;
+      border: 0;
+      font-family: $font-regular;
+      border-radius: 10px;
+    }
+
+    textarea{
+      min-height: 200px;
+    }
+
+    button{
+      @extend %btn;
+      background: colors(second);
+      color: lighten(colors(lightBg), 10%);
+      border: 0;
+    }
+  }
 }

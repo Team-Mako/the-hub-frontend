@@ -6,6 +6,7 @@ export default function user(state = {}, action) {
         user_id: action.payload.user.user_id,
         user_name: action.payload.user.user_name,
         user_email: action.payload.user.user_email,
+        user_avatar: action.payload.user.user_avatar,
       };
       return login;
     case 'ADMIN_LOGIN':
