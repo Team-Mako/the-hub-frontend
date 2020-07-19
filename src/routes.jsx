@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Headers from './components/Headers';
 import SiteFooter from './components/SiteFooter';
 import Home from './pages/Home';
@@ -20,8 +21,14 @@ import AdminCategories from './pages/Admin/Categories';
 import AdminMaterials from './pages/Admin/Materials';
 import AdminCreateCategory from './pages/Admin/Categories/Create';
 import AdminCreateMaterial from './pages/Admin/Materials/Create';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
+import api from './services/api';
 
 function Routes() {
+  const auth = useSelector((state) => state.auth);
+  api.defaults.headers.Authorization = `Bearer ${auth.token}`;
+
   return (
     <Switch>
       <Route path="/" exact>
@@ -88,6 +95,8 @@ function Routes() {
       <Route path="/admin/create-category" exact isAdmin component={AdminCreateCategory} />
       <Route path="/admin/materials" exact isAdmin component={AdminMaterials} />
       <Route path="/admin/create-material" exact isAdmin component={AdminCreateMaterial} />
+      <Route path="/privacypolicy" exact component={PrivacyPolicy} />
+      <Route path="/termsandconditions" exact component={TermsAndConditions} />
     </Switch>
   );
 }

@@ -119,7 +119,7 @@ const SignUp = () => {
 
           <label>
             <input type="checkbox" name="policy" value={policy} onChange={handlePolicy} required />
-            <p>Creating an account means you are okay with our <NavLink to="/">Terms of Service</NavLink>, <NavLink to="/">Privacy Policy</NavLink>.</p>
+            <p>Creating an account means you are okay with our <NavLink to="/termsandconditions">Terms of Service</NavLink>, <NavLink to="/privacypolicy">Privacy Policy</NavLink>.</p>
           </label>
 
           <button type="submit">Create Account</button>

@@ -100,18 +100,6 @@
     }
   }
 
-  &__dropzone{
-    @include flexGen(row, nowrap, center, center);
-    border: 2px dashed colors(accent);
-    width: 100%;
-    height: 200px;
-    grid-column: 1 / -1;
-
-    p{
-      margin: 0 !important;
-    }
-  }
-
   h1{
     font-size: 1.8rem;
     font-family: $font-bold;

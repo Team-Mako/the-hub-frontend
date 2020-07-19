@@ -6,6 +6,7 @@ const Comments = () => (
     <div className="comments__form">
       <label>Comments</label>
       <textarea id="comments" name="comments" placeholder="Leave a comment..." />
+      <button type="send" className="comments__btn">Send</button>
     </div>
 
     <ul className="comments__list">
