@@ -70,4 +70,14 @@
       }
     }
   }
+
+  &__btn{
+    @extend %btn;
+    color: lighten(colors(lightBg), 100%) !important;
+    background: colors(prime);
+    font-size: .8rem;
+    border-style: none;
+    margin: 1rem;
+    align-self: flex-end;
+  }
 }

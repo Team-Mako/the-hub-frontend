@@ -21,6 +21,8 @@ import AdminCategories from './pages/Admin/Categories';
 import AdminMaterials from './pages/Admin/Materials';
 import AdminCreateCategory from './pages/Admin/Categories/Create';
 import AdminCreateMaterial from './pages/Admin/Materials/Create';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
 import api from './services/api';
 
 function Routes() {
@@ -93,6 +95,8 @@ function Routes() {
       <Route path="/admin/create-category" exact isAdmin component={AdminCreateCategory} />
       <Route path="/admin/materials" exact isAdmin component={AdminMaterials} />
       <Route path="/admin/create-material" exact isAdmin component={AdminCreateMaterial} />
+      <Route path="/privacypolicy" exact component={PrivacyPolicy} />
+      <Route path="/termsandconditions" exact component={TermsAndConditions} />
     </Switch>
   );
 }

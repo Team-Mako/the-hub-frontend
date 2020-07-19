@@ -15,7 +15,7 @@ const Footer = () => (
       </MediaQuery>
 
       <p>
-        <NavLink to="/">Terms & Conditions</NavLink>
+        <NavLink to="/termsandconditions">Terms & Conditions</NavLink>
         <span>&copy; Team Mako 2020</span>
       </p>
 
