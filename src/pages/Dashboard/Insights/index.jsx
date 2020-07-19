@@ -60,7 +60,7 @@ const Insights = ({ user }) => {
             options={{
               pieHole: 0.45,
               legend: {
-                position: 'none',
+                position: 'bottom',
               },
               colors,
             }}
@@ -77,7 +77,7 @@ const Insights = ({ user }) => {
             options={{
               pieHole: 0.5,
               legend: {
-                position: 'none',
+                position: 'bottom',
               },
               colors,
             }}
