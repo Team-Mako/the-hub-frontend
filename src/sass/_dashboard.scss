@@ -3,8 +3,6 @@
   margin-bottom: 3rem;
   min-height: 70%;
 
-
-
   &__inner{
     @include flexGen(column, nowrap, space-between, center);
     max-width: $max-width;
@@ -17,6 +15,21 @@
 
     @include secondBrk{
       @include flexGen(row, nowrap, space-between, flex-start);
+    }
+
+    &--profile{
+      @include flexGen(column, nowrap, space-between, center);
+      max-width: $max-width;
+      width: 100%;
+      padding: 1rem;
+
+      @include firstBrk{
+        padding: 2rem;
+      }
+
+      @include secondBrk{
+        @include flexGen(row, nowrap, flex-start, flex-start);
+      }
     }
   }
 

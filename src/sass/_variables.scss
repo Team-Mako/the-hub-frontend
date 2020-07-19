@@ -40,7 +40,8 @@ $colors: (
 }
 
 %input-project{
-  border: 1px solid rgba(colors(accent), .3);
+  // border: 1px solid rgba(colors(accent), .3);
+  border: 0;
   background: rgba(colors(accent), .05);
   border-radius: 10px;
 }

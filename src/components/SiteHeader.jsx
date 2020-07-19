@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { FaChevronDown, FaSearch } from 'react-icons/fa';
 import { LogoRegular, NoPic } from './Assets';
+import { filesURL } from '../config/filesBucket';
 import api from '../services/api';
 
 const Header = ({ session, searchBar }) => {
   const [categories, setCategories] = useState([]);
+
+  const userData = useSelector((state) => state.user);
 
   useEffect(() => {
     async function getCategories() {
@@ -46,7 +50,7 @@ const Header = ({ session, searchBar }) => {
           {session ? (
             <>
               <li><NavLink to="/create-project" className="site-header__call-to">Create a Project</NavLink></li>
-              <li><NavLink to="/my-projects" className="site-header__avatar"><img src={NoPic} alt="User Avatar" /></NavLink></li>
+              <li><NavLink to="/my-projects" className="site-header__avatar"><img src={userData.user_avatar ? filesURL + userData.user_avatar : NoPic} alt="User Avatar" /></NavLink></li>
             </>
           )
             : (

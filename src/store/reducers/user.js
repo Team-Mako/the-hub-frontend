@@ -16,6 +16,22 @@ export default function user(state = {}, action) {
         admin_email: action.payload.admin.admin_email,
       };
       return login;
+    case 'USER_UPDATE':
+      login = {
+        user_id: state.user_id,
+        user_name: action.payload.user.user_name,
+        user_email: state.user_email,
+        user_avatar: state.user_avatar,
+      };
+      return login;
+    case 'AVATAR_UPDATE':
+      login = {
+        user_id: state.user_id,
+        user_name: state.user_name,
+        user_email: state.user_email,
+        user_avatar: action.payload.user.user_avatar,
+      };
+      return login;
     default:
       return state;
   }

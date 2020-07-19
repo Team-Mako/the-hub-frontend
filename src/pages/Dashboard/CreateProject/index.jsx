@@ -14,7 +14,6 @@ const CreateProject = () => {
   const [modalMaterial, setModalMaterial] = useState('');
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
-  const [dropzone, setDropzone] = useState('Drag \'n\' drop your file here, or click to select a file');
 
   const timer = () => {
     setTimeout(() => {
@@ -89,16 +88,6 @@ const CreateProject = () => {
     setModalMaterial(e.target.value);
   };
 
-  const handleDrop = (e) => {
-    console.log(e.target.value);
-  };
-
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    setDropzone('Drop the beat!');
-    console.log(e);
-  };
-
   const handleModalSubmit = (e) => {
     e.preventDefault();
 
@@ -162,11 +151,6 @@ const CreateProject = () => {
 
           <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
 
-            <label className="create-post__dropzone">
-              <p>{dropzone}</p>
-              <input type="file" name="cover" onChange={handleDrop} />
-            </label>
-
             <div className="create-post__left">
               <label>
                 <p>Select a category</p>
@@ -208,6 +192,11 @@ const CreateProject = () => {
                 <textarea name="desc" required />
               </label>
 
+              <label>
+                <span className="create-post__file-btn">Add a Cover to your post</span>
+                <input type="file" name="cover" />
+              </label>
+
             </div>
 
             <div className="create-post__right">
@@ -246,15 +235,13 @@ const CreateProject = () => {
 
                     <textarea name="stepDescription" onChange={(e) => handleSteps(e, index)} required />
 
+                    <input type="text" name="stepVideo" placeholder="Video link" onChange={(e) => handleSteps(e, index)} />
+
                     <label>
                       <span className="create-post__file-btn">Add a Image</span>
 
-                      {/* <span className="create-post__file-name">{steps[index].stepCover.substr(12)}</span> */}
-
                       <input type="file" name="stepCover" accept="image/*" value={steps[index].stepCover} onChange={(e) => handleSteps(e, index)} />
                     </label>
-
-                    <input type="text" name="stepVideo" placeholder="Video link" onChange={(e) => handleSteps(e, index)} />
 
                     <button type="button" onClick={handleRemoveSteps}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button>
 
