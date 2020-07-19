@@ -64,7 +64,7 @@ const SignUp = () => {
           setPassword('');
           setConfirmPassword('');
           setAlert(true);
-          setAlertMessage('Account created! Sending you to the login page!');
+          setAlertMessage(res.data.message);
           redirectTimer();
         })
         .catch((error) => {
