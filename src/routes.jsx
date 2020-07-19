@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Headers from './components/Headers';
 import SiteFooter from './components/SiteFooter';
 import Home from './pages/Home';
@@ -20,8 +21,12 @@ import AdminCategories from './pages/Admin/Categories';
 import AdminMaterials from './pages/Admin/Materials';
 import AdminCreateCategory from './pages/Admin/Categories/Create';
 import AdminCreateMaterial from './pages/Admin/Materials/Create';
+import api from './services/api';
 
 function Routes() {
+  const auth = useSelector((state) => state.auth);
+  api.defaults.headers.Authorization = `Bearer ${auth.token}`;
+
   return (
     <Switch>
       <Route path="/" exact>
