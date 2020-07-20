@@ -30,6 +30,16 @@
       }
     }
 
+    span{
+      cursor: pointer;
+    }
+
+    .favourite{
+      svg{
+        color: colors(accent);
+      }
+    }
+
     svg{
       width: 28px;
       height: 28px;
@@ -81,9 +91,16 @@
   }
 
   &__meta{
+    @include flexGen(row, nowrap, center, center);
     color: #33333380;
 
     span{
+      @include flexGen(row, nowrap, center, center);
+
+      &:first-of-type{
+        cursor: pointer;
+      }
+
       svg{
         margin: 0 .25rem;
       }
@@ -122,6 +139,10 @@
         margin: 1.75rem 0;
         list-style-type: disc;
         list-style-position: inside;
+      }
+
+      li{
+        margin-bottom: .7rem;
       }
 
       a{

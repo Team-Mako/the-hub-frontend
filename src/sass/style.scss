@@ -40,6 +40,7 @@
 @import 'create-post';
 @import 'modal';
 @import 'document';
+@import 'favourite-list';
 
 // Globals
 *{
@@ -183,4 +184,8 @@ button{
     background-position: center !important;
     background-size: cover !important;
   }
+}
+
+.liked{
+  color: colors(second);
 }

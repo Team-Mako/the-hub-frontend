@@ -19,7 +19,7 @@ const Dashboard = ({ children }) => {
     }
 
     getBio();
-  }, [userData]);
+  }, []);
 
   return (
     <main className="dashboard">

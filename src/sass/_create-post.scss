@@ -40,7 +40,8 @@
       width: calc(50% - 1rem) !important;
 
       &[name="stepVideo"]{
-        width: calc(90% - 1rem) !important;
+        width: 100% !important;
+        margin-bottom: 1rem;
       }
     }
 
@@ -90,6 +91,10 @@
         color: lighten(colors(lightBg), 10%);
         background: colors(accent);
       }
+    }
+
+    &-label{
+      width: auto !important;
     }
 
     &-name{
