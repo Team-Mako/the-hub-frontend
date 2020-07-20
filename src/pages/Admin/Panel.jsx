@@ -8,11 +8,9 @@ const Panel = ({ children }) => (
     </div>
     <div className="admin-panel__side-nav">
       <nav>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/admin/home">Home</NavLink>
         <NavLink to="/admin/categories">Categories</NavLink>
         <NavLink to="/admin/materials">Materials</NavLink>
-        <NavLink to="/">Posts</NavLink>
-        <NavLink to="/">Users</NavLink>
       </nav>
     </div>
     <div className="admin-panel__body">

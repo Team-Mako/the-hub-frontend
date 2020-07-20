@@ -14,6 +14,7 @@ const CreateProject = () => {
   const [modalMaterial, setModalMaterial] = useState('');
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [cover, setCover] = useState('');
 
   const timer = () => {
     setTimeout(() => {
@@ -35,6 +36,18 @@ const CreateProject = () => {
     } else {
       setModal(true);
     }
+  };
+
+  const handleCover = (e) => {
+    if (e.target.files[0].size > 1572864) {
+      setAlert(true);
+      setAlertMessage('Your image is bigger thant 1.5MB!');
+      timer();
+      return false;
+    }
+
+    const name = e.target.value;
+    setCover(name.substr(12));
   };
 
   const handleTitle = (e) => {
@@ -68,6 +81,14 @@ const CreateProject = () => {
   };
 
   const handleSteps = (e, index) => {
+    if (e.target.files) {
+      if (e.target.files[0].size > 1572864) {
+        setAlert(true);
+        setAlertMessage('Your image is bigger thant 1.5MB!');
+        timer();
+        return false;
+      }
+    }
     const { name, value } = e.target;
     const list = [...steps];
     list[index][name] = value;
@@ -123,6 +144,13 @@ const CreateProject = () => {
     if (materialFields.length < 2) {
       setAlert(true);
       setAlertMessage('You need to choose at least 2 materials');
+      timer();
+      return false;
+    }
+
+    if (!e.target[5].value) {
+      setAlert(true);
+      setAlertMessage('You need to provide a cover');
       timer();
       return false;
     }
@@ -193,8 +221,9 @@ const CreateProject = () => {
               </label>
 
               <label>
-                <span className="create-post__file-btn">Add a Cover to your post</span>
-                <input type="file" name="cover" />
+                <span className="create-post__file-btn">Add a Cover 1.5MB</span>
+                {cover}
+                <input type="file" name="cover" onChange={handleCover} />
               </label>
 
             </div>
@@ -237,10 +266,10 @@ const CreateProject = () => {
 
                     <input type="text" name="stepVideo" placeholder="Video link" onChange={(e) => handleSteps(e, index)} />
 
-                    <label>
-                      <span className="create-post__file-btn">Add a Image</span>
-
-                      <input type="file" name="stepCover" accept="image/*" value={steps[index].stepCover} onChange={(e) => handleSteps(e, index)} />
+                    <label className="create-post__file-label">
+                      <span className="create-post__file-btn">Add a Image 1.5MB</span>
+                      {steps[index].stepCover ? step.stepCover.substr(12) : ''}
+                      <input type="file" name="stepCover" accept="image/*" onChange={(e) => handleSteps(e, index)} />
                     </label>
 
                     <button type="button" onClick={handleRemoveSteps}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button>

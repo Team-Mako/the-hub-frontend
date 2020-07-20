@@ -12,5 +12,6 @@
     padding: 1rem;
     border-radius: 10px;
     animation: alert 5s forwards;
+    color: lighten(colors(lightBg), 10%);
   }
 }

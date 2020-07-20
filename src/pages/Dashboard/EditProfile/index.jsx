@@ -49,7 +49,6 @@ const EditProfile = () => {
 
   const handleBio = (e) => {
     setBio(e.target.value);
-    console.log(e.target.value);
   };
 
   const handlePassword = (e) => {
@@ -121,6 +120,13 @@ const EditProfile = () => {
 
   const handleAvatarSubmit = (e) => {
     e.preventDefault();
+
+    if (!e.target[0].value) {
+      setAlert(true);
+      setAlertMessage('You need to select a picture');
+      timer();
+      return false;
+    }
 
     const formData = new FormData(e.target);
     formData.append('name', name);
