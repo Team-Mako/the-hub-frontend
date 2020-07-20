@@ -1,0 +1,21 @@
+.favourite-list{
+  @include gridGen(repeat(2, 1fr), auto, 1rem, 1rem);
+  padding: 2rem 0;
+
+  h3{
+    font-size: 1.3rem;
+    padding: 1rem 0;
+  }
+
+  .post-section{
+
+    &__box{
+      color: colors(darkBg);
+      transition: color .5s ease;
+
+      &:hover{
+        color: colors(second);
+      }
+    }
+  }
+}

@@ -5,13 +5,23 @@ import CallToAction from '../../components/CallToAction';
 import Comments from './Comments';
 import api from '../../services/api';
 import { filesURL } from '../../config/filesBucket';
+import { NoPic } from '../../components/Assets';
+import Alerts from '../../components/Alerts';
 
 const SinglePost = () => {
   const [post, setPost] = useState('');
   const [materials, setMaterials] = useState([]);
   const [steps, setSteps] = useState([]);
+  const [views, setViews] = useState(0);
+  const [likes, setLikes] = useState(0);
+  const [like, setLike] = useState(false);
+  const [favourite, setFavorite] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const { slug } = useParams();
+  const getLocalStorage = JSON.parse(localStorage.getItem('persist:thehub'));
+  const userObj = JSON.parse(getLocalStorage.user);
 
   useEffect(() => {
     async function getPost() {
@@ -23,10 +33,70 @@ const SinglePost = () => {
 
       const stepData = await api.get(`/post-step/${postData.data[0].post_id}`);
       setSteps(stepData.data);
+
+      await api.put(`/post-view/${postData.data[0].post_id}`);
+      setViews(postData.data[0].post_views + 1);
+      setLikes(postData.data[0].post_likes);
+
+      if (userObj.user_id) {
+        const checkLike = await api.get(`/check-like/${postData.data[0].post_id}`);
+        if (checkLike.data[0].check > 0) {
+          setLike(true);
+        }
+
+        const checkFav = await api.get(`/check-favourite/${postData.data[0].post_id}`);
+        if (checkFav.data[0].check > 0) {
+          setFavorite(true);
+        }
+      }
     }
 
     getPost();
-  }, [slug]);
+  }, []);
+
+  const timer = () => {
+    setTimeout(() => {
+      setAlert(false);
+    }, 5100);
+  };
+
+  const handleLike = async () => {
+    if (userObj.user_id) {
+      const check = await api.get(`/check-like/${post.post_id}`);
+
+      if (check.data[0].check > 0) {
+        await api.delete(`/remove-like/${post.post_id}`);
+        setLike(false);
+        setLikes(likes - 1);
+      } else {
+        await api.put(`/post-like/${post.post_id}`);
+        setLike(true);
+        setLikes(likes + 1);
+      }
+    } else {
+      setAlert(true);
+      setAlertMessage('You must have an account to like posts!');
+      timer();
+    }
+  };
+
+  const handleFavourite = async () => {
+    if (userObj.user_id) {
+      const check = await api.get(`/check-favourite/${post.post_id}`);
+
+      if (check.data[0].check > 0) {
+        await api.delete(`/remove-favourite/${post.post_id}`);
+        setFavorite(false);
+      } else {
+        await api.put(`/post-favourite/${post.post_id}`);
+        setFavorite(true);
+      }
+    } else {
+      setAlert(true);
+      setAlertMessage('You must have an account to favourite posts!');
+      timer();
+    }
+  };
 
   return (
     <>
@@ -36,18 +106,18 @@ const SinglePost = () => {
           <div className="single-post__inner">
             <span className="single-post__title">
               <h1>{post.post_title}</h1>
-              <FaStar />
+              <span className={favourite ? 'favourite' : ''} onClick={handleFavourite}><FaStar /></span>
             </span>
 
             <div className="single-post__details">
               <div className="single-post__author">
-                <img src={post.user_avatar ? `${filesURL}${post.user_avatar}` : require('../../assets/static/the-hub-no-pic.svg')} alt="Post Author" />
+                <img src={post.user_avatar ? `${filesURL}${post.user_avatar}` : NoPic} alt="Post Author" />
                 <p>{post.user_name}</p>
               </div>
 
               <div className="single-post__meta">
-                <span><FaHeart /> 609</span>
-                <span><FaEye /> 120</span>
+                <span className={like ? 'liked' : ''}><FaHeart onClick={handleLike} /> {likes}</span>
+                <span><FaEye /> {views}</span>
               </div>
             </div>
 
@@ -87,10 +157,11 @@ const SinglePost = () => {
             </div>
 
           </div>
-
         </main>
 
         <Comments />
+
+        <Alerts active={alert} message={alertMessage} />
       </div>
 
       <CallToAction />
