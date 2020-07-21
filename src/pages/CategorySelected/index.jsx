@@ -17,7 +17,7 @@ const Category = () => {
     }
 
     getCategory();
-  }, [])
+  }, [slug])
 
   return (
     <>

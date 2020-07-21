@@ -12,7 +12,7 @@ const PostSection = ({categoryId}) => {
 
   useEffect(() => {
     async function getPosts() {
-      const response = await api.get(`/category-post?pg=1&limit=${page}&categoryId=${categoryId}`);
+      const response = await api.get(`/category-post?pg=1&limit=9&categoryId=${categoryId}`);
       setPosts(response.data);
     }
 
@@ -32,7 +32,7 @@ const PostSection = ({categoryId}) => {
     }
 
     getNewPosts();
-  }, [page])
+  }, [page, categoryId])
 
   const handleMorePosts = () => {
     setPage(page + 6);
