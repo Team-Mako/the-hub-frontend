@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaEye } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import Dashboard from '../Dashboard';
 import { NoPic } from '../../../components/Assets';
 import { filesURL } from '../../../config/filesBucket';
 import api from '../../../services/api';
+import { useSelector } from 'react-redux';
 
-const Favourites = () => {
+const Favourites = ({ isPrivate }) => {
+  const userData = useSelector((state) => state.auth);
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -17,6 +20,10 @@ const Favourites = () => {
 
     getPosts();
   }, []);
+
+  if(!userData.session && isPrivate) {
+    return (<Redirect to="/" />);
+  }
 
   return (
     <Dashboard nav>

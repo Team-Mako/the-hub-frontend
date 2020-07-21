@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import Panel from '../Panel';
 import SubMenu from './SubMenu';
 import api from '../../../services/api';

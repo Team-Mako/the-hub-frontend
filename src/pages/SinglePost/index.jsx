@@ -52,7 +52,7 @@ const SinglePost = () => {
     }
 
     getPost();
-  }, []);
+  }, [slug, userObj.user_id]);
 
   const timer = () => {
     setTimeout(() => {
@@ -150,7 +150,7 @@ const SinglePost = () => {
 
                     <p>{step.post_step_description}</p>
 
-                    <img src={step.post_step_cover ? `${filesURL}${step.post_step_cover}` : ''} alt="Step Cover" />
+                    {step.post_step_cover ? (<img src={`${filesURL}${step.post_step_cover}`} alt="Step Cover" />) : ''}
                   </li>
                 ))}
               </ul>

@@ -3,14 +3,16 @@ import { FaHeart, FaEye } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import api from '../../services/api';
 import { filesURL } from '../../config/filesBucket';
+import { NoPic } from '../../components/Assets';
 
 const PostSection = () => {
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(9);
 
   useEffect(() => {
     async function getPosts() {
-      const response = await api.get('/list-post');
+      const response = await api.get(`/list-post?pg=1&limit=${page}`);
       setPosts(response.data);
     }
 
@@ -22,6 +24,19 @@ const PostSection = () => {
     getTotal();
     getPosts();
   }, []);
+
+  useEffect(() => {
+    async function getNewPosts() {
+      const response = await api.get(`/list-post?pg=1&limit=${page}`);
+      setPosts(response.data);
+    }
+
+    getNewPosts();
+  }, [page])
+
+  const handleMorePosts = () => {
+    setPage(page + 6);
+  }
 
   return (
     <section className="post-section">
@@ -51,7 +66,9 @@ const PostSection = () => {
               <div className="post-section__details">
 
                 <div className="post-section__author">
-                  <img src={`${filesURL}${post.user_avatar}`} alt={post.user_name} />
+
+                  <img src={post.user_avatar ? `${filesURL}${post.user_avatar}` : NoPic} alt={post.user_name} />
+
                   <p>{post.user_name}</p>
                 </div>
 
@@ -66,7 +83,7 @@ const PostSection = () => {
         </div>
       </div>
 
-      {total > 9 ? <button type="button">Load More</button> : ''}
+      {total > page ? <button type="button" onClick={handleMorePosts}>Load More</button> : ''}
 
     </section>
   );

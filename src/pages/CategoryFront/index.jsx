@@ -16,7 +16,7 @@ const Category = () => (
           </div>
 
           <div className="hero-section__right">
-            <img src={HeroImg} alt="A Hero of a Purple Cocktail" />
+            <img src={HeroImg} alt="Cover Hero" />
           </div>
 
         </div>
