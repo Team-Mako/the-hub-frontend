@@ -5,6 +5,7 @@ import Headers from './components/Headers';
 import SiteFooter from './components/SiteFooter';
 import Home from './pages/Home';
 import Category from './pages/CategoryFront';
+import CategorySelected from './pages/CategorySelected';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import SinglePost from './pages/SinglePost';
@@ -43,6 +44,7 @@ function Routes() {
       </Route>
       <Route path="/category/:slug" exact>
         <Headers searchBar />
+        <CategorySelected />
         <SiteFooter />
       </Route>
       <Route path="/contact" exact>
