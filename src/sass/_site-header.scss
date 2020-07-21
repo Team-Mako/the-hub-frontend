@@ -53,7 +53,7 @@
     background: colors(lightBg);
     padding: 1rem;
     margin-left: -1rem;
-    width: 130%;
+    width: 160%;
     opacity: 0;
     pointer-events: none;
     transition: opacity .5s ease;
@@ -78,7 +78,6 @@
 
     svg{
       position: relative;
-      top: .25rem;
       left: .25rem;
       color: colors(second);
     }
