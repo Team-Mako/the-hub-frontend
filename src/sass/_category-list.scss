@@ -47,7 +47,6 @@
 
   &__list{
     @include flexGen(row, wrap, flex-start, flex-start);
-    width: 100%;
 
     @include firstBrk{
       @include flexGen(row, wrap, space-between, flex-start);
@@ -68,7 +67,7 @@
   &__box{
     width: 100%;
     height: 500px;
-    background-size: 110% !important;
+    background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     color: lighten(colors(lightBg), 10%);

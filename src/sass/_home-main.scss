@@ -21,6 +21,14 @@
     line-height: 1.3;
     font-family: $font-bold;
 
+    @include secondBrk{
+      font-size: 2.1rem;
+    }
+
+    @include thirdBrk{
+      font-size: 2.5rem;
+    }
+
     span{
       color: colors(second);
     }
