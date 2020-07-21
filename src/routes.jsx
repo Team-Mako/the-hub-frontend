@@ -9,7 +9,7 @@ import CategorySelected from './pages/CategorySelected';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import SinglePost from './pages/SinglePost';
-import About from './pages/About';
+import Team from './pages/Team';
 import Contact from './pages/Contact';
 import MyProjects from './pages/Dashboard/MyProjects';
 import Favourites from './pages/Dashboard/Favourites';
@@ -25,6 +25,7 @@ import AdminCreateMaterial from './pages/Admin/Materials/Create';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import api from './services/api';
+import SearchPage from './pages/SearchPage';
 
 function Routes() {
   const auth = useSelector((state) => state.auth);
@@ -35,6 +36,11 @@ function Routes() {
       <Route path="/" exact>
         <Headers searchBar={false} />
         <Home />
+        <SiteFooter />
+      </Route>
+      <Route path="/search" exact>
+        <Headers searchBar={false} />
+        <SearchPage />
         <SiteFooter />
       </Route>
       <Route path="/category/" exact>
@@ -57,9 +63,9 @@ function Routes() {
         <SinglePost />
         <SiteFooter />
       </Route>
-      <Route path="/about" exact>
+      <Route path="/team" exact>
         <Headers searchBar />
-        <About />
+        <Team />
         <SiteFooter />
       </Route>
       <Route path="/signup" exact>
