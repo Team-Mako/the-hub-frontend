@@ -101,22 +101,26 @@
 
     @include firstBrk{
       position: absolute;
-      bottom: -1.5rem;
-      right: 2rem;
+      bottom: -2rem;
+      right: 0;
       margin-left: 0 !important;
     }
 
-    @include secondBrk{
+    @include forthBrk{
       position: initial;
       padding: 0 0 0 2rem;
     }
 
     input[type="search"]{
-      min-width: 250px;
+      min-width: 230px;
       flex-grow: 2;
       border-bottom: 2px solid colors(lightBg);
       padding: .3rem 0;
       transition: border-bottom .5s ease;
+
+      @include forthBrk{
+        min-width: 320px;
+      }
 
       &:focus, &:hover{
         border-bottom: 2px solid colors(second);
@@ -139,7 +143,7 @@
   &__profile{
     @include flexGen(row, wrap, space-between, center);
     width: 100%;
-    margin-left: 2rem;
+    // margin-left: 2rem;
 
     &:first-of-type{
       margin-bottom: 4rem;
@@ -156,12 +160,16 @@
       margin-bottom: 3rem;
       font-family: $font-bold;
       color: colors(accent);
-      margin-left: 2rem;
+      // margin-left: 2rem;
     }
 
     label{
-      width: 48%;
+      width: 100%;
       margin-bottom: 2rem;
+
+      @media screen and (min-width: 600px){
+        width: 48%;
+      }
 
       &:nth-of-type(3), &:nth-of-type(4){
         width: 100%;

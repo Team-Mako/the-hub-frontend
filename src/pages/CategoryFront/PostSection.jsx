@@ -51,7 +51,7 @@ const PostSection = () => {
               <div className="post-section__details">
 
                 <div className="post-section__author">
-                  <img src={require(`${filesURL}${post.user_avatar}`)} alt={post.user_name} />
+                  <img src={`${filesURL}${post.user_avatar}`} alt={post.user_name} />
                   <p>{post.user_name}</p>
                 </div>
 

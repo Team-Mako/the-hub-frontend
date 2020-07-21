@@ -94,7 +94,10 @@
     }
 
     &--alt{
-      padding: 2rem;
+
+      @include secondBrk{
+        padding: 4rem;
+      }
     }
 
     button{
