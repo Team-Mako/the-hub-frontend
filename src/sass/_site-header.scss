@@ -7,10 +7,6 @@
     padding: 2rem;
   }
 
-  @include forthBrk{
-    font-size: 1.5rem;
-  }
-
   &__inner{
     @include flexGen(row, nowrap, flex-start, center);
     max-width: $max-width;
@@ -36,10 +32,6 @@
 
     @include firstBrk{
       width: 75px;
-    }
-
-    @include forthBrk{
-      width: 96px;
     }
 
     img{
