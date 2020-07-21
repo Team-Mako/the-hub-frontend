@@ -2,6 +2,7 @@
   @include flexGen(column, wrap, center, flex-start);
   margin: auto;
   margin-bottom: 2rem;
+  padding: 0 1rem;
   max-width: 500px;
   min-height: calc(100% - 324px);
   font-family: $font-medium;
