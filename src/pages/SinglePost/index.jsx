@@ -34,7 +34,7 @@ const SinglePost = () => {
       const stepData = await api.get(`/post-step/${postData.data[0].post_id}`);
       setSteps(stepData.data);
 
-      await api.put(`/post-view/${postData.data[0].post_id}`);
+      await api.put(`/post-view?postId=${postData.data[0].post_id}&userId=${postData.data[0].user_id}`);
       setViews(postData.data[0].post_views + 1);
       setLikes(postData.data[0].post_likes);
 
