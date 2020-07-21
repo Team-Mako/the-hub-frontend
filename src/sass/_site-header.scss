@@ -1,13 +1,14 @@
 .site-header{
   @include flexGen(row, nowrap, center, center);
   padding: 1rem;
+  font-size: 1rem;
 
   @include firstBrk{
-    padding: 2rem 2rem 5rem 2rem;
+    padding: 2rem;
   }
 
-  @include secondBrk{
-    padding: 0;
+  @include forthBrk{
+    font-size: 1.5rem;
   }
 
   &__inner{
@@ -15,17 +16,13 @@
     max-width: $max-width;
     width: 100%;
     position: relative;
-
-    @include secondBrk{
-      padding: 2rem;
-    }
   }
 
   &__call-to{
     @extend %btn;
     color: lighten(colors(lightBg), 100%) !important;
     background: colors(second);
-    font-size: .8rem;
+    font-size: 1rem;
     transition: background .5s ease;
 
     &:hover{
@@ -38,7 +35,11 @@
     padding-left: 2rem;
 
     @include firstBrk{
-      width: 72px;
+      width: 75px;
+    }
+
+    @include forthBrk{
+      width: 96px;
     }
 
     img{
@@ -74,12 +75,18 @@
     @include firstBrk{
       @include flexGen(row, nowrap, space-evenly, center);
     }
+
+    svg{
+      position: relative;
+      top: .25rem;
+      left: .25rem;
+      color: colors(second);
+    }
   }
 
   &__avatar{
     width: 52px;
-    height: 52px;
-    border-radius: 50%;
+    border-radius: 100%;
     overflow: hidden;
   }
 
@@ -110,16 +117,10 @@
     &:hover{
       color: colors(second);
     }
-
-    svg{
-      margin-left: .5rem;
-      margin-top: .1rem;
-      color: colors(second);
-    }
   }
 
   form{
     width: 30%;
-    padding-left: 2rem;
+    margin-left: 2rem;
   }
 }

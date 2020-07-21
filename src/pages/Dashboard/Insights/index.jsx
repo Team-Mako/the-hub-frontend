@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector  } from 'react-redux';
 import { Chart } from 'react-google-charts';
+import { Redirect } from 'react-router-dom'
 import Dashboard from '../Dashboard';
 import api from '../../../services/api';
 
-const Insights = ({ user }) => {
+const Insights = ({ isPrivate }) => {
+  const userData = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+
   const colors = ['#f92962', '#782e74', '#0b7a75', '#0fa9a2', '#fa5b86'];
   const [categories, setCategories] = useState([]);
   const [materials, setMaterials] = useState([]);
@@ -45,6 +49,10 @@ const Insights = ({ user }) => {
     getInsightsCategory();
     getInsightsMaterials();
   }, [user.user_id]);
+
+  if(!userData.session && isPrivate) {
+    return (<Redirect to="/" />);
+  }
 
   return (
     <Dashboard nav>
@@ -131,6 +139,4 @@ const Insights = ({ user }) => {
   );
 };
 
-export default connect((state) => ({
-  user: state.user,
-}))(Insights);
+export default Insights;

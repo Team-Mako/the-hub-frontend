@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import { filesURL } from '../../config/filesBucket';
 import api from '../../services/api';
 
 const CategoryList = () => {
@@ -24,7 +25,7 @@ const CategoryList = () => {
 
         <div className="category-list__list">
           {categories.map((category) => (
-            <NavLink key={category.category_id} to={`/category/${category.category_slug}`} className="category-list__box" style={{ background: `url(http://localhost:3333/files/${category.category_cover_small})` }}>
+            <NavLink key={category.category_id} to={`/category/${category.category_slug}`} className="category-list__box" style={{ background: `url(${filesURL}${category.category_cover_small})` }}>
               <div className="category-list__gradient">
                 <h3>{category.category_title}</h3>
                 <p>{category.category_subtitle}</p>

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { filesURL } from '../../../config/filesBucket';
 import { NoPic } from '../../../components/Assets';
 import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
 
-const EditProfile = () => {
+const EditProfile = ({ isPrivate }) => {
+  const userData = useSelector((state) => state.user);
+
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [bio, setBio] = useState('');
@@ -16,7 +19,6 @@ const EditProfile = () => {
   const [oldPassword, setOldPassword] = useState('');
   const [avatar, setAvatar] = useState('');
 
-  const userData = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,13 +27,16 @@ const EditProfile = () => {
         const getLocalStorage = JSON.parse(localStorage.getItem('persist:thehub'));
         const userObj = JSON.parse(getLocalStorage.user);
 
-        const response = await api.get(`/show-user/${userObj.user_id}`);
-        setName(response.data[0].user_name);
-        setLastName(response.data[0].user_last_name);
-        setBio(response.data[0].user_bio);
+        if(userObj.user_id){
 
-        if (response.data[0].user_avatar) {
-          setAvatar(`${filesURL}${response.data[0].user_avatar}`);
+          const response = await api.get(`/show-user/${userObj.user_id}`);
+          setName(response.data[0].user_name);
+          setLastName(response.data[0].user_last_name);
+          setBio(response.data[0].user_bio);
+
+          if (response.data[0].user_avatar) {
+            setAvatar(`${filesURL}${response.data[0].user_avatar}`);
+          }
         }
       }
     }
@@ -144,6 +149,10 @@ const EditProfile = () => {
         timer();
       });
   };
+
+  if(!userData.session && isPrivate) {
+    return (<Redirect to="/" />);
+  }
 
   return (
     <main className="dashboard">

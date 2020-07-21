@@ -36,9 +36,13 @@ function Routes() {
         <Home />
         <SiteFooter />
       </Route>
-      <Route path="/category/:slug" exact>
+      <Route path="/category/" exact>
         <Headers searchBar />
         <Category />
+        <SiteFooter />
+      </Route>
+      <Route path="/category/:slug" exact>
+        <Headers searchBar />
         <SiteFooter />
       </Route>
       <Route path="/contact" exact>
@@ -64,29 +68,29 @@ function Routes() {
         <LogIn />
         <SiteFooter />
       </Route>
-      <Route path="/my-projects" exact isPrivate>
+      <Route path="/my-projects" exact>
         <Headers searchBar />
-        <MyProjects />
+        <MyProjects isPrivate />
         <SiteFooter />
       </Route>
-      <Route path="/favourites" exact isPrivate>
+      <Route path="/favourites" exact>
         <Headers searchBar />
-        <Favourites />
+        <Favourites isPrivate />
         <SiteFooter />
       </Route>
-      <Route path="/insights" exact isPrivate>
+      <Route path="/insights" exact>
         <Headers searchBar />
-        <Insights />
+        <Insights isPrivate />
         <SiteFooter />
       </Route>
-      <Route path="/create-project" exact isPrivate>
+      <Route path="/create-project" exact>
         <Headers searchBar />
-        <CreateProject />
+        <CreateProject isPrivate />
         <SiteFooter />
       </Route>
-      <Route path="/edit-profile" exact isPrivate>
+      <Route path="/edit-profile" exact>
         <Headers searchBar />
-        <EditProfile />
+        <EditProfile isPrivate />
         <SiteFooter />
       </Route>
       <Route path="/admin" exact component={AdminLogin} />
@@ -97,6 +101,11 @@ function Routes() {
       <Route path="/admin/create-material" exact isAdmin component={AdminCreateMaterial} />
       <Route path="/privacypolicy" exact component={PrivacyPolicy} />
       <Route path="/termsandconditions" exact component={TermsAndConditions} />
+      <Route path="*">
+        <Headers searchBar={false} />
+        <Home />
+        <SiteFooter />
+      </Route>
     </Switch>
   );
 }

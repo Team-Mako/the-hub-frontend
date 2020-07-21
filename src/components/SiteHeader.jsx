@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { FaChevronDown, FaSearch } from 'react-icons/fa';
 import { LogoRegular, NoPic } from './Assets';
 import { filesURL } from '../config/filesBucket';
@@ -45,7 +45,7 @@ const Header = ({ session, searchBar }) => {
               ))}
             </ul>
           </li>
-          <li><NavLink to="/about">About</NavLink></li>
+          <li><Link to="/about">About</Link></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
           {session ? (
             <>

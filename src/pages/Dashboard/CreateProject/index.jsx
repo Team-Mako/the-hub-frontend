@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import { Redirect } from 'react-router-dom';
 import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
+import { useSelector } from 'react-redux';
 
-const CreateProject = () => {
+const CreateProject = ({ isPrivate }) => {
+  const userData = useSelector((state) => state.auth);
+
   const [categoryList, setCategoryList] = useState([]);
   const [materialList, setMaterialList] = useState([]);
   const [title, setTitle] = useState('');
@@ -169,6 +173,10 @@ const CreateProject = () => {
         timer();
       });
   };
+
+  if(!userData.session && isPrivate) {
+    return (<Redirect to="/" />);
+  }
 
   return (
     <>
