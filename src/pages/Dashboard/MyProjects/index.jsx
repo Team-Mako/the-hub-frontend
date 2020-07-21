@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaEye, FaEdit } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import Dashboard from '../Dashboard';
 import api from '../../../services/api';
 import NoProject from './NoProject';
 import { filesURL } from '../../../config/filesBucket';
+import { useSelector } from 'react-redux';
 
-const MyProjects = () => {
+const MyProjects = ({ isPrivate }) => {
+  const userData = useSelector((state) => state.auth);
+
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -24,6 +27,10 @@ const MyProjects = () => {
     getTotal();
     getPosts();
   }, []);
+
+  if(!userData.session && isPrivate) {
+    return (<Redirect to="/" />);
+  }
 
   return (
     <Dashboard nav>

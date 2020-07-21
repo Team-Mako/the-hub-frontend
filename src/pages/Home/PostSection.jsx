@@ -19,7 +19,7 @@ const PostSection = () => {
 
     getPosts();
   }, []);
-
+  console.log(filesURL);
   return (
     <section className="post-section">
 
