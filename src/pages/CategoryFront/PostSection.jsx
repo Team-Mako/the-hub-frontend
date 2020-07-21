@@ -66,7 +66,9 @@ const PostSection = () => {
               <div className="post-section__details">
 
                 <div className="post-section__author">
+
                   <img src={post.user_avatar ? `${filesURL}${post.user_avatar}` : NoPic} alt={post.user_name} />
+
                   <p>{post.user_name}</p>
                 </div>
 
