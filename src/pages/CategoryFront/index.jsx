@@ -1,6 +1,7 @@
 import React from 'react';
 import PostSection from './PostSection';
 import CallToAction from '../../components/CallToAction';
+import { HeroImg } from '../../components/Assets';
 
 const Category = () => (
   <>
@@ -15,7 +16,7 @@ const Category = () => (
           </div>
 
           <div className="hero-section__right">
-            <img src="" alt="A Hero of a Purple Cocktail" />
+            <img src={HeroImg} alt="A Hero of a Purple Cocktail" />
           </div>
 
         </div>

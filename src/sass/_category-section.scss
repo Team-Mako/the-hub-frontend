@@ -1,11 +1,11 @@
 .category-section{
   @include flexGen(row, nowrap, center, center);
+  padding: 0 2rem;
 
   &__inner{
     @include flexGen(column, nowrap, center, center);
     max-width: $max-width;
     width: 100%;
-    padding: 0 2rem;
   }
 
   &__hero{
