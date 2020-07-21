@@ -45,7 +45,7 @@ const Header = ({ session, searchBar }) => {
               ))}
             </ul>
           </li>
-          <li><Link to="/about">About</Link></li>
+          <li><Link to="/team">Team</Link></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
           {session ? (
             <>

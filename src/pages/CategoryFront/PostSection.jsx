@@ -12,7 +12,7 @@ const PostSection = () => {
 
   useEffect(() => {
     async function getPosts() {
-      const response = await api.get(`/list-post?pg=1&limit=${page}`);
+      const response = await api.get(`/list-post?pg=1&limit=9`);
       setPosts(response.data);
     }
 
