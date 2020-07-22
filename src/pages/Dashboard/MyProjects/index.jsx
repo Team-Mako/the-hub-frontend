@@ -9,18 +9,20 @@ import { useSelector } from 'react-redux';
 
 const MyProjects = ({ isPrivate }) => {
   const userData = useSelector((state) => state.auth);
+  const getLocalStorage = JSON.parse(localStorage.getItem('persist:thehub'));
+  const userObj = JSON.parse(getLocalStorage.user);
 
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
     async function getPosts() {
-      const response = await api.get('/list-post?user=1');
+    const response = await api.get(`/list-post?user=${userObj.user_id}`);
       setPosts(response.data);
     }
 
     async function getTotal() {
-      const response = await api.get('/count-post?user=1');
+      const response = await api.get(`/count-post?user=${userObj.user_id}`);
       setTotal(response.data[0].total);
     }
 

@@ -7,7 +7,8 @@ import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
 
 const EditProfile = ({ isPrivate }) => {
-  const userData = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
+  const userData = useSelector((state) => state.auth);
 
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -167,8 +168,8 @@ const EditProfile = ({ isPrivate }) => {
               <input type="file" name="avatar" accept="image/*" onChange={handleAvatar} />
             </label>
 
-            <p>{userData.user_name}</p>
-            <p>{userData.user_email}</p>
+            <p>{user.user_name}</p>
+            <p>{user.user_email}</p>
 
             <button type="submit">Save</button>
           </form>
