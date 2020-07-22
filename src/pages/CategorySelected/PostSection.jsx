@@ -59,7 +59,7 @@ const PostSection = ({categoryId}) => {
 
         <div className="post-section__list">
           {posts.map((post) => (
-            <NavLink key={post.post_id} to="/" className="post-section__box">
+            <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
               <img className="post-section__cover" src={`${filesURL}${post.post_cover}`} alt={post.post_title} />
               <h3>{post.post_title}</h3>
 
