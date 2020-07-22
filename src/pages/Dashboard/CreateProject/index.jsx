@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
 import { useSelector } from 'react-redux';
+import Spinner from '../../../components/BiggerSpinner';
 
 const CreateProject = ({ isPrivate }) => {
   const userData = useSelector((state) => state.auth);
@@ -19,6 +20,7 @@ const CreateProject = ({ isPrivate }) => {
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [cover, setCover] = useState('');
+  const [loader, setLoader] = useState(false);
 
   const timer = () => {
     setTimeout(() => {
@@ -86,6 +88,7 @@ const CreateProject = ({ isPrivate }) => {
 
   const handleSteps = (e, index) => {
     if (e.target.files) {
+      console.log(e.target.files);
       if (e.target.files[0].size > 1572864) {
         setAlert(true);
         setAlertMessage('Your image is bigger thant 1.5MB!');
@@ -160,12 +163,13 @@ const CreateProject = ({ isPrivate }) => {
     }
 
     const formData = new FormData(e.target);
-
+    setLoader(true);
     api.post('/create-post', formData, { headers: { 'content-type': 'multipart/form-data' } })
       .then((res) => {
         setAlert(true);
         setAlertMessage(res.data.message);
         timer();
+        setLoader(false);
       })
       .catch((err) => {
         setAlert(true);
@@ -314,6 +318,8 @@ const CreateProject = ({ isPrivate }) => {
           <button type="submit">Create</button>
         </form>
       </div>
+
+      <Spinner active={loader} />
     </>
   );
 };

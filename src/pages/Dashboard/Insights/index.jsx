@@ -27,6 +27,9 @@ const Insights = ({ isPrivate }) => {
           } else {
             setCategories([['Category', 'Ratio']]);
           }
+        })
+        .catch((err) => {
+
         });
     }
 
@@ -43,7 +46,20 @@ const Insights = ({ isPrivate }) => {
           } else {
             setMaterials([['Material', 'Ratio']]);
           }
+        })
+        .catch((err) => {
+
         });
+    }
+
+    async function getInsightsViews() {
+      await api.get(`/views`)
+        .then((res) => {
+
+        })
+        .catch((err) => {
+
+        })
     }
 
     getInsightsCategory();

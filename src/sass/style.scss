@@ -189,3 +189,29 @@ button{
 .liked{
   color: colors(second);
 }
+
+.spinner{
+  opacity: 0;
+  pointer-events: none;
+  transition: all .5s ease;
+
+  &--active{
+    @include flexGen(column, nowrap, center, center);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(colors(darkBg), .5);
+    z-index: 9999;
+    top: 0;
+    font-size: 2rem;
+    color: white;
+    opacity: 1;
+    pointer-events: all;
+
+    img{
+      animation: heartbeat 1.5s ease-in-out infinite both;
+      width: 120px;
+      margin-bottom: 4rem;
+    }
+  }
+}
