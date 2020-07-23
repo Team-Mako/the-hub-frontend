@@ -12,10 +12,11 @@ const Insights = ({ isPrivate }) => {
   const colors = ['#f92962', '#782e74', '#0b7a75', '#0fa9a2', '#fa5b86'];
   const [categories, setCategories] = useState([]);
   const [materials, setMaterials] = useState([]);
+  const [views, setViews] = useState([]);
 
   useEffect(() => {
     async function getInsightsCategory() {
-      await api.get(`/top-categories?userId=${user.user_id}`)
+      await api.get('/top-categories')
         .then((res) => {
           if (res.data.length > 0) {
             const dataArr = [['Category', 'Ratio']];
@@ -34,7 +35,7 @@ const Insights = ({ isPrivate }) => {
     }
 
     async function getInsightsMaterials() {
-      await api.get(`/top-materials?userId=${user.user_id}`)
+      await api.get('/top-materials')
         .then((res) => {
           if (res.data.length > 0) {
             const dataArr = [['Material', 'Ratio']];
@@ -55,7 +56,19 @@ const Insights = ({ isPrivate }) => {
     async function getInsightsViews() {
       await api.get(`/views`)
         .then((res) => {
+          console.log(res)
+          if (res.data.length > 0) {
+            const dataArr = [['Date', 'Views']];
+            res.data.map((item) => {
+              const date = new Date(item.post_view_date);
+              const newDate = `${(date.getMonth() + 1)}-${date.getDate()}-${date.getFullYear()}`;
+              dataArr.push([newDate, item.Total]);
+            });
 
+            setViews(dataArr);
+          } else {
+            setViews([['Date', 'Views']]);
+          }
         })
         .catch((err) => {
 
@@ -64,6 +77,7 @@ const Insights = ({ isPrivate }) => {
 
     getInsightsCategory();
     getInsightsMaterials();
+    getInsightsViews();
   }, [user.user_id]);
 
   if(!userData.session && isPrivate) {
@@ -114,17 +128,7 @@ const Insights = ({ isPrivate }) => {
             width="100%"
             height="400px"
             chartType="Line"
-            data={[
-              ['date', 'views'],
-              [0, 0],
-              [1, 2],
-              [2, 2],
-              [3, 2],
-              [4, 4],
-              [5, 0],
-              [6, 6],
-              [7, 0],
-            ]}
+            data={views}
             options={{
               curveType: 'function',
               legend: {

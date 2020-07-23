@@ -32,7 +32,7 @@ const PostSection = () => {
             <Carousel showThumbs={false} showIndicators={false} showStatus={false} infiniteLoop>
               { posts.map((post) => (
                 <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
-                  <img className="post-section__cover" src={`${filesURL}${post.post_cover}`} alt={post.post_title} />
+                  <div className="post-section__cover" style={{background: `url(${filesURL}${post.post_cover})`}} />
                   <h3>{post.post_title}</h3>
 
                   <div className="post-section__details">
@@ -58,7 +58,7 @@ const PostSection = () => {
           <div className="post-section__list">
             { posts.map((post) => (
               <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
-                <img className="post-section__cover" src={`${filesURL}${post.post_cover}`} alt={post.post_title} />
+                <div className="post-section__cover" style={{background: `url(${filesURL}${post.post_cover})`}} />
                 <h3>{post.post_title}</h3>
 
                 <div className="post-section__details">
