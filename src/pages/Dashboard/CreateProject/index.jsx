@@ -13,7 +13,7 @@ const CreateProject = ({ isPrivate }) => {
   const [materialList, setMaterialList] = useState([]);
   const [title, setTitle] = useState('');
   const [materialFields, setMaterialFields] = useState([{ material: '', meas: '' }]);
-  const [steps, setSteps] = useState([{ stepDescription: '', stepVideo: '', stepCover: '' }]);
+  const [steps, setSteps] = useState([{ stepDescription: '', stepCover: '' }]);
   const [modal, setModal] = useState(false);
   const [modalCategory, setModalCategory] = useState('');
   const [modalMaterial, setModalMaterial] = useState('');
@@ -83,7 +83,7 @@ const CreateProject = ({ isPrivate }) => {
   };
 
   const handleMoreSteps = () => {
-    setSteps([...steps, { stepDescription: '', stepVideo: '' }]);
+    setSteps([...steps, { stepDescription: '', }]);
   };
 
   const handleSteps = (e, index) => {
@@ -170,11 +170,13 @@ const CreateProject = ({ isPrivate }) => {
         setAlertMessage(res.data.message);
         timer();
         setLoader(false);
+        console.log(res.data)
       })
       .catch((err) => {
         setAlert(true);
         setAlertMessage(err.response.data.error);
         timer();
+        console.log(err)
       });
   };
 
@@ -275,8 +277,6 @@ const CreateProject = ({ isPrivate }) => {
                     <h3>Step {index + 1}</h3>
 
                     <textarea name="stepDescription" onChange={(e) => handleSteps(e, index)} required />
-
-                    <input type="text" name="stepVideo" placeholder="Video link" onChange={(e) => handleSteps(e, index)} />
 
                     <label className="create-post__file-label">
                       <span className="create-post__file-btn">Add a Image 1.5MB</span>

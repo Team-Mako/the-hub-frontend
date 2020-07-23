@@ -21,7 +21,7 @@ const Footer = () => (
 
       <ul>
         <li><a href="/#category">Categories</a></li>
-        <li><NavLink to="/about">About</NavLink></li>
+        <li><NavLink to="/team">Team</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
         <li><NavLink to="/signup">Sign In</NavLink></li>
       </ul>

@@ -52,7 +52,7 @@ const MyProjects = ({ isPrivate }) => {
                   </ul>
                 </div>
 
-                <h2><NavLink to="/">{post.post_title}</NavLink></h2>
+                <h2><NavLink to={`/DIY/${post.post_url}`}>{post.post_title}</NavLink></h2>
               </div>
             ))}
           </div>
