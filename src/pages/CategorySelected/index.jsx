@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import PostSection from './PostSection';
 import CallToAction from '../../components/CallToAction';
-import { useState, useEffect  } from 'react';
-import { useParams } from 'react-router-dom';
+
 import { filesURL } from '../../config/filesBucket';
 import api from '../../services/api';
 
 const Category = () => {
-  const [category, setCategory] = useState('');
   const { slug } = useParams();
+  const [category, setCategory] = useState('');
 
   useEffect(() => {
     async function getCategory() {
       const result = await api.get(`/show-category/${slug}`);
-      setCategory(result.data)
+      setCategory(result.data);
     }
 
     getCategory();
-  }, [slug])
+  }, [slug]);
 
   return (
     <>
@@ -40,9 +40,10 @@ const Category = () => {
         </div>
       </main>
 
-      <PostSection categoryId={category.category_id} />
+      {category.category_id ? (<PostSection categoryId={category.category_id} />) : ''}
       <CallToAction />
     </>
-)};
+  );
+};
 
 export default Category;

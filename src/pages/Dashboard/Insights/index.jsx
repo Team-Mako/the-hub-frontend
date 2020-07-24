@@ -14,7 +14,7 @@ const Insights = ({ isPrivate }) => {
   const [materials, setMaterials] = useState([]);
   const [views, setViews] = useState([]);
   const [likes, setLikes] = useState([]);
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState(1);
 
   useEffect(() => {
     async function getInsightsCategory() {
@@ -79,7 +79,11 @@ const Insights = ({ isPrivate }) => {
     async function getInsightsLikes() {
       await api.get('/total-likes')
         .then((res) => {
-          setLikes(res.data[0]);
+          if (res.data.length > 0) {
+            setLikes(res.data[0]);
+          } else {
+            setLikes({ received: 0, given: 0 });
+          }
         })
         .catch((err) => {
 
@@ -89,7 +93,11 @@ const Insights = ({ isPrivate }) => {
     async function getInsightsComments() {
       await api.get('/total-comments')
         .then((res) => {
-          setComments(res.data[0]);
+          if (res.data.length > 0) {
+            setComments(res.data[0]);
+          } else {
+            setComments({ received: 0, given: 0 });
+          }
         })
         .catch((err) => {
 
@@ -101,7 +109,7 @@ const Insights = ({ isPrivate }) => {
     getInsightsCategory();
     getInsightsMaterials();
     getInsightsViews();
-  }, [user.user_id]);
+  }, []);
 
   if (!userData.session && isPrivate) {
     return (<Redirect to="/" />);
