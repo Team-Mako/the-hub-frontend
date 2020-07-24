@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaEye, FaEdit } from 'react-icons/fa';
 import { NavLink, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Dashboard from '../Dashboard';
 import api from '../../../services/api';
 import NoProject from './NoProject';
 import { filesURL } from '../../../config/filesBucket';
-import { useSelector } from 'react-redux';
 
 const MyProjects = ({ isPrivate }) => {
   const userData = useSelector((state) => state.auth);
@@ -17,7 +17,7 @@ const MyProjects = ({ isPrivate }) => {
 
   useEffect(() => {
     async function getPosts() {
-    const response = await api.get(`/list-post?user=${userObj.user_id}`);
+      const response = await api.get(`/list-post?user=${userObj.user_id}`);
       setPosts(response.data);
     }
 
@@ -30,7 +30,7 @@ const MyProjects = ({ isPrivate }) => {
     getPosts();
   }, []);
 
-  if(!userData.session && isPrivate) {
+  if (!userData.session && isPrivate) {
     return (<Redirect to="/" />);
   }
 
@@ -47,7 +47,7 @@ const MyProjects = ({ isPrivate }) => {
                 <div className="my-projects__info">
                   <NavLink to={`/edit/${post.post_url}`} title="Edit"><span aria-hidden="true" className="visually-hidden">Edit Post</span><FaEdit /></NavLink>
                   <ul>
-                    <li><FaHeart /> {post.post_like}</li>
+                    <li><FaHeart /> {post.post_likes}</li>
                     <li><FaEye /> {post.post_views}</li>
                   </ul>
                 </div>

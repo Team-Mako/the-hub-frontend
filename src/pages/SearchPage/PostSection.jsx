@@ -5,19 +5,19 @@ import api from '../../services/api';
 import { filesURL } from '../../config/filesBucket';
 import { NoPic } from '../../components/Assets';
 
-const PostSection = () => {
+const PostSection = ({ search }) => {
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(9);
 
   useEffect(() => {
     async function getPosts() {
-      const response = await api.get(`/list-post?pg=1&limit=9`);
+      const response = await api.get(`/search?pg=1&limit=9&search=${search}`);
       setPosts(response.data);
     }
 
     async function getTotal() {
-      const response = await api.get('/count-post');
+      const response = await api.get(`/count-post?search=${search}`);
       setTotal(response.data[0].total);
     }
 
@@ -27,16 +27,16 @@ const PostSection = () => {
 
   useEffect(() => {
     async function getNewPosts() {
-      const response = await api.get(`/list-post?pg=1&limit=${page}`);
+      const response = await api.get(`/search?pg=1&limit=${page}&search=${search}`);
       setPosts(response.data);
     }
 
     getNewPosts();
-  }, [page])
+  }, [page, search]);
 
   const handleMorePosts = () => {
     setPage(page + 6);
-  }
+  };
 
   return (
     <section className="post-section">
@@ -60,7 +60,7 @@ const PostSection = () => {
         <div className="post-section__list">
           {posts.map((post) => (
             <NavLink key={post.post_id} to="/" className="post-section__box">
-              <div className="post-section__cover" style={{background: `url(${filesURL}${post.post_cover})`}} />
+              <div className="post-section__cover" style={{ background: `url(${filesURL}${post.post_cover})` }} />
               <h3>{post.post_title}</h3>
 
               <div className="post-section__details">

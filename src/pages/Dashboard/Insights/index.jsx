@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector  } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Chart } from 'react-google-charts';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import Dashboard from '../Dashboard';
 import api from '../../../services/api';
 
@@ -13,6 +13,8 @@ const Insights = ({ isPrivate }) => {
   const [categories, setCategories] = useState([]);
   const [materials, setMaterials] = useState([]);
   const [views, setViews] = useState([]);
+  const [likes, setLikes] = useState([]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     async function getInsightsCategory() {
@@ -54,9 +56,8 @@ const Insights = ({ isPrivate }) => {
     }
 
     async function getInsightsViews() {
-      await api.get(`/views`)
+      await api.get('/views')
         .then((res) => {
-          console.log(res)
           if (res.data.length > 0) {
             const dataArr = [['Date', 'Views']];
             res.data.map((item) => {
@@ -72,15 +73,37 @@ const Insights = ({ isPrivate }) => {
         })
         .catch((err) => {
 
-        })
+        });
     }
 
+    async function getInsightsLikes() {
+      await api.get('/total-likes')
+        .then((res) => {
+          setLikes(res.data[0]);
+        })
+        .catch((err) => {
+
+        });
+    }
+
+    async function getInsightsComments() {
+      await api.get('/total-comments')
+        .then((res) => {
+          setComments(res.data[0]);
+        })
+        .catch((err) => {
+
+        });
+    }
+
+    getInsightsComments();
+    getInsightsLikes();
     getInsightsCategory();
     getInsightsMaterials();
     getInsightsViews();
   }, [user.user_id]);
 
-  if(!userData.session && isPrivate) {
+  if (!userData.session && isPrivate) {
     return (<Redirect to="/" />);
   }
 
@@ -143,15 +166,14 @@ const Insights = ({ isPrivate }) => {
 
         <div className="insights__box">
           <h3>You Have Receieved (All Time)</h3>
-          <p>Poject Views <span>180</span></p>
-          <p>Poject Likes <span>180</span></p>
-          <p>Comments <span>180</span></p>
+          <p>Poject Likes <span>{likes.received}</span></p>
+          <p>Comments <span>{comments.received}</span></p>
         </div>
 
         <div className="insights__box">
           <h3>You Have Given (All Time)</h3>
-          <p>Poject Likes <span>180</span></p>
-          <p>Comments <span>180</span></p>
+          <p>Poject Likes <span>{likes.given}</span></p>
+          <p>Comments <span>{comments.given}</span></p>
         </div>
 
       </div>
