@@ -35,10 +35,10 @@ const Home = () => {
               <p>The HUB is the best place to <br /> find & showcase any project<br /> that <strong>you can do it yourself</strong></p>
 
               <form onSubmit={handleSubmit}>
-                <label>
+                <label><span className="visually-hidden">What do you want to create?</span>
                   <input type="search" placeholder="What do you want to create?" onChange={handleSearch} />
                 </label>
-                <button type="submit"><span aria-hidden="true" className="visually-hidden">Search Button</span><FaSearch /></button>
+                <button type="submit"><span className="visually-hidden">Search Button</span><FaSearch /></button>
               </form>
             </div>
 
