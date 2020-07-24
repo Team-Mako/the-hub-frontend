@@ -1,41 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import CallToAction from '../../components/CallToAction';
 import { HeroImg } from '../../components/Assets';
 import PostSection from './PostSection';
 import CategoryList from './CategoryList';
 
-const Home = () => (
-  <>
-    <main className="home-main">
-      <div className="home-main__inner">
+const Home = () => {
+  const [search, setSearch] = useState('');
+  const [trueSearch, setTrueSearch] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
-        <section className="hero-section">
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
-          <div className="hero-section__left">
-            <h1>Discover your <br /> DIY for today</h1>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setRedirect(true);
+    setTrueSearch(search);
+  };
 
-            <p>The HUB is the best place to <br /> find & showcase any project<br /> that <strong>you can do it yourself</strong></p>
+  return (
+    <>
+      {redirect ? (<Redirect to={`/search/${trueSearch}`} />) : ''}
+      <main className="home-main">
+        <div className="home-main__inner">
 
-            <form>
-              <input type="search" placeholder="What do you want to create?" />
-              <button type="button"><span aria-hidden="true" className="visually-hidden">Search Button</span><FaSearch /></button>
-            </form>
-          </div>
+          <section className="hero-section">
 
-          <div className="hero-section__right">
-            <img src={HeroImg} alt="The Hub Hero" />
-          </div>
+            <div className="hero-section__left">
+              <h1>Discover your <br /> DIY for today</h1>
 
-        </section>
+              <p>The HUB is the best place to <br /> find & showcase any project<br /> that <strong>you can do it yourself</strong></p>
 
-      </div>
-    </main>
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <input type="search" placeholder="What do you want to create?" onChange={handleSearch} />
+                </label>
+                <button type="submit"><span aria-hidden="true" className="visually-hidden">Search Button</span><FaSearch /></button>
+              </form>
+            </div>
 
-    <PostSection />
-    <CategoryList />
-    <CallToAction />
-  </>
-);
+            <div className="hero-section__right">
+              <img src={HeroImg} alt="The Hub Hero" />
+            </div>
+
+          </section>
+
+        </div>
+      </main>
+
+      <PostSection />
+      <CategoryList />
+      <CallToAction />
+    </>
+  );
+};
 
 export default Home;

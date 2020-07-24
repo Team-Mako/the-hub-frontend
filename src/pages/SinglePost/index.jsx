@@ -69,7 +69,7 @@ const SinglePost = () => {
         setLike(false);
         setLikes(likes - 1);
       } else {
-        await api.put(`/post-like/${post.post_id}`);
+        await api.put(`/post-like/${post.post_id}/${post.user_id}`);
         setLike(true);
         setLikes(likes + 1);
       }
@@ -159,7 +159,7 @@ const SinglePost = () => {
           </div>
         </main>
 
-        <Comments />
+        <Comments userId={post.user_id} postId={post.post_id} auth={!!userObj.user_id} />
 
         <Alerts active={alert} message={alertMessage} />
       </div>

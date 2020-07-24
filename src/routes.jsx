@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import Headers from './components/Headers';
 import SiteFooter from './components/SiteFooter';
 import Home from './pages/Home';
-import Category from './pages/CategoryFront';
 import CategorySelected from './pages/CategorySelected';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
@@ -38,14 +37,14 @@ function Routes() {
         <Home />
         <SiteFooter />
       </Route>
-      <Route path="/search" exact>
-        <Headers searchBar={false} />
+      <Route path="/search/:search" exact>
+        <Headers searchBar />
         <SearchPage />
         <SiteFooter />
       </Route>
-      <Route path="/category/" exact>
+      <Route path="/search" exact>
         <Headers searchBar />
-        <Category />
+        <SearchPage />
         <SiteFooter />
       </Route>
       <Route path="/category/:slug" exact>
