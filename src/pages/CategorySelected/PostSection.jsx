@@ -5,7 +5,7 @@ import api from '../../services/api';
 import { filesURL } from '../../config/filesBucket';
 import { NoPic } from '../../components/Assets';
 
-const PostSection = ({categoryId}) => {
+const PostSection = ({ categoryId }) => {
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(9);
@@ -32,11 +32,11 @@ const PostSection = ({categoryId}) => {
     }
 
     getNewPosts();
-  }, [page, categoryId])
+  }, [page, categoryId]);
 
   const handleMorePosts = () => {
     setPage(page + 6);
-  }
+  };
 
   return (
     <section className="post-section">
@@ -60,7 +60,7 @@ const PostSection = ({categoryId}) => {
         <div className="post-section__list">
           {posts.map((post) => (
             <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
-              <div className="post-section__cover" style={{background: `url(${filesURL}${post.post_cover})`}} />
+              <div className="post-section__cover" style={{ background: `url(${filesURL}${post.post_cover})` }} />
               <h3>{post.post_title}</h3>
 
               <div className="post-section__details">
@@ -73,7 +73,7 @@ const PostSection = ({categoryId}) => {
                 </div>
 
                 <div className="post-section__meta">
-                  <span><FaHeart /> {post.post_like}</span>
+                  <span><FaHeart /> {post.post_likes}</span>
                   <span><FaEye /> {post.post_views}</span>
                 </div>
 

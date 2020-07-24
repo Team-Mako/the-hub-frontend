@@ -9,8 +9,6 @@ import GreyLogo from '../assets/static/the-hub-logo-grey.svg';
 import HeroImage from '../assets/static/the-hub-hero-image.jpg';
 import defaultPic from '../assets/static/the-hub-no-pic.svg';
 
-// Images for development side
-
 // Images for About page
 import julia from '../assets/static/Julia.png';
 import gustavo from '../assets/static/Gustavo.png';

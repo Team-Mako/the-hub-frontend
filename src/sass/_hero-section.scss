@@ -41,6 +41,15 @@
         @include flexGen(row, nowrap, flex-start, center);
       }
 
+      label{
+        width: 220px;
+
+        @include firstBrk{
+          width: 40%;
+          min-width: 215px;
+        }
+      }
+
       input[type="search"]{
         width: 220px;
         border-bottom: 2px solid colors(lightBg);
@@ -48,7 +57,7 @@
         transition: border-bottom .5s ease;
 
         @include firstBrk{
-          width: 40%;
+          width: 100%;
           min-width: 215px;
         }
 
