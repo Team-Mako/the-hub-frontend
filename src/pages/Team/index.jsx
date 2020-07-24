@@ -41,7 +41,7 @@ const Team = () => {
 
               <h3>Gustavo</h3>
 
-              <p>UX/UI + Brand Lead Designer</p>
+              <p>Brand & Lead Designer</p>
 
               <span>
                 <a href="https://linkedin.com/in/gpalladini" aria-label="Link to linkedIn" rel="noopener noreferrer" title="LinkedIn" target="_blank"><FaLinkedin /></a>
@@ -56,7 +56,7 @@ const Team = () => {
 
               <h3>Marina</h3>
 
-              <p>UI/UX Designer</p>
+              <p>Lead UI/UX Designer</p>
 
               <span>
                 <a href="https://linkedin.com/in/lemos-marina" aria-label="Link to linkedIn" title="LinkedIn" rel="noopener noreferrer" target="_blank"><FaLinkedin /></a>
@@ -115,7 +115,7 @@ const Team = () => {
 
               <h3>Taichi</h3>
 
-              <p>Front-End Developer & Q&A</p>
+              <p>Front-End Developer & QA</p>
 
               <span>
                 <a href="https://linkedin.com/in/taichimurai" aria-label="Link to linkedIn" title="LinkedIn" rel="noopener noreferrer" target="_blank"><FaLinkedin /></a>
@@ -130,7 +130,7 @@ const Team = () => {
 
               <h3>Yuvraj</h3>
 
-              <p>Designer</p>
+              <p>Content Designer</p>
 
               <span>
                 <a href="https://linkedin.com/in/yuvraj-tonk" aria-label="Link to linkedIn" title="LinkedIn" rel="noopener noreferrer" target="_blank"><FaLinkedin /></a>
@@ -145,7 +145,7 @@ const Team = () => {
 
               <h3>Mandeep</h3>
 
-              <p>Designer</p>
+              <p>Content Designer</p>
 
               <span>
                 <a href="https://linkedin.com/in/mandeep-kaur09" aria-label="Link to linkedIn" title="LinkedIn" rel="noopener noreferrer" target="_blank"><FaLinkedin /></a>
@@ -153,7 +153,6 @@ const Team = () => {
               </span>
 
             </div>
-
 
             {/* Logo tile (Where bio shows up) */}
             <div className="about__logo">
@@ -169,6 +168,6 @@ const Team = () => {
       <CallToAction />
     </>
   );
-}
+};
 
 export default Team;
