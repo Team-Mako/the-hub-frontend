@@ -45,6 +45,7 @@
 // Globals
 *{
   box-sizing: border-box;
+  appearance: none;
 }
 
 body{
@@ -56,6 +57,10 @@ body{
 html{
   min-height: 100%;
   height: 100%;
+}
+
+option{
+  text-transform: capitalize !important;
 }
 
 img{
@@ -214,4 +219,12 @@ button{
       margin-bottom: 4rem;
     }
   }
+}
+
+.no-result{
+  @include flexGen(row, nowrap, center, center);
+  grid-column: 1 / -1;
+  text-align: center;
+  height: 350px;
+  font-size: 1.5rem;
 }

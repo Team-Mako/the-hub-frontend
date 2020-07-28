@@ -9,33 +9,44 @@ const PostSection = ({ categoryId }) => {
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(9);
+  const [materialList, setMaterialList] = useState([]);
+  const [time, setTime] = useState('');
+  const [materialId, setMaterialId] = useState('');
+  const [difficulty, setDifficulty] = useState('');
+
+  useEffect(() => {
+    async function getMaterials() {
+      const response = await api.get(`/list-material?pg=1&limit=5000&category=${categoryId}`);
+      setMaterialList(response.data);
+    }
+
+    getMaterials();
+  }, [categoryId]);
 
   useEffect(() => {
     async function getPosts() {
-      const response = await api.get(`/category-post?pg=1&limit=9&categoryId=${categoryId}`);
+      const response = await api.get(`/category-filter?pg=1&limit=${page}&categoryId=${categoryId}&material=${materialId}&time=${time}&difficulty=${difficulty}`);
       setPosts(response.data);
     }
 
     async function getTotal() {
-      const response = await api.get(`/count-post?category=${categoryId}`);
+      const response = await api.get(`/count-filter?categoryId=${categoryId}&material=${materialId}&time=${time}&difficulty=${difficulty}`);
       setTotal(response.data[0].total);
     }
 
-    getTotal();
     getPosts();
-  }, [categoryId]);
-
-  useEffect(() => {
-    async function getNewPosts() {
-      const response = await api.get(`/category-post?pg=1&limit=${page}&categoryId=${categoryId}`);
-      setPosts(response.data);
-    }
-
-    getNewPosts();
-  }, [page, categoryId]);
+    getTotal();
+  }, [page, categoryId, time, materialId, difficulty]);
 
   const handleMorePosts = () => {
     setPage(page + 6);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMaterialId(e.target[0].value);
+    setTime(e.target[1].value);
+    setDifficulty(e.target[2].value);
   };
 
   return (
@@ -43,18 +54,38 @@ const PostSection = ({ categoryId }) => {
 
       <div className="post-section__inner">
 
-        <form>
-          <span className="post-section__label">
-            Made with
-          </span>
-          <span className="post-section__label">
-            Time to make it
-          </span>
-          <span className="post-section__label">
-            Type
-          </span>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Made With</p>
+            <select name="m">
+              <option value="">All</option>
+              {materialList.map((material) => (
+                <option key={material.material_id} value={material.material_id}>{material.material_name}</option>
+              ))}
+            </select>
+          </label>
 
-          <button type="button">Filter</button>
+          <label>
+            <p>Time to make it</p>
+            <select name="t">
+              <option value="">All</option>
+              <option value="1">1min to 30min</option>
+              <option value="2">30min to 1hr</option>
+              <option value="3">1hr+</option>
+            </select>
+          </label>
+
+          <label>
+            <p>Difficulty</p>
+            <select name="d">
+              <option value="">All</option>
+              <option value="1">Easy</option>
+              <option value="2">Medium</option>
+              <option value="3">Hard</option>
+            </select>
+          </label>
+
+          <button type="submit">Filter</button>
         </form>
 
         <div className="post-section__list">
