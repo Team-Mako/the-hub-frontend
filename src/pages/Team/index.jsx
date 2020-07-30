@@ -52,7 +52,7 @@ const Team = () => {
 
             <div className="about__memberTile">
 
-              <img src={Marina} alt="Team Member Avatar" onMouseOver={() => showBio("UX/UI designer with 3 years of experience creating visual solutions for web and mobile applications. As a designer my goal is to design intuitive interfaces that address business needs, having always in mind user-centric design best practices.", 2)} onFocus={() => showBio('Bio', 2)} onMouseOut={() => hideBio(2)} onBlur={() => hideBio(2)} />
+              <img src={Marina} alt="Team Member Avatar" onMouseOver={() => showBio("UX/UI designer who loves to learn and to create visual solutions for web and mobile applications. I also have an editorial design background with many projects for both digital and printed media.", 2)} onFocus={() => showBio('Bio', 2)} onMouseOut={() => hideBio(2)} onBlur={() => hideBio(2)} />
 
               <h3>Marina</h3>
 
@@ -90,6 +90,7 @@ const Team = () => {
 
               <span>
                 <a href="https://linkedin.com/in/julia-francese" aria-label="Link to linkedIn" title="LinkedIn" rel="noopener noreferrer" target="_blank"><FaLinkedin /></a>
+                <a href="https://www.behance.net/juliafrancese" aria-label="Link to behance" title="Behance" rel="noopener noreferrer" target="_blank"><FaBehance /></a>
               </span>
 
             </div>
@@ -126,7 +127,7 @@ const Team = () => {
 
             <div className="about__memberTile">
 
-              <img src={Yuvraj} alt="Team Member Avatar" onMouseOver={() => showBio('UX/UI designer with a background in Engineering Computer Science. I am learning the different aspects of design like space, perspective, balance. Actively helping the team in the UX/UI of the project while studying the market for it.', 7)} onFocus={() => showBio('Bio', 7)} onMouseOut={() => hideBio(7)} onBlur={() => hideBio(7)} />
+              <img src={Yuvraj} alt="Team Member Avatar" onMouseOver={() => showBio('UX/UI designer with background in Engineering Computer Science. I am learning the  different aspects of design like space, perspective, balance. Actively helping the team in the UX/UI of the project while studying the market for it.', 7)} onFocus={() => showBio('Bio', 7)} onMouseOut={() => hideBio(7)} onBlur={() => hideBio(7)} />
 
               <h3>Yuvraj</h3>
 
