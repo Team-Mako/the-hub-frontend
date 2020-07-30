@@ -25,6 +25,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import api from './services/api';
 import SearchPage from './pages/SearchPage';
+import EditProject from './pages/Dashboard/EditProject';
 
 function Routes() {
   const auth = useSelector((state) => state.auth);
@@ -93,6 +94,11 @@ function Routes() {
       <Route path="/create-project" exact>
         <Headers searchBar />
         <CreateProject isPrivate />
+        <SiteFooter />
+      </Route>
+      <Route path="/edit-project/:slug" exact>
+        <Headers searchBar />
+        <EditProject isPrivate />
         <SiteFooter />
       </Route>
       <Route path="/edit-profile" exact>

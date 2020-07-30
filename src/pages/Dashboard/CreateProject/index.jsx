@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
-import { useSelector } from 'react-redux';
 import Spinner from '../../../components/BiggerSpinner';
 
 const CreateProject = ({ isPrivate }) => {
@@ -83,12 +83,11 @@ const CreateProject = ({ isPrivate }) => {
   };
 
   const handleMoreSteps = () => {
-    setSteps([...steps, { stepDescription: '', }]);
+    setSteps([...steps, { stepDescription: '' }]);
   };
 
   const handleSteps = (e, index) => {
     if (e.target.files) {
-      console.log(e.target.files);
       if (e.target.files[0].size > 1572864) {
         setAlert(true);
         setAlertMessage('Your image is bigger thant 1.5MB!');
@@ -170,17 +169,15 @@ const CreateProject = ({ isPrivate }) => {
         setAlertMessage(res.data.message);
         timer();
         setLoader(false);
-        console.log(res.data)
       })
       .catch((err) => {
         setAlert(true);
         setAlertMessage(err.response.data.error);
         timer();
-        console.log(err)
       });
   };
 
-  if(!userData.session && isPrivate) {
+  if (!userData.session && isPrivate) {
     return (<Redirect to="/" />);
   }
 
@@ -213,9 +210,9 @@ const CreateProject = ({ isPrivate }) => {
                 <p>Difficulty</p>
                 <select name="difficult" required>
                   <option value="">Select...</option>
-                  <option value="Easy">Easy</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Hard">Hard</option>
+                  <option value="1">Easy</option>
+                  <option value="2">Medium</option>
+                  <option value="3">Hard</option>
                 </select>
               </label>
 
@@ -223,9 +220,9 @@ const CreateProject = ({ isPrivate }) => {
                 <p>Duration</p>
                 <select name="duration" required>
                   <option value="">Select...</option>
-                  <option value="1min to 30min">1min to 30min</option>
-                  <option value="30min to 1hr">30min to 1hr</option>
-                  <option value="1hr+">1hr+</option>
+                  <option value="1">1min to 30min</option>
+                  <option value="2">30min to 1hr</option>
+                  <option value="3">1hr+</option>
                 </select>
               </label>
 

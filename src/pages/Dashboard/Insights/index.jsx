@@ -173,14 +173,14 @@ const Insights = ({ isPrivate }) => {
         </div>
 
         <div className="insights__box">
-          <h3>You Have Receieved (All Time)</h3>
-          <p>Poject Likes <span>{likes.received}</span></p>
+          <h3>You Have Received (All Time)</h3>
+          <p>Project Likes <span>{likes.received}</span></p>
           <p>Comments <span>{comments.received}</span></p>
         </div>
 
         <div className="insights__box">
           <h3>You Have Given (All Time)</h3>
-          <p>Poject Likes <span>{likes.given}</span></p>
+          <p>Project Likes <span>{likes.given}</span></p>
           <p>Comments <span>{comments.given}</span></p>
         </div>
 
