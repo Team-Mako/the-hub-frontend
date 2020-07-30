@@ -1,6 +1,7 @@
 .create-post{
-  @include flexGen(row, nowrap, center, center);
+  @include flexGen(row, nowrap, center, flex-start);
   margin-bottom: 4rem;
+  min-height: 100vh;
 
   &__inner{
     @include flexGen(column, nowrap, center, flex-start);
@@ -228,6 +229,46 @@
           color: lighten(colors(lightBg), 10%);
           background: colors(second);
         }
+      }
+    }
+  }
+
+  input{
+
+    &[type="checkbox"]{
+      display: none;
+    }
+  }
+
+  &__cover-prev{
+    background-position: center !important;
+    background-size: cover !important;
+    overflow: hidden;
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+  }
+
+  &__submenu{
+    @include flexGen(row, nowrap, center, center);
+    width: 100%;
+    margin-bottom: 2rem;
+
+    a{
+      @extend %btn;
+      border: 2px solid colors(accent);
+      color: lighten(colors(lightBg), 10%);
+      background: colors(accent);
+      transition: all .5s ease;
+
+      &:not(:first-of-type){
+        margin-left: 2rem;
+      }
+
+      &:hover{
+        background: lighten(colors(accent), 10%);
+        border: 2px solid lighten(colors(accent), 10%);
       }
     }
   }

@@ -104,6 +104,23 @@
       @include flexGen(row, nowrap, space-between, flex-end);
       margin-bottom: 9rem;
     }
+
+    label{
+      width: 100%;
+
+      p{
+        margin-bottom: 1rem;
+      }
+
+      select{
+        width: 80%;
+        padding: 1rem;
+        border-radius: 10px;
+        background: lighten(colors(lightBg), 5%);
+        border: 0;
+      }
+    }
+
   }
 
   h3{
@@ -144,6 +161,12 @@
     border-color: colors(second);
     border-style: solid;
     font-size: .8rem;
+    transition: all .5s ease;
+
+    &:hover{
+      background: colors(second);
+      color: lighten(colors(lightBg), 10%);
+    }
   }
 
   svg{

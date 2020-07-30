@@ -43,22 +43,8 @@ const PostSection = ({ search }) => {
 
       <div className="post-section__inner">
 
-        <form>
-          <span className="post-section__label">
-            Made with
-          </span>
-          <span className="post-section__label">
-            Time to make it
-          </span>
-          <span className="post-section__label">
-            Type
-          </span>
-
-          <button type="button">Filter</button>
-        </form>
-
         <div className="post-section__list">
-          {posts.map((post) => (
+          {posts.length > 0 ? posts.map((post) => (
             <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
               <div className="post-section__cover" style={{ background: `url(${filesURL}${post.post_cover})` }} />
               <h3>{post.post_title}</h3>
@@ -79,7 +65,7 @@ const PostSection = ({ search }) => {
 
               </div>
             </NavLink>
-          ))}
+          )) : (<div className="no-result">We couldn't find any project related to your search</div>)}
         </div>
       </div>
 

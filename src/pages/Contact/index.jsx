@@ -41,7 +41,7 @@ const Contact = () => {
       <div className="form-group">
         <label>
           <p>Message</p>
-          <textarea className="form-control" rows="5" placeholder="e.g. Write your message here. We will be happy to receive your message!" value={message} onChange={handleMessage} />
+          <textarea className="form-control" rows="5" placeholder="e.g. Write your message here. We will be happy to hear from you!" value={message} onChange={handleMessage} />
         </label>
       </div>
       <button type="submit" className="btn btn-primary">Submit</button>
