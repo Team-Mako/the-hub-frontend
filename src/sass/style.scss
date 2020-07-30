@@ -45,7 +45,6 @@
 // Globals
 *{
   box-sizing: border-box;
-  appearance: none;
 }
 
 body{
@@ -77,6 +76,10 @@ a{
   &:focus, &:active, &:hover{
     outline: none;
   }
+}
+
+select{
+  appearance: none;
 }
 
 strong{
@@ -227,4 +230,42 @@ button{
   text-align: center;
   height: 350px;
   font-size: 1.5rem;
+}
+
+input[type="checkbox"]{
+
+  &:checked{
+
+    +{
+      .toggle{
+        @include flexGen(row, nowrap, none, center);
+        background: lighten(colors(accent), 10%);
+
+        span{
+          transform: translateX(130%);
+          background: colors(lightBg);
+        }
+      }
+    }
+  }
+}
+
+.toggle{
+  @include flexGen(row, nowrap, none, center);
+  background: lighten(colors(lightBg), 1%);
+  height: 32px;
+  width: 64px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all .5s ease;
+
+  span{
+    display: block;
+    background: lighten(colors(darkBg), 70%);
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    transform: translateX(20%);
+    transition: all .5s ease;
+  }
 }

@@ -45,7 +45,7 @@ const MyProjects = ({ isPrivate }) => {
                 <img className="my-projects__cover" src={`${filesURL}${post.post_cover}`} alt={post.post_title} />
 
                 <div className="my-projects__info">
-                  <NavLink to={`/edit/${post.post_url}`} title="Edit"><span aria-hidden="true" className="visually-hidden">Edit Post</span><FaEdit /></NavLink>
+                  <NavLink to={`/edit-project/${post.post_url}`} title="Edit"><span aria-hidden="true" className="visually-hidden">Edit Post</span><FaEdit /></NavLink>
                   <ul>
                     <li><FaHeart /> {post.post_likes}</li>
                     <li><FaEye /> {post.post_views}</li>

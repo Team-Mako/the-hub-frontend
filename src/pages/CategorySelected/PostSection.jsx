@@ -89,7 +89,7 @@ const PostSection = ({ categoryId }) => {
         </form>
 
         <div className="post-section__list">
-          {posts.map((post) => (
+          {posts.length > 0 ? posts.map((post) => (
             <NavLink key={post.post_id} to={`/DIY/${post.post_url}`} className="post-section__box">
               <div className="post-section__cover" style={{ background: `url(${filesURL}${post.post_cover})` }} />
               <h3>{post.post_title}</h3>
@@ -110,7 +110,7 @@ const PostSection = ({ categoryId }) => {
 
               </div>
             </NavLink>
-          ))}
+          )) : (<div className="no-result">We couldn't find any project related to your filter</div>)}
         </div>
       </div>
 
