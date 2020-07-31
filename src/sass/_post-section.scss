@@ -100,16 +100,27 @@
     margin-bottom: 2rem;
     padding: 2rem;
 
-    @include secondBrk{
+    @include firstBrk{
       @include flexGen(row, nowrap, space-between, flex-end);
       margin-bottom: 9rem;
     }
 
     label{
       width: 100%;
+      margin: 2rem 0;
+      @include flexGen(column, nowrap, center, center);
+
+      @include firstBrk{
+        display: block;
+      }
 
       p{
         margin-bottom: 1rem;
+        text-align: center;
+
+        @include firstBrk{
+          text-align: start;
+        }
       }
 
       select{
