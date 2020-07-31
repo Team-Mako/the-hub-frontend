@@ -4,14 +4,13 @@ import api from '../../../services/api';
 import Alerts from '../../../components/Alerts';
 import Spinner from '../../../components/BiggerSpinner';
 
-const EditMaterial = ({ id }) => {
+const EditMaterial = ({ id, cat }) => {
   const [alert, setAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [loader, setLoader] = useState(false);
   const [materialFields, setMaterialFields] = useState([{ material: '', meas: '' }]);
   const [materialList, setMaterialList] = useState([]);
   const [modal, setModal] = useState(false);
-  const [modalCategory, setModalCategory] = useState('');
   const [modalMaterial, setModalMaterial] = useState('');
   const [materials, setMaterials] = useState([]);
 
@@ -21,6 +20,12 @@ const EditMaterial = ({ id }) => {
       setMaterials(materialData.data);
     }
 
+    async function getMaterialList() {
+      const response = await api.get(`/list-material?pg=1&limit=5000&category=${cat}`);
+      setMaterialList(response.data);
+    }
+
+    getMaterialList();
     getMaterials();
   }, []);
 
@@ -30,30 +35,11 @@ const EditMaterial = ({ id }) => {
     }, 5100);
   };
 
-  const handleMoreMaterials = () => {
-    setMaterialFields([...materialFields, { material: '', meas: '' }]);
-  };
-
-  const handleMaterialsFields = (e, index) => {
+  const handleMaterials = (e) => {
     const { name, value } = e.target;
-    const list = [...materialFields];
-    list[index][name] = value;
+    const list = { ...materialFields };
+    list[name] = value;
     setMaterialFields(list);
-  };
-
-  const handleMaterialList = async (e) => {
-    const response = await api.get(`/list-material?pg=1&limit=5000&category=${e.target.value}`);
-    setMaterialList(response.data);
-  };
-
-  const handleRemoveMaterialsFields = (index) => {
-    const list = [...materialFields];
-    list.splice(index, 1);
-    setMaterialFields(list);
-  };
-
-  const handleModalCategory = (e) => {
-    setModalCategory(e.target.value);
   };
 
   const handleModalMaterial = (e) => {
@@ -73,21 +59,13 @@ const EditMaterial = ({ id }) => {
 
     api.post('/create-material', {
       name: modalMaterial,
-      category: modalCategory,
+      category: cat,
     })
       .then((res) => {
-        const newList = {
-          target: {
-            value: modalCategory,
-          },
-        };
-
-        handleMaterialList(newList);
         handleModal();
         setAlert(true);
         setAlertMessage(res.data.message);
         timer();
-        setModalCategory('');
         setModalMaterial('');
       })
       .catch((err) => {
@@ -107,25 +85,27 @@ const EditMaterial = ({ id }) => {
           <p>Haven't you find what were you looking for? <button type="button" className="create-post__new-material" onClick={handleModal}>Click Here</button></p>
 
           <div className="create-post__dynamic">
-            {materialFields.map((materialField, index) => (
-              <div key={index} className="create-post__dynamic-material">
+            <div className="create-post__dynamic-material">
 
-                <select name="material" onChange={(e) => handleMaterialsFields(e, index)} required>
-                  <option value="">Select...</option>
-                  {materialList.map((material) => (
-                    <option key={material.material_id} value={material.material_id}>{material.material_name}</option>
-                  ))}
-                </select>
+              <select name="material" onChange={handleMaterials} required>
+                <option value="">Select...</option>
+                {materialList.map((material) => (
+                  <option key={material.material_id} value={material.material_id}>{material.material_name}</option>
+                ))}
+              </select>
 
-                <input type="text" placeholder="measurement" name="meas" onChange={(e) => handleMaterialsFields(e, index)} required />
+              <input type="text" placeholder="measurement" name="meas" onChange={handleMaterials} required />
 
-              </div>
-            ))}
+            </div>
           </div>
+
+          <button type="submit">Save</button>
         </div>
 
         <div className="create-post__right">
-          a
+          {materials.map((item, index) => (
+            <p key={index}><button type="button" onClick={() => handleModal(0)}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button> {item.material_name} {item.post_material_meas}</p>
+          ))}
         </div>
 
       </form>
