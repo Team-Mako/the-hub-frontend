@@ -211,6 +211,9 @@ button{
     background: rgba(colors(darkBg), .5);
     z-index: 9999;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     font-size: 2rem;
     color: white;
     opacity: 1;
@@ -268,4 +271,8 @@ input[type="checkbox"]{
     transform: translateX(20%);
     transition: all .5s ease;
   }
+}
+
+.line-height{
+  line-height: 1.5;
 }

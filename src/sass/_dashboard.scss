@@ -45,6 +45,19 @@
       padding: 2rem;
     }
 
+    button{
+      @extend %btn;
+      border: 2px solid colors(second);
+      color: colors(second);
+      margin-top: 2rem;
+      transition: all .5s ease;
+
+      &:hover{
+        background: colors(second);
+        color: lighten(colors(lightBg), 100%);
+      }
+    }
+
     a{
       @extend %btn;
       border: 2px solid colors(second);
