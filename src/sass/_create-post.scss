@@ -44,6 +44,30 @@
         justify-content: stretch;
         margin-bottom: 1rem !important;
       }
+
+      &--edit{
+        @include flexGen(row, wrap, space-between, center);
+        width: 100%;
+        margin-bottom: 1rem;
+
+        h3{
+          margin-bottom: 1rem;
+        }
+
+        label{
+          @include flexGen(row, nowrap, flex-start, center);
+          justify-content: stretch;
+          margin-bottom: 1rem !important;
+        }
+
+        p{
+          width: 90%;
+        }
+
+        button{
+          width: 10%;
+        }
+      }
     }
 
     input{

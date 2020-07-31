@@ -32,6 +32,14 @@ export default function user(state = {}, action) {
         user_avatar: action.payload.user.user_avatar,
       };
       return login;
+    case 'USER_LOGOUT':
+      login = {
+        user_id: null,
+        user_name: null,
+        user_email: null,
+        user_avatar: null,
+      };
+      return login;
     default:
       return state;
   }
