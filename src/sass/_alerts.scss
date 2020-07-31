@@ -2,16 +2,22 @@
   display: none;
 
   &--active{
-    max-width: 500px;
-    width: 100%;
+    max-width: 100%;
+    width: 96%;
     position: fixed;
     top: 10%;
-    left: 35%;
+    left: 2%;
     text-align: center;
     background: colors(second);
     padding: 1rem;
     border-radius: 10px;
     animation: alert 5s forwards;
     color: lighten(colors(lightBg), 10%);
+
+    @include firstBrk{
+      width: 100%;
+      top: 10%;
+      left: 35%;
+    }
   }
 }

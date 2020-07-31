@@ -10,6 +10,7 @@ const Wrapper = ({ isPrivate }) => {
   const userData = useSelector((state) => state.auth);
   const { slug } = useParams();
   const [id, setId] = useState();
+  const [catId, setCatId] = useState();
   const [showProject, setShowProject] = useState(true);
   const [showSteps, setShowSteps] = useState(false);
   const [showMaterials, setShowMaterials] = useState(false);
@@ -18,6 +19,7 @@ const Wrapper = ({ isPrivate }) => {
     async function getId() {
       const result = await api.get(`/get-id?slug=${slug}`);
       setId(result.data[0].post_id);
+      setCatId(result.data[0].category_id);
     }
 
     getId();
@@ -60,7 +62,7 @@ const Wrapper = ({ isPrivate }) => {
 
           {showProject ? <EditProject slug={slug} /> : ''}
           {showSteps ? <EditStep id={id} /> : ''}
-          {showMaterials ? <EditMaterial id={id} /> : ''}
+          {showMaterials ? <EditMaterial id={id} cat={catId} /> : ''}
 
         </div>
       </main>

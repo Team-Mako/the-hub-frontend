@@ -114,7 +114,7 @@ const EditStep = ({ id }) => {
 
           <div className="create-post__dynamic">
             {oldSteps.map((step) => (
-              <div key={step.post_step_id} className="create-post__dynamic-step--edit">
+              <div key={step.post_step_id} className="create-post__dynamic-step">
 
                 <p className="line-height">{step.post_step_description}</p>
 

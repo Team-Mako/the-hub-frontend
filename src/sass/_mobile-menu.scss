@@ -28,6 +28,77 @@
 
     figure{
       margin: 2rem;
+      border-radius: 50%;
+      overflow: hidden;
+      height: 80px;
+      width: 80px;
+
+      img{
+        width: 90px !important;
+        max-width: 90px;
+        margin-left: -5px;
+      }
+    }
+  }
+
+  &__bottom{
+    @include flexGen(column, nowrap, flex-start, center);
+    height: 100%;
+    overflow-y: scroll;
+
+    a, button{
+      width: 100%;
+      display: block;
+      text-align: right;
+      border: 0;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      line-height: 1.5;
+      color: colors(accent);
+      padding: 1rem 3rem;
+      background: transparent;
+    }
+  }
+
+  &__call-to{
+    @extend %btn;
+    background: colors(second) !important;
+    width: auto !important;
+    color: lighten(colors(lightBg), 10%) !important;
+    margin-left: auto;
+    margin-right: 2rem;
+  }
+
+  &__category{
+    grid-column: 1 / -1;
+  }
+
+  &__list{
+    @include gridGen(1fr 1fr, auto, 1rem, 1rem);
+    height: 0;
+    overflow: hidden;
+    transition: all .5s ease;
+    grid-column: 1 / -1;
+
+    a{
+      opacity: 0;
+    }
+
+    &--active{
+      @include gridGen(1fr 1fr, auto, 1rem, 1rem);
+      height: auto !important;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+
+      a{
+        font-size: .8rem;
+        padding: 1rem !important;
+        margin-bottom: 0 !important;
+        text-align: center;
+        height: 100%;
+        background: darken(colors(lightBg), 5%);
+      }
     }
   }
 
