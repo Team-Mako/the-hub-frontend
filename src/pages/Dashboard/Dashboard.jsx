@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { NoPic } from '../../components/Assets';
 import { filesURL } from '../../config/filesBucket';
 import api from '../../services/api';
 
 const Dashboard = ({ children }) => {
   const userData = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const [bio, setBio] = useState('');
 
@@ -21,6 +22,11 @@ const Dashboard = ({ children }) => {
     getBio();
   }, []);
 
+  const handleLogout = () => {
+    dispatch({ type: 'USER_LOGOUT' });
+    return (<Redirect to="/" />);
+  };
+
   return (
     <main className="dashboard">
       <div className="dashboard__inner">
@@ -32,7 +38,7 @@ const Dashboard = ({ children }) => {
           <p>{userData.user_email}</p>
           <p>{bio || 'Tell us somenthing about you!'}</p>
           <NavLink to="/edit-profile">Edit Profile</NavLink>
-          <button type="button">Log Out</button>
+          <button type="button" onClick={handleLogout}>Log Out</button>
         </section>
 
         <section className="dashboard__panel">

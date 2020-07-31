@@ -242,11 +242,11 @@
         transition: all .5s ease;
         margin-top: 2rem;
         display: block;
-        margin: 5rem auto;
+        margin: 1rem auto;
 
 
         @include secondBrk{
-          margin: 5rem 0 0 auto;
+          margin: 1rem 0 0 auto;
         }
 
         &:hover{
@@ -279,7 +279,7 @@
     width: 100%;
     margin-bottom: 2rem;
 
-    a{
+    button{
       @extend %btn;
       border: 2px solid colors(accent);
       color: lighten(colors(lightBg), 10%);
