@@ -13,8 +13,15 @@ const EditMaterial = ({ id }) => {
   const [modal, setModal] = useState(false);
   const [modalCategory, setModalCategory] = useState('');
   const [modalMaterial, setModalMaterial] = useState('');
+  const [materials, setMaterials] = useState([]);
 
   useEffect(() => {
+    async function getMaterials() {
+      const materialData = await api.get(`/post-material/${id}`);
+      setMaterials(materialData.data);
+    }
+
+    getMaterials();
   }, []);
 
   const timer = () => {
@@ -95,28 +102,31 @@ const EditMaterial = ({ id }) => {
 
       <form method="post" encType="multipart/form-data">
 
-        <div className="create-post__dynamic">
-          {materialFields.map((materialField, index) => (
-            <div key={index} className="create-post__dynamic-material">
+        <div className="create-post__left">
 
-              <select name="material" onChange={(e) => handleMaterialsFields(e, index)} required>
-                <option value="">Select...</option>
-                {materialList.map((material) => (
-                  <option key={material.material_id} value={material.material_id}>{material.material_name}</option>
-                ))}
-              </select>
+          <p>Haven't you find what were you looking for? <button type="button" className="create-post__new-material" onClick={handleModal}>Click Here</button></p>
 
-              <input type="text" placeholder="measurement" name="meas" onChange={(e) => handleMaterialsFields(e, index)} required />
+          <div className="create-post__dynamic">
+            {materialFields.map((materialField, index) => (
+              <div key={index} className="create-post__dynamic-material">
 
-              <button type="button" onClick={handleRemoveMaterialsFields}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button>
+                <select name="material" onChange={(e) => handleMaterialsFields(e, index)} required>
+                  <option value="">Select...</option>
+                  {materialList.map((material) => (
+                    <option key={material.material_id} value={material.material_id}>{material.material_name}</option>
+                  ))}
+                </select>
 
-            </div>
-          ))}
+                <input type="text" placeholder="measurement" name="meas" onChange={(e) => handleMaterialsFields(e, index)} required />
+
+              </div>
+            ))}
+          </div>
         </div>
 
-        <button type="button" onClick={handleMoreMaterials}>Add another material</button>
-
-        <p>Haven't you find what were you looking for? <button type="button" className="create-post__new-material" onClick={handleModal}>Click Here</button></p>
+        <div className="create-post__right">
+          a
+        </div>
 
       </form>
 

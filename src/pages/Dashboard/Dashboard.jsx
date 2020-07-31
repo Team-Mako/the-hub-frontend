@@ -32,6 +32,7 @@ const Dashboard = ({ children }) => {
           <p>{userData.user_email}</p>
           <p>{bio || 'Tell us somenthing about you!'}</p>
           <NavLink to="/edit-profile">Edit Profile</NavLink>
+          <button type="button">Log Out</button>
         </section>
 
         <section className="dashboard__panel">

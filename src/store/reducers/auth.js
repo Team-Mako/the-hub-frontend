@@ -13,6 +13,12 @@ export default function auth(state = {}, action) {
         adminSession: true,
       };
       return login;
+    case 'USER_LOGOUT':
+      login = {
+        token: null,
+        adminSession: false,
+      };
+      return login;
     default:
       return state;
   }
