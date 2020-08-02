@@ -9,7 +9,7 @@
 // Grid Generator
 @mixin gridGen($columns, $rows, $row-gap, $column-gap) {
   display: grid !important;
-  grid-template-columns: $columns;
+  grid-template-columns: $columns !important;
   grid-template-rows: $rows;
   row-gap: $row-gap;
   column-gap: $column-gap;
