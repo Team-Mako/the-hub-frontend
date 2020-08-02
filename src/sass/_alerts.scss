@@ -15,9 +15,9 @@
     color: lighten(colors(lightBg), 10%);
 
     @include firstBrk{
-      width: 100%;
+      width: 500px;
       top: 10%;
-      left: 35%;
+      left: 32%;
     }
   }
 }
