@@ -1,9 +1,10 @@
 .site-header{
-  @include flexGen(row, nowrap, center, center);
+  display: none;
   padding: 1rem;
   font-size: 1rem;
 
-  @include firstBrk{
+  @include secondBrk{
+    @include flexGen(row, nowrap, center, center);
     padding: 2rem;
   }
 
@@ -45,7 +46,7 @@
     background: colors(lightBg);
     padding: 1rem;
     margin-left: -1rem;
-    width: 160%;
+    width: 220%;
     opacity: 0;
     pointer-events: none;
     transition: opacity .5s ease;

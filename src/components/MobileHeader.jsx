@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { FaBars, FaTimes, FaSignOutAlt } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
 import { filesURL } from '../config/filesBucket';
 import { LogoRegular, NoPic, LogoWhite } from './Assets';
 import api from '../services/api';
@@ -63,7 +63,7 @@ const MobileHeader = ({ session }) => {
         </NavLink>
         <div className="mobile-menu__bottom">
           <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
-          <button type="button" onClick={handleExpanse}>Categories</button>
+          <a onClick={handleExpanse}><FaChevronDown />Categories</a>
           <div className="mobile-menu__category">
             <ul className={expanse ? 'mobile-menu__list--active' : 'mobile-menu__list'}>
               {categories.map((category) => (

@@ -19,5 +19,9 @@
       top: 10%;
       left: 32%;
     }
+
+    @include thirdBrk{
+      left: 36%;
+    }
   }
 }

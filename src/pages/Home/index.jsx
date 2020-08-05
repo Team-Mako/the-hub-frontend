@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <>
-      {redirect ? (<Redirect to={`/search/${trueSearch}`} />) : ''}
+      {redirect ? (<Redirect to={`/search?search=${trueSearch}`} />) : ''}
       <main className="home-main">
         <div className="home-main__inner">
 
