@@ -25,18 +25,18 @@
   &__top{
     @include flexGen(column, nowrap, center, center);
     @include bgGrad(90deg, 1);
+    padding: 2rem 0;
 
     figure{
-      margin: 2rem;
-      border-radius: 50%;
-      overflow: hidden;
-      height: 80px;
-      width: 80px;
+      // border-radius: 50%;
+      // overflow: hidden;
+      height: 80px !important;
+      width: 80px !important;
 
       img{
-        width: 90px !important;
-        max-width: 90px;
-        margin-left: -5px;
+        width: 80px !important;
+        max-width: 80px !important;
+        border-radius: 50%;
       }
     }
   }
@@ -58,6 +58,11 @@
       color: colors(accent);
       padding: 1rem 3rem;
       background: transparent;
+
+      svg{
+        margin-right: 1rem;
+        padding-top: .2rem;
+      }
     }
   }
 
@@ -71,14 +76,13 @@
   }
 
   &__category{
-    grid-column: 1 / -1;
+    width: 100%;
   }
 
   &__list{
-    @include gridGen(1fr 1fr, auto, 1rem, 1rem);
+    @include gridGen(1fr, auto, 1rem, 1rem);
     height: 0;
     overflow: hidden;
-    transition: all .5s ease;
     grid-column: 1 / -1;
 
     a{
@@ -86,17 +90,18 @@
     }
 
     &--active{
-      @include gridGen(1fr 1fr, auto, 1rem, 1rem);
+      @include gridGen(1fr, auto, 1rem, 1rem);
       height: auto !important;
       padding: 0 1rem;
       margin-bottom: 1rem;
 
       a{
+        display: block;
+        width: 100%;
         font-size: .8rem;
         padding: 1rem !important;
         margin-bottom: 0 !important;
         text-align: center;
-        height: 100%;
         background: darken(colors(lightBg), 5%);
       }
     }
@@ -111,6 +116,7 @@
     color: lighten(colors(lightBg), 100%);
     letter-spacing: .1rem;
     margin-bottom: .5rem;
+    margin-top: 1rem;
     text-align: center;
   }
 

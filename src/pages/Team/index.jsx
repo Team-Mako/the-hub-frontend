@@ -37,7 +37,7 @@ const Team = () => {
 
             <div className="about__memberTile">
 
-              <img src={Gustavo} alt="Team Member Avatar" onMouseOver={() => showBio('Art Director and Graphic Designer, now expanding my skills in UX/UI Design.', 1)} onFocus={() => showBio('Art Director and Graphic Designer, now expanding my skills in UX/UI Design.', 1)} onMouseOut={() => hideBio(1)} onBlur={() => hideBio(1)} />
+              <img src={Gustavo} alt="Team Member Avatar" onMouseOver={() => showBio('Art Director and Graphic Designer, now expanding my skills in UX/UI Design here in Canada.', 1)} onFocus={() => showBio('Art Director and Graphic Designer, now expanding my skills in UX/UI Design.', 1)} onMouseOut={() => hideBio(1)} onBlur={() => hideBio(1)} />
 
               <h3>Gustavo</h3>
 
@@ -52,7 +52,7 @@ const Team = () => {
 
             <div className="about__memberTile">
 
-              <img src={Marina} alt="Team Member Avatar" onMouseOver={() => showBio("UX/UI designer who loves to learn and to create visual solutions for web and mobile applications. I also have an editorial design background with many projects for both digital and printed media.", 2)} onFocus={() => showBio("UX/UI designer who loves to learn and to create visual solutions for web and mobile applications. I also have an editorial design background with many projects for both digital and printed media.", 2)} onMouseOut={() => hideBio(2)} onBlur={() => hideBio(2)} />
+              <img src={Marina} alt="Team Member Avatar" onMouseOver={() => showBio('UX/UI designer who loves to learn and to create visual solutions for web and mobile applications. I also have an editorial design background with many projects for both digital and printed media.', 2)} onFocus={() => showBio('UX/UI designer who loves to learn and to create visual solutions for web and mobile applications. I also have an editorial design background with many projects for both digital and printed media.', 2)} onMouseOut={() => hideBio(2)} onBlur={() => hideBio(2)} />
 
               <h3>Marina</h3>
 
@@ -67,7 +67,7 @@ const Team = () => {
 
             <div className="about__memberTile">
 
-              <img src={Leonart} alt="Team Member Avatar" onMouseOver={() => showBio('Full-Stack Web Developer and a Nerd who likes to create modules even when you don\'t need!', 3)} onFocus={() => showBio('Full-Stack Web Developer and a Nerd who likes to create modules even when you don\'t need!', 3)} onMouseOut={() => hideBio(3)} onBlur={() => hideBio(3)} />
+              <img src={Leonart} alt="Team Member Avatar" onMouseOver={() => showBio('Full-Stack developer with background in accounting. 8 years working as freelancer some of my skills includes, websites optimizations, React, PHP, SQL, SEO, UX/UI, webdesign, Node.js. I like to help business grow and learn new skills!', 3)} onFocus={() => showBio('Full-Stack Web Developer and a Nerd who likes to create modules even when you don\'t need!', 3)} onMouseOut={() => hideBio(3)} onBlur={() => hideBio(3)} />
 
               <h3>Leonart</h3>
 
