@@ -35,7 +35,7 @@ const Header = ({ session, searchBar }) => {
 
   return (
     <>
-      {redirect ? (<Redirect to={`/search/${trueSearch}`} />) : ''}
+      {redirect ? (<Redirect to={`/search?search=${trueSearch}`} />) : ''}
       <header className="site-header">
         <div className="site-header__inner">
           <NavLink to="/" className="site-header__logo"><img src={LogoRegular} alt="The Hub Logo" /></NavLink>

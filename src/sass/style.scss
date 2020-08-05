@@ -82,6 +82,13 @@ select{
   appearance: none;
 }
 
+input{
+
+  &[type="text"], &[type="search"]{
+    appearance: none;
+  }
+}
+
 strong{
   font-family: $font-bold;
 }

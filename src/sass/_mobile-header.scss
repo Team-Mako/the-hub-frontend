@@ -2,6 +2,10 @@
   @include flexGen(row, nowrap, center, center);
   padding: 1rem;
 
+  @include secondBrk{
+    display: none;
+  }
+
   &__inner{
     @include flexGen(row, nowrap, space-between, center);
     width: 100%;

@@ -296,4 +296,32 @@
       }
     }
   }
+
+  &__old-step{
+    @include flexGen(row, nowrap, space-between, center);
+    margin-top: 2rem;
+
+    p{
+      width: 85%;
+    }
+
+    button{
+      width: 10%;
+    }
+  }
+
+  &__old-material{
+    @include flexGen(row, wrap, space-between, center);
+
+    p{
+      color: colors(accent) !important;
+      font-size: 1rem !important;
+      width: 85%;
+    }
+
+    button{
+      display: block;
+      width: 10%;
+    }
+  }
 }

@@ -13,6 +13,9 @@ const EditMaterial = ({ id, cat }) => {
   const [modal, setModal] = useState(false);
   const [modalMaterial, setModalMaterial] = useState('');
   const [materials, setMaterials] = useState([]);
+  const [del, setDel] = useState('');
+  const [modalDel, setModalDel] = useState('');
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     async function getMaterials() {
@@ -29,10 +32,29 @@ const EditMaterial = ({ id, cat }) => {
     getMaterials();
   }, []);
 
+  useEffect(() => {
+    async function getMaterials() {
+      const materialData = await api.get(`/post-material/${id}`);
+      setMaterials(materialData.data);
+    }
+
+    getMaterials();
+  }, [refresh]);
+
   const timer = () => {
     setTimeout(() => {
       setAlert(false);
     }, 5100);
+  };
+
+  const handleAddMaterial = () => {
+
+  };
+
+  const handleDeleteMaterial = (del) => {
+    api.delete(`/delete-material?pid=${del[0]}&mid=${del[1]}`);
+    setRefresh(!refresh);
+    handleModalDel(0);
   };
 
   const handleMaterials = (e) => {
@@ -52,6 +74,16 @@ const EditMaterial = ({ id, cat }) => {
     } else {
       setModal(true);
     }
+  };
+
+  const handleModalDel = (pid, mid) => {
+    if (modalDel) {
+      setModalDel(false);
+    } else {
+      setModalDel(true);
+    }
+
+    setDel([pid, mid]);
   };
 
   const handleModalSubmit = (e) => {
@@ -103,9 +135,14 @@ const EditMaterial = ({ id, cat }) => {
         </div>
 
         <div className="create-post__right">
-          {materials.map((item, index) => (
-            <p key={index}><button type="button" onClick={() => handleModal(0)}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button> {item.material_name} {item.post_material_meas}</p>
-          ))}
+          <div className="create-post__old-material">
+            {materials.map((item, index) => (
+              <>
+                <button type="button" onClick={() => handleModalDel(id, item.material_id)}><span aria-hidden="true" className="visually-hidden">Remove Button</span><FaTrashAlt /></button>
+                <p key={index}>{item.material_name} {item.post_material_meas}</p>
+              </>
+            ))}
+          </div>
         </div>
 
       </form>
@@ -120,6 +157,15 @@ const EditMaterial = ({ id, cat }) => {
           </label>
           <button type="submit">Create</button>
         </form>
+      </div>
+
+      <div className={modalDel ? 'modal modal--active' : 'modal'}>
+        <div className="modal__inner">
+          <button type="button" onClick={() => handleModalDel(0, 0)}>X</button>
+          <p>Do you really want to delete this material?</p>
+          <button type="button" onClick={() => handleDeleteMaterial(del)}>Yes</button>
+          <button type="button" onClick={() => handleModalDel(0, 0)}>No</button>
+        </div>
       </div>
 
       <Alerts active={alert} message={alertMessage} />
