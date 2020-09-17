@@ -28,8 +28,7 @@ const EditProfile = ({ isPrivate }) => {
         const getLocalStorage = JSON.parse(localStorage.getItem('persist:thehub'));
         const userObj = JSON.parse(getLocalStorage.user);
 
-        if(userObj.user_id){
-
+        if (userObj.user_id) {
           const response = await api.get(`/show-user/${userObj.user_id}`);
           setName(response.data[0].user_name);
           setLastName(response.data[0].user_last_name);
@@ -151,7 +150,7 @@ const EditProfile = ({ isPrivate }) => {
       });
   };
 
-  if(!userData.session && isPrivate) {
+  if (!userData.session && isPrivate) {
     return (<Redirect to="/" />);
   }
 
